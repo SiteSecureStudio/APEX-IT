@@ -1,0 +1,11 @@
+node_modules/
+temporary screenshots/
+.mcp.json
+.claude/
+CLAUDE.md
+pc_search.py
+screenshot.mjs
+serve.mjs
+package.json
+package-lock.json
+APEX IT.code-workspace
