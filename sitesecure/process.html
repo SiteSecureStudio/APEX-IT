@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Process — SiteSecure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    :root {
+      --bg:          #01030A;
+      --bg-alt:      #020816;
+      --surface:     #031649;
+      --surface-2:   #041d5c;
+      --border:      #0d2550;
+      --border-hi:   #1a3a6e;
+      --primary:     #1067DD;
+      --primary-l:   #19E6FD;
+      --text:        #C8DFF2;
+      --text-muted:  #A8C8E8;
+      --text-subtle: #7BA8CC;
+      --text-h:      #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100vw; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Geist', sans-serif;
+      font-size: 1rem;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    #bg-paths-layer {
+      position: fixed; inset: 0; z-index: -1;
+      pointer-events: none; overflow: hidden; opacity: 0.22;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text-h);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    /* ── BANNER ── */
+    .banner {
+      background: linear-gradient(90deg, #0a1f4a 0%, #031649 50%, #0a1f4a 100%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .banner strong { color: var(--primary-l); font-weight: 600; }
+    .banner a { color: var(--primary-l); text-decoration: none; margin-left: 6px; }
+    .banner a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 max(24px, calc(50% - 620px));
+      height: 64px;
+      background: rgba(1,3,10,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(13,37,80,0.7);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 9px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.0625rem;
+      color: var(--text-h); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-logo img { height: 28px; width: auto; }
+    .nav-center { display: flex; align-items: center; gap: 4px; }
+    .nav-center a {
+      color: var(--text-subtle); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-center a:hover { color: var(--text-h); background: rgba(255,255,255,0.05); }
+    .nav-center a.active { color: var(--primary-l); }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .btn-ghost {
+      background: none; border: none; color: var(--text-subtle);
+      font-size: 0.875rem; font-weight: 500; padding: 7px 14px;
+      border-radius: 8px; cursor: pointer; font-family: 'Geist', sans-serif;
+      transition: color 0.15s, background 0.15s;
+    }
+    .btn-ghost:hover { color: var(--text-h); background: rgba(255,255,255,0.05); }
+    .btn-nav {
+      background: var(--primary); color: #fff; border: none;
+      font-size: 0.875rem; font-weight: 600; padding: 8px 18px;
+      border-radius: 9px; cursor: pointer; font-family: 'Geist', sans-serif;
+      box-shadow: 0 0 0 1px rgba(16,103,221,0.5), 0 4px 14px rgba(16,103,221,0.3);
+      transition: opacity 0.18s, transform 0.15s;
+    }
+    .btn-nav:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── MOBILE NAV ── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 6px; border-radius: 8px; transition: background 0.15s;
+    }
+    .nav-hamburger:hover { background: rgba(255,255,255,0.05); }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text-muted); border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(1,3,10,0.97);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px; z-index: 99;
+      flex-direction: column; gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 1rem; font-weight: 500; padding: 10px 12px;
+      border-radius: 8px; transition: color 0.15s, background 0.15s;
+    }
+    .mobile-menu a:hover { color: var(--text-h); background: rgba(255,255,255,0.05); }
+    .mobile-menu a.active { color: var(--primary-l); }
+    .mobile-menu-divider { height: 1px; background: var(--border); margin: 8px 0; }
+    .mobile-menu-btns { display: flex; gap: 10px; padding: 4px 0; }
+    .mobile-menu-btns button {
+      flex: 1; padding: 11px; border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem; font-weight: 700; cursor: pointer;
+    }
+    .mobile-menu-btns .m-ghost { background: transparent; border: 1px solid var(--border-hi); color: var(--text); }
+    .mobile-menu-btns .m-primary { background: linear-gradient(90deg, var(--primary), #1a7cf5); border: none; color: #fff; }
+
+    /* ── SHARED BUTTONS ── */
+    .btn-primary {
+      background: var(--primary); color: #fff; border: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem; font-weight: 600;
+      padding: 13px 28px; border-radius: 11px; cursor: pointer;
+      box-shadow: 0 0 0 1px rgba(16,103,221,0.45), inset 0 1px 0 rgba(255,255,255,0.14), 0 4px 20px rgba(16,103,221,0.42);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px rgba(16,103,221,0.6), inset 0 1px 0 rgba(255,255,255,0.14), 0 8px 28px rgba(16,103,221,0.5);
+    }
+    .btn-secondary {
+      background: none; color: var(--text-muted);
+      border: 1px solid var(--border);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem; font-weight: 500;
+      padding: 12px 24px; border-radius: 11px; cursor: pointer;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .btn-secondary:hover { border-color: var(--border-hi); color: var(--text-h); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── HERO ── */
+    .page-hero {
+      text-align: center;
+      padding: 96px 24px 72px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(16,103,221,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(16,103,221,0.1); border: 1px solid rgba(16,103,221,0.25);
+      border-radius: 100px; padding: 5px 14px 5px 9px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--primary-l); margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--primary-l); box-shadow: 0 0 8px var(--primary-l);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; box-shadow: 0 0 8px var(--primary-l); }
+      50%      { opacity:0.5; box-shadow: 0 0 18px var(--primary-l); }
+    }
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+      margin-bottom: 20px; max-width: 680px;
+      margin-left: auto; margin-right: auto;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #fff 0%, var(--primary-l) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-hero p {
+      font-size: 1.0625rem; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto 40px; line-height: 1.65;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── TIMELINE INTRO ── */
+    .timeline-meta {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+      padding: 0 max(24px, calc(50% - 620px)) 72px;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .meta-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(16,103,221,0.1); border: 1px solid rgba(16,103,221,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .meta-text { display: flex; flex-direction: column; }
+    .meta-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--text-h); line-height: 1;
+    }
+    .meta-label { font-size: 0.78rem; color: var(--text-subtle); margin-top: 2px; }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrap { padding: 64px max(24px, calc(50% - 620px)); }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--primary-l); margin-bottom: 14px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.75rem, 3vw, 2.4rem); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 14px;
+    }
+    .section-header h2 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #fff 0%, var(--primary-l) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-header p {
+      font-size: 1rem; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto; line-height: 1.65;
+    }
+
+    /* ── PHASE TIMELINE ── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 47px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(16,103,221,0.5) 10%,
+        rgba(25,230,253,0.4) 50%,
+        rgba(16,103,221,0.5) 90%,
+        transparent
+      );
+    }
+    .phase {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 0 32px;
+      position: relative;
+    }
+    .phase + .phase { margin-top: 0; }
+    .phase-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2px;
+    }
+    .phase-node {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(16,103,221,0.25) 0%, rgba(3,22,73,0.9) 100%);
+      border: 2px solid rgba(16,103,221,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.875rem; font-weight: 800;
+      color: var(--primary-l);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .phase:hover .phase-node {
+      border-color: var(--primary-l);
+      box-shadow: 0 0 20px rgba(25,230,253,0.3);
+    }
+    .phase-connector {
+      flex: 1;
+      width: 2px;
+      background: transparent;
+      margin: 4px 0;
+    }
+    .phase-right {
+      padding: 0 0 48px 0;
+    }
+    .phase:last-child .phase-right { padding-bottom: 0; }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      padding-top: 10px;
+    }
+    .phase-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.7rem; font-weight: 500;
+      color: var(--text-subtle); letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .phase-duration {
+      font-size: 0.75rem; font-weight: 500;
+      color: var(--primary-l);
+      background: rgba(16,103,221,0.1);
+      border: 1px solid rgba(16,103,221,0.2);
+      padding: 2px 9px; border-radius: 20px;
+      font-family: 'Geist Mono', monospace;
+    }
+    .phase-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem; font-weight: 800;
+      color: var(--text-h); letter-spacing: -0.025em;
+      margin-bottom: 12px;
+    }
+    .phase-desc {
+      font-size: 0.9375rem; color: var(--text-muted); line-height: 1.65;
+      max-width: 620px; margin-bottom: 20px;
+    }
+    .phase-deliverables {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+    }
+    .deliverable {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.8125rem; color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 5px 12px; border-radius: 8px;
+    }
+    .deliverable svg { flex-shrink: 0; opacity: 0.7; }
+    .phase-card {
+      background: linear-gradient(135deg, rgba(3,22,73,0.5) 0%, rgba(1,3,10,0.4) 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      max-width: 580px;
+    }
+    .phase-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      color: var(--text-subtle);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .phase-tasks {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    .phase-task {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.8375rem; color: var(--text-muted); line-height: 1.45;
+    }
+    .task-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--primary-l); flex-shrink: 0; margin-top: 6px;
+    }
+
+    /* ── RESPONSIBILITY TABLE ── */
+    .resp-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .resp-table th {
+      background: rgba(3,22,73,0.7);
+      padding: 14px 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8125rem; font-weight: 700;
+      color: var(--text-h); text-align: left;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .resp-table th:not(:first-child) { text-align: center; }
+    .resp-table td {
+      padding: 14px 20px;
+      font-size: 0.875rem; color: var(--text-muted);
+      border-bottom: 1px solid rgba(13,37,80,0.5);
+    }
+    .resp-table tr:last-child td { border-bottom: none; }
+    .resp-table tr:nth-child(even) td { background: rgba(3,22,73,0.15); }
+    .resp-table td:not(:first-child) { text-align: center; }
+    .resp-table td:first-child { color: var(--text); font-weight: 500; }
+    .check { color: #00D68F; font-size: 1rem; }
+    .dash  { color: var(--border-hi); font-size: 1.1rem; }
+    .both  { color: var(--primary-l); font-size: 0.75rem; font-weight: 600; font-family: 'Geist Mono', monospace; }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      background: linear-gradient(135deg, rgba(3,22,73,0.5) 0%, rgba(1,3,10,0.4) 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: var(--border-hi); }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem; font-weight: 600;
+      color: var(--text-h); gap: 16px;
+      user-select: none;
+    }
+    .faq-chevron {
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: var(--text-subtle);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+    .faq-answer p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; padding-bottom: 18px; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 80px max(24px, calc(50% - 540px));
+      position: relative;
+    }
+    .cta-section::before {
+      content: ''; position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 300px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(16,103,221,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .cta-section p { font-size: 1rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 36px; line-height: 1.65; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px max(24px, calc(50% - 620px));
+      border-top: 1px solid var(--border);
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem; font-weight: 700;
+      color: var(--text-h); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .footer-logo img { height: 24px; width: auto; }
+    footer span { font-size: 0.8125rem; color: var(--text-subtle); }
+
+    /* ── RESPONSIVE ── */
+    /* ── ANIMATED ROCKET BUTTON ── */
+    .ui-anim-btn {
+      --highlight-hue: 210deg;
+      --highlight:    hsl(var(--highlight-hue), 100%, 70%);
+      --highlight-80: hsla(var(--highlight-hue), 100%, 70%, 0.8);
+      --highlight-50: hsla(var(--highlight-hue), 100%, 70%, 0.5);
+      --highlight-30: hsla(var(--highlight-hue), 100%, 70%, 0.3);
+      --highlight-20: hsla(var(--highlight-hue), 100%, 70%, 0.2);
+      --padding: 4px;
+      --radius: 24px;
+      --transition: 0.4s;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      border-radius: var(--radius);
+      padding: 9px 20px;
+      background: #030a1c;
+      color: #fff;
+      border: 1px solid rgba(13,37,80,0.5);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      box-shadow:
+        inset 0px 1px 1px rgba(255,255,255,0.2),
+        inset 0px 2px 2px rgba(255,255,255,0.15),
+        inset 0px 4px 4px rgba(255,255,255,0.1),
+        inset 0px 8px 8px rgba(255,255,255,0.05),
+        inset 0px 16px 16px rgba(255,255,255,0.05),
+        0 1px 1px rgba(0,0,0,0.02),
+        0 2px 2px rgba(0,0,0,0.03),
+        0 4px 4px rgba(0,0,0,0.05),
+        0 8px 8px rgba(0,0,0,0.06),
+        0 16px 16px rgba(0,0,0,0.08),
+        0 1px 2px rgba(0,0,0,0.1);
+      transition: box-shadow var(--transition), border-color var(--transition), background-color var(--transition);
+    }
+    .ui-anim-btn::before {
+      content: '';
+      position: absolute;
+      top: calc(0px - var(--padding));
+      left: calc(0px - var(--padding));
+      width: calc(100% + var(--padding) * 2);
+      height: calc(100% + var(--padding) * 2);
+      border-radius: calc(var(--radius) + var(--padding));
+      pointer-events: none;
+      background-image: linear-gradient(0deg, #0004, #000a);
+      z-index: -1;
+      transition: box-shadow var(--transition);
+      box-shadow:
+        0 -8px 8px -6px #0000 inset,
+        0 -16px 16px -8px #00000000 inset,
+        1px 1px 1px #fff2,
+        2px 2px 2px #fff1,
+        -1px -1px 1px #0002,
+        -2px -2px 2px #0001;
+    }
+    .ui-anim-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background-image: linear-gradient(0deg, #fff, var(--highlight), var(--highlight-50) 8%, transparent);
+      opacity: 0;
+      transition: opacity var(--transition), filter var(--transition);
+    }
+    .ui-anim-btn-svg {
+      width: 20px; height: 20px;
+      fill: #19E6FD;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 3px rgba(25,230,253,0.5));
+      transform: rotate(60deg);
+      transition: fill var(--transition), filter var(--transition);
+    }
+    @keyframes ui-rocket-launch {
+      0%   { transform: rotate(60deg) translate(0,     0)    scale(1);   opacity: 1; }
+      100% { transform: rotate(60deg) translate(0,   -24px)  scale(0.7); opacity: 0; }
+    }
+    @keyframes ui-rocket-return {
+      0%   { transform: rotate(60deg) translate(0,    14px)  scale(0.7); opacity: 0; }
+      65%  { transform: rotate(60deg) translate(0,    -3px)  scale(1.1); opacity: 1; }
+      100% { transform: rotate(60deg) translate(0,     0)    scale(1);   opacity: 1; }
+    }
+    .ui-anim-btn-svg.launching { animation: ui-rocket-launch 0.35s cubic-bezier(0.4,0,0.6,1) forwards; }
+    .ui-anim-btn-svg.returning { animation: ui-rocket-return  0.45s cubic-bezier(0.2,0,0.2,1) forwards; }
+    .ui-anim-txt-wrapper { position: relative; display: inline-flex; align-items: center; }
+    .ui-anim-txt-1 { display: inline-flex; }
+    .ui-anim-letter {
+      display: inline-block;
+      color: #19E6FD;
+      animation: ui-letter-anim 2s ease-in-out infinite;
+      transition: color var(--transition), text-shadow var(--transition);
+    }
+    @keyframes ui-letter-anim {
+      50% { text-shadow: 0 0 6px rgba(25,230,253,0.7); color: #fff; }
+    }
+    .ui-anim-btn:hover { border-color: hsla(var(--highlight-hue), 100%, 80%, 0.4); }
+    .ui-anim-btn:hover::before {
+      box-shadow:
+        0 -8px 8px -6px #fffa inset,
+        0 -16px 16px -8px var(--highlight-30) inset,
+        1px 1px 1px #fff2, 2px 2px 2px #fff1,
+        -1px -1px 1px #0002, -2px -2px 2px #0001;
+    }
+    .ui-anim-btn:hover::after {
+      opacity: 1;
+      -webkit-mask-image: linear-gradient(0deg, #fff, transparent);
+      mask-image: linear-gradient(0deg, #fff, transparent);
+    }
+    .ui-anim-btn:hover .ui-anim-btn-svg {
+      fill: #fff;
+      filter: drop-shadow(0 0 5px rgba(25,230,253,0.9)) drop-shadow(0 -2px 8px rgba(25,230,253,0.5));
+    }
+    .ui-anim-btn:hover .ui-anim-letter { color: #fff; text-shadow: 0 0 3px #fff8; }
+    .ui-anim-btn:active {
+      border-color: hsla(var(--highlight-hue), 100%, 80%, 0.7);
+      background-color: hsla(var(--highlight-hue), 50%, 20%, 0.5);
+    }
+    .ui-anim-btn:active::before {
+      box-shadow:
+        0 -8px 12px -6px #fffa inset,
+        0 -16px 16px -8px var(--highlight-80) inset,
+        1px 1px 1px #fff4, 2px 2px 2px #fff2,
+        -1px -1px 1px #0002, -2px -2px 2px #0001;
+    }
+    .ui-anim-btn:active::after {
+      opacity: 1;
+      -webkit-mask-image: linear-gradient(0deg, #fff, transparent);
+      mask-image: linear-gradient(0deg, #fff, transparent);
+      filter: brightness(200%);
+    }
+    .ui-anim-btn:active .ui-anim-letter {
+      text-shadow: 0 0 1px hsla(var(--highlight-hue), 100%, 90%, 0.9);
+      animation: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-center, .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+      .phase-tasks { grid-template-columns: 1fr; }
+      .timeline-meta { gap: 24px; }
+      .resp-table { font-size: 0.8125rem; }
+      .resp-table th, .resp-table td { padding: 12px 14px; }
+    }
+    @media (max-width: 600px) {
+      .timeline::before { left: 23px; }
+      .phase { grid-template-columns: 56px 1fr; gap: 0 16px; }
+      .phase-node { width: 40px; height: 40px; font-size: 0.75rem; }
+      .timeline-meta { flex-direction: column; align-items: flex-start; padding-left: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="bg-paths-layer"></div>
+
+<!-- BANNER -->
+<div class="banner">
+  <strong>Starter sites live in 1–2 weeks.</strong> Professional & E-Commerce builds take 4–8 weeks.
+  <a href="pricing.html">Compare plans →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="brand-assests/logo.png" alt="SiteSecure logo">
+    SiteSecure
+  </a>
+  <div class="nav-center">
+    <a href="services.html">Services</a>
+    <a href="security.html">Security</a>
+    <a href="process.html" class="active">Process</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://wa.me/60179742459" target="_blank" rel="noopener"><button class="btn-nav">Get started</button></a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="services.html">Services</a>
+  <a href="security.html">Security</a>
+  <a href="process.html" class="active">Process</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-menu-divider"></div>
+  <div class="mobile-menu-btns">
+    <a href="https://wa.me/60179742459" target="_blank" rel="noopener" style="flex:1"><button class="m-primary" style="width:100%">Get started</button></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero reveal">
+  <div class="hero-badge"><span class="hero-badge-dot"></span>How we work</div>
+  <h1>From first call to <em>live site</em> — no black boxes</h1>
+  <p>Every project follows the same six-phase process. You always know what's happening, what's next, and what we need from you.</p>
+  <div class="hero-btns">
+    <a href="pricing.html" class="ui-anim-btn" id="view-pricing-btn">
+      <div class="ui-anim-txt-wrapper"><div class="ui-anim-txt-1"></div></div>
+      <svg class="ui-anim-btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C9.5 5.5 8.5 9.5 8.5 13.5H15.5C15.5 9.5 14.5 5.5 12 2Z"/><circle cx="12" cy="9.5" r="1.6" fill="rgba(1,3,10,0.7)"/><path d="M8.5 13.5L5.5 18H9.5Z"/><path d="M15.5 13.5L18.5 18H14.5Z"/><path d="M10.5 18Q12 22 13.5 18" fill="none" stroke="#19E6FD" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- TIMELINE META -->
+<div class="timeline-meta reveal">
+  <div class="meta-item">
+    <div class="meta-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+    </div>
+    <div class="meta-text">
+      <span class="meta-val">1–8 weeks</span>
+      <span class="meta-label">Varies by plan</span>
+    </div>
+  </div>
+  <div class="meta-item">
+    <div class="meta-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    </div>
+    <div class="meta-text">
+      <span class="meta-val">1 dedicated lead</span>
+      <span class="meta-label">Your single point of contact</span>
+    </div>
+  </div>
+  <div class="meta-item">
+    <div class="meta-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+      </svg>
+    </div>
+    <div class="meta-text">
+      <span class="meta-val">2–4 revisions</span>
+      <span class="meta-label">Varies by plan</span>
+    </div>
+  </div>
+  <div class="meta-item">
+    <div class="meta-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <div class="meta-text">
+      <span class="meta-val">Security included</span>
+      <span class="meta-label">Free audit on every build</span>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE TIMELINE -->
+<div class="section-wrap" style="padding-top: 0;">
+  <div class="section-header reveal">
+    <div class="section-tag">The six phases</div>
+    <h2>Every project,<br><em>step by step</em></h2>
+    <p>No surprises, no scope creep. Here's exactly what happens between signing and going live.</p>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Phase 1 -->
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-node">01</div>
+        <div class="phase-connector"></div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-header">
+          <span class="phase-label">Discovery</span>
+          <span class="phase-duration">Day 1–2</span>
+        </div>
+        <div class="phase-title">Understanding your goals</div>
+        <div class="phase-desc">We start with a structured 60-minute kickoff call. We ask the questions clients rarely get asked — who your real customers are, what success looks like in 12 months, what competitors you admire and why. This shapes every decision that follows.</div>
+        <div class="phase-deliverables">
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Project brief document
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Timeline & milestone plan
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Competitor reference sheet
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-title">What we cover</div>
+          <div class="phase-tasks">
+            <div class="phase-task"><span class="task-dot"></span>Brand voice & positioning</div>
+            <div class="phase-task"><span class="task-dot"></span>Target audience personas</div>
+            <div class="phase-task"><span class="task-dot"></span>Key pages & site structure</div>
+            <div class="phase-task"><span class="task-dot"></span>Integrations needed (CRM, WhatsApp, etc.)</div>
+            <div class="phase-task"><span class="task-dot"></span>SEO keyword priorities</div>
+            <div class="phase-task"><span class="task-dot"></span>Success metrics & KPIs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-node">02</div>
+        <div class="phase-connector"></div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-header">
+          <span class="phase-label">Design</span>
+          <span class="phase-duration">Day 3–10</span>
+        </div>
+        <div class="phase-title">Making it look right</div>
+        <div class="phase-desc">Starter builds use a refined template customised to your brand. Business plans get a semi-custom layout with bespoke sections. Professional and E-Commerce plans get fully custom design from scratch. All tiers include desktop and mobile mockup approval before a single line of code is written.</div>
+        <div class="phase-deliverables">
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Desktop mockup (Figma)
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Mobile mockup
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Brand style guide
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-title">What we cover</div>
+          <div class="phase-tasks">
+            <div class="phase-task"><span class="task-dot"></span>Custom colour palette</div>
+            <div class="phase-task"><span class="task-dot"></span>Font pairing & type scale</div>
+            <div class="phase-task"><span class="task-dot"></span>Homepage wireframe → mockup</div>
+            <div class="phase-task"><span class="task-dot"></span>2–4 revisions (by plan)</div>
+            <div class="phase-task"><span class="task-dot"></span>Component library setup</div>
+            <div class="phase-task"><span class="task-dot"></span>Mobile-first layouts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-node">03</div>
+        <div class="phase-connector"></div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-header">
+          <span class="phase-label">Development</span>
+          <span class="phase-duration">Week 1–5</span>
+        </div>
+        <div class="phase-title">Building the real thing</div>
+        <div class="phase-desc">Starter: up to 5 pages built from your approved template. Business: up to 8 pages with a semi-custom layout. Professional: up to 15 pages including copywriting support. E-Commerce: full product catalogue (30+ SKUs), payment integration, and inventory setup. All tiers include performance and accessibility review before staging.</div>
+        <div class="phase-deliverables">
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Staging site (live link)
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            All pages built & tested
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            PageSpeed 90+ score
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-title">What we cover</div>
+          <div class="phase-tasks">
+            <div class="phase-task"><span class="task-dot"></span>All pages coded from design</div>
+            <div class="phase-task"><span class="task-dot"></span>Forms & CRM integration</div>
+            <div class="phase-task"><span class="task-dot"></span>WhatsApp & social links</div>
+            <div class="phase-task"><span class="task-dot"></span>SEO metadata & sitemap</div>
+            <div class="phase-task"><span class="task-dot"></span>Cross-browser QA</div>
+            <div class="phase-task"><span class="task-dot"></span>Core Web Vitals optimisation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-node">04</div>
+        <div class="phase-connector"></div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-header">
+          <span class="phase-label">Security</span>
+          <span class="phase-duration">Day 16–18</span>
+        </div>
+        <div class="phase-title">Locking it down before it goes live</div>
+        <div class="phase-desc">Every site gets a full security sweep before launch — no exceptions. We install SSL, configure the WAF, harden the login layer, and run a vulnerability scan. You get the report. Nothing goes live with an open issue.</div>
+        <div class="phase-deliverables">
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Security audit report
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            SSL certificate installed
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            WAF rules configured
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-title">What we cover</div>
+          <div class="phase-tasks">
+            <div class="phase-task"><span class="task-dot"></span>HTTPS & HSTS enforcement</div>
+            <div class="phase-task"><span class="task-dot"></span>Security headers hardening</div>
+            <div class="phase-task"><span class="task-dot"></span>Admin access lockdown</div>
+            <div class="phase-task"><span class="task-dot"></span>Vulnerability scan & report</div>
+            <div class="phase-task"><span class="task-dot"></span>Backup strategy setup</div>
+            <div class="phase-task"><span class="task-dot"></span>Firewall & rate limiting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5 -->
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-node">05</div>
+        <div class="phase-connector"></div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-header">
+          <span class="phase-label">Launch</span>
+          <span class="phase-duration">Final week</span>
+        </div>
+        <div class="phase-title">Going live, properly</div>
+        <div class="phase-desc">We handle the DNS cutover, redirect setup, and go-live checklist. We monitor the first 24 hours closely. Business clients get a 30-minute recorded CMS walkthrough. Professional gets a 1-hour live training session. E-Commerce gets a 2-hour live handover covering the full store admin. You get a launch-day summary with your site's performance snapshot.</div>
+        <div class="phase-deliverables">
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Domain live on your host
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Redirects & 404s set
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Launch-day report
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-title">What we cover</div>
+          <div class="phase-tasks">
+            <div class="phase-task"><span class="task-dot"></span>DNS propagation monitoring</div>
+            <div class="phase-task"><span class="task-dot"></span>301 redirect mapping</div>
+            <div class="phase-task"><span class="task-dot"></span>Analytics & GSC setup</div>
+            <div class="phase-task"><span class="task-dot"></span>24-hour post-launch watch</div>
+            <div class="phase-task"><span class="task-dot"></span>CMS training (Business+)</div>
+            <div class="phase-task"><span class="task-dot"></span>Sitemap submitted to Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 6 -->
+    <div class="phase reveal">
+      <div class="phase-left">
+        <div class="phase-node">06</div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-header">
+          <span class="phase-label">Ongoing Support</span>
+          <span class="phase-duration">14–60 days included</span>
+        </div>
+        <div class="phase-title">We don't disappear after launch</div>
+        <div class="phase-desc">Post-launch support is included in every plan: 14 days on Starter, 30 days on Business, and 60 days on Professional and E-Commerce. During this window you get priority bug fixes, content tweaks, and a direct WhatsApp line to your project lead — no ticket queue.</div>
+        <div class="phase-deliverables">
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Monthly performance report
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Direct WhatsApp support
+          </div>
+          <div class="deliverable">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#19E6FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Content & plugin updates
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-title">What we cover</div>
+          <div class="phase-tasks">
+            <div class="phase-task"><span class="task-dot"></span>Security patch monitoring</div>
+            <div class="phase-task"><span class="task-dot"></span>Plugin & CMS updates</div>
+            <div class="phase-task"><span class="task-dot"></span>Uptime & SSL alerts</div>
+            <div class="phase-task"><span class="task-dot"></span>Content change requests</div>
+            <div class="phase-task"><span class="task-dot"></span>Monthly traffic review</div>
+            <div class="phase-task"><span class="task-dot"></span>Priority bug fixes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RESPONSIBILITY TABLE -->
+<div class="section-wrap" style="padding-top: 0;">
+  <div class="section-header reveal">
+    <div class="section-tag">Who does what</div>
+    <h2>Your role vs <em>ours</em></h2>
+    <p>A clear split of responsibilities so there are no surprises at any stage.</p>
+  </div>
+
+  <div class="reveal">
+    <table class="resp-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>You</th>
+          <th>SiteSecure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Provide brand assets (logo, photos)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Write or provide copy for pages</td>
+          <td><span class="both">Optional</span></td>
+          <td><span class="both">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Design — wireframes to mockups</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Review and approve mockups</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Build and code the site</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>QA across browsers & devices</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Security audit & hardening</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>DNS setup & domain management</td>
+          <td><span class="both">Access only</span></td>
+          <td><span class="both">We handle</span></td>
+        </tr>
+        <tr>
+          <td>Hosting selection & setup</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Ongoing updates & monitoring</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section-wrap" style="padding-top: 0;">
+  <div class="section-header reveal">
+    <div class="section-tag">Common questions</div>
+    <h2>Things people ask<br><em>before they start</em></h2>
+  </div>
+
+  <div class="faq-list reveal">
+
+    <div class="faq-item">
+      <div class="faq-question">
+        How much input do I need to give during the project?
+        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-answer">
+        <p>We ask for your time at two key moments — the kickoff call (1 hour) and the design review (30 minutes). Beyond that, we'll send you a shared doc for feedback and a staging link for final approval. We're built to run with minimal hand-holding.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What if I need changes after the site is live?
+        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-answer">
+        <p>Small text and image changes are covered under our support retainer. Larger structural changes (new pages, new sections) are quoted separately at a transparent hourly rate. You'll never be surprised by a bill.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Can I speed up the timeline?
+        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-answer">
+        <p>Yes — for clients with a hard deadline, we offer a Priority Lane that compresses the build to 7–10 days. This requires you to be available faster for approvals. Priority Lane is available at a surcharge; ask us when you inquire.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Do I own the site and code after launch?
+        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-answer">
+        <p>You get full access to your live website and CMS to manage your content day-to-day. Source code, hosting, and domain management stay with SiteSecure — this is what allows us to keep everything maintained, secure, and running smoothly as part of your ongoing plan. If you ever decide to part ways, we'll discuss a handover arrangement.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What happens if I'm unhappy with the design?
+        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-answer">
+        <p>Every plan includes revision rounds built in — 2 for Starter, 3 for Business, and 4 for Professional and E-Commerce. We find that's enough for 95% of clients. If after your included rounds you're still not satisfied, we'll escalate to a senior designer at no extra cost before moving forward.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <h2>Ready to get started?</h2>
+  <p>Book a free 30-minute discovery call. We'll scope your project and give you a no-obligation quote within 24 hours.</p>
+  <div class="cta-btns">
+    <a href="contact.html"><button class="btn-primary">Book a free discovery call</button></a>
+    <a href="pricing.html"><button class="btn-secondary">See pricing →</button></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="brand-assests/logo.png" alt="SiteSecure">
+    SiteSecure
+  </a>
+  <span>© 2026 SiteSecure Studio. All rights reserved.</span>
+</footer>
+
+<script>
+  // BG paths
+  (function() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%');
+    svg.setAttribute('viewBox', '0 0 1440 900');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%';
+    const paths = [
+      'M-100,200 C200,100 400,350 700,250 S1100,100 1540,300',
+      'M-100,400 C150,300 350,500 650,380 S1050,200 1540,450',
+      'M-100,600 C250,480 500,650 780,520 S1200,380 1540,580',
+      'M200,-50 C300,200 250,400 350,650 S500,800 480,950',
+      'M600,-50 C650,180 600,380 720,620 S820,800 800,950',
+      'M1000,-50 C1050,200 980,420 1100,660 S1200,830 1180,950',
+    ];
+    const style = document.createElement('style');
+    style.textContent = paths.map((_, i) =>
+      `@keyframes bd${i}{from{stroke-dashoffset:0}to{stroke-dashoffset:var(--pl)}}`
+    ).join('');
+    document.head.appendChild(style);
+    paths.forEach((d, i) => {
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d); path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', '#1067DD'); path.setAttribute('stroke-width', '1');
+      path.style.cssText = 'stroke-dasharray:var(--pl);--pl:2000px';
+      const dur = 18 + i * 4;
+      path.style.animation = `bd${i} ${dur}s ${-(i * 3)}s linear infinite`;
+      svg.appendChild(path);
+    });
+    document.getElementById('bg-paths-layer').appendChild(svg);
+  })();
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Animated rocket button — View pricing
+  (function() {
+    const label = 'View pricing';
+    const btn = document.getElementById('view-pricing-btn');
+    const txtWrap = btn.querySelector('.ui-anim-txt-1');
+    txtWrap.innerHTML = Array.from(label).map((ch, i) =>
+      `<span class="ui-anim-letter" style="animation-delay:${(i*0.08).toFixed(2)}s">${ch === ' ' ? '&nbsp;' : ch}</span>`
+    ).join('');
+    const svg = btn.querySelector('.ui-anim-btn-svg');
+    btn.addEventListener('mouseenter', () => {
+      svg.classList.remove('returning'); void svg.offsetWidth; svg.classList.add('launching');
+    });
+    btn.addEventListener('mouseleave', () => {
+      svg.classList.remove('launching'); void svg.offsetWidth; svg.classList.add('returning');
+    });
+  })();
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
