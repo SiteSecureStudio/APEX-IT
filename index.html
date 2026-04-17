@@ -1341,6 +1341,54 @@
       line-height: 1.85;
     }
 
+    /* ─── Mobile Menu ───────────────────────────────────────── */
+    .mobile-menu {
+      position: fixed;
+      top: 76px; left: 0; right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.08);
+      z-index: 98;
+      transform: translateY(-110%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.38s, visibility 0s 0.38s;
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.38s;
+    }
+    .mobile-menu-inner {
+      padding: 20px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-nav-links a {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .mobile-nav-links li:last-child a { border-bottom: none; }
+    .mobile-nav-links a:hover { color: var(--gold-b); }
+    .mobile-menu-cta { display: block; text-align: center; margin-top: 4px; }
+
     /* ─── Responsive ────────────────────────────────────────── */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1348,21 +1396,71 @@
     }
 
     @media (max-width: 768px) {
+      /* Nav */
       .nav-links, .nav-cta { display: none; }
       .menu-toggle { display: block; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2)::after { display: none; }
-      .why-grid { grid-template-columns: 1fr; gap: 48px; }
-      .why-right { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      .process-steps::before { display: none; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .carousel-slide { flex: 0 0 100%; min-width: 100%; margin-right: 0; }
-      .cta-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 32px; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 20px; }
-      .services-grid { grid-template-columns: 1fr; }
+
+      /* Layout */
+      .container { padding: 0 16px; }
+      section { padding: 72px 0; }
+      #stats { padding: 40px 0; }
+      #cta { padding: 72px 0; }
+
+      /* Hero */
+      #hero { min-height: 100svh; padding-top: 96px; align-items: flex-start; padding-bottom: 64px; }
+      .hero-content { max-width: 100%; }
+      .hero-sub { max-width: 100%; }
+      .hero-actions { flex-wrap: wrap; gap: 14px; }
+      .btn-primary { width: 100%; text-align: center; justify-content: center; }
+      .hero-scroll { display: none; }
       .hero-triangle-deco { display: none; }
+
+      /* Stats */
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { padding: 20px 16px; }
+      .stat-item::after { display: none; }
+      .stat-number { font-size: 2.25rem; }
+
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; }
+      .services-header { margin-bottom: 40px; }
+      .service-card { padding: 32px 24px; }
+      /* Always show service link on touch devices */
+      .service-link { opacity: 1; transform: none; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; gap: 48px; }
+      .why-right { grid-template-columns: 1fr; gap: 16px; }
+
+      /* Process */
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px 0; }
+      .process-steps::before { display: none; }
+      .process-header { margin-bottom: 48px; }
+
+      /* Testimonials */
+      .carousel-slide { flex: 0 0 100%; min-width: 100%; margin-right: 0; }
+
+      /* CTA */
+      .cta-inner { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px; }
+      .cta-actions { width: 100%; }
+      .cta-actions .btn-primary, .btn-outline { width: 100%; }
+
+      /* Footer */
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-brand p { max-width: 100%; }
+
+      /* Marquee */
+      .marquee-logo { padding: 0 28px; }
+    }
+
+    /* Small mobile */
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .stat-number { font-size: 2rem; }
+      .why-right { gap: 12px; }
+      .cta-inner { padding: 32px 20px; }
+      .service-card { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -1396,13 +1494,30 @@
         <li><a href="#why">Clients</a></li>
       </ul>
       <a href="#cta" class="nav-cta">Get Started</a>
-      <button class="menu-toggle" aria-label="Menu">
-        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg class="icon-hamburger" width="22" height="16" viewBox="0 0 22 16" fill="none">
           <path d="M1 1h20M1 8h20M1 15h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none" style="display:none">
+          <path d="M1 1l16 16M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
   </nav>
+
+  <!-- ─── Mobile Menu ───────────────────────────────────────── -->
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#cta" class="btn-primary mobile-menu-cta">Get Started</a>
+    </div>
+  </div>
 
   <!-- ─── Hero ───────────────────────────────────────────────── -->
   <section id="hero">
@@ -1887,6 +2002,48 @@
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
+    // ── Mobile Menu ───────────────────────────────────────────
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconHamburger = menuToggle.querySelector('.icon-hamburger');
+    const iconClose = menuToggle.querySelector('.icon-close');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      menuToggle.setAttribute('aria-label', 'Close menu');
+      iconHamburger.style.display = 'none';
+      iconClose.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      iconHamburger.style.display = '';
+      iconClose.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -1996,13 +2153,37 @@
         const max = total - perView;
         goTo(current >= max ? 0 : current + perView);
       }, 5000);
-      track.closest('.carousel-viewport').addEventListener('mouseenter', () => clearInterval(autoTimer));
-      track.closest('.carousel-viewport').addEventListener('mouseleave', () => {
+      const viewport = track.closest('.carousel-viewport');
+      viewport.addEventListener('mouseenter', () => clearInterval(autoTimer));
+      viewport.addEventListener('mouseleave', () => {
         clearInterval(autoTimer);
         autoTimer = setInterval(() => {
           const max = total - perView;
           goTo(current >= max ? 0 : current + perView);
         }, 5000);
+      });
+
+      // Touch/swipe support
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isDragging = false;
+      viewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isDragging = false;
+        clearInterval(autoTimer);
+      }, { passive: true });
+      viewport.addEventListener('touchmove', (e) => {
+        const dx = Math.abs(e.touches[0].clientX - touchStartX);
+        const dy = Math.abs(e.touches[0].clientY - touchStartY);
+        if (dx > dy && dx > 8) isDragging = true;
+      }, { passive: true });
+      viewport.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 48) {
+          dx < 0 ? goTo(current + perView) : goTo(current - perView);
+        }
       });
     })();
 
