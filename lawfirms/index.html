@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Marketing for Malaysian Law Firms | Apex IT Solution</title>
+  <meta name="description" content="The 2025 Publicity Rules changed what your firm can do online. Websites, SEO, social, Google Ads — done compliantly. Book a free discovery call." />
+  <link rel="canonical" href="https://apexsolutions.my/lawfirms" />
+  <meta property="og:title" content="Your firm can finally be found online. Here's how to do it right." />
+  <meta property="og:description" content="The 2025 Publicity Rules changed what your firm can do online. Compliant digital marketing for Malaysian law firms." />
+  <meta property="og:url" content="https://apexsolutions.my/lawfirms" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:           #ffffff;
+      --surface:      #f3f3f5;
+      --surface-2:    #e8e8ec;
+      --border:       rgba(0,0,0,0.09);
+      --gold-a:       #c8922a;
+      --gold-b:       #b87a10;
+      --orange-a:     #e8722a;
+      --orange-b:     #d4600a;
+      --ink:          #111113;
+      --muted:        #5a5a62;
+      --muted-2:      #b0b0b8;
+      --grad-brand:   linear-gradient(135deg, var(--gold-a), var(--orange-b));
+      --font-display: 'Poppins', sans-serif;
+      --font-body:    'Roboto', sans-serif;
+      --radius:       12px;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025; pointer-events: none; z-index: 9999;
+    }
+
+    /* ─── Utilities ─────────────────────────────────────────── */
+    .gold-text {
+      background: var(--grad-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 24px;
+      transition: background 0.4s var(--ease), border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 76px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 48px; width: auto; }
+    .nav-logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-display); font-size: 0.875rem; font-weight: 500;
+      color: var(--muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
+      background: var(--grad-brand); border: none; padding: 10px 24px;
+      border-radius: 6px; cursor: pointer; text-decoration: none;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    #hero {
+      position: relative; padding: 148px 0 96px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 75% 30%, rgba(200,146,42,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 45% at 10% 75%, rgba(232,114,42,0.06) 0%, transparent 60%);
+    }
+    .hero-deco {
+      position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+      width: 440px; height: 440px; opacity: 0;
+      animation: fadeLeft 1.2s 0.4s var(--ease) forwards;
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateY(-50%) translateX(40px); }
+      to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+    }
+    .hero-breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-2);
+      margin-bottom: 20px; text-decoration: none;
+      opacity: 0; animation: fadeUp 0.6s 0.05s var(--ease) forwards;
+    }
+    .hero-breadcrumb:hover { color: var(--muted); }
+    .hero-breadcrumb svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-b);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.6s 0.12s var(--ease) forwards;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--grad-brand); }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+      max-width: 680px; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.7s 0.2s var(--ease) forwards;
+    }
+    .hero-sub {
+      font-size: 1.02rem; color: var(--muted); line-height: 1.75;
+      max-width: 560px; margin-bottom: 36px;
+      opacity: 0; animation: fadeUp 0.7s 0.3s var(--ease) forwards;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.7s 0.4s var(--ease) forwards;
+    }
+    .btn-primary {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #fff; background: var(--grad-brand);
+      border: none; padding: 13px 28px; border-radius: 6px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(200,146,42,0.22);
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+      border: 1px solid var(--border); padding: 12px 22px; border-radius: 6px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-wa:hover { border-color: rgba(200,146,42,0.35); background: rgba(200,146,42,0.04); }
+    .btn-wa svg { width: 16px; height: 16px; fill: #25D366; flex-shrink: 0; }
+    .hero-trust {
+      font-size: 0.78rem; color: var(--muted-2);
+      opacity: 0; animation: fadeUp 0.7s 0.5s var(--ease) forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Section shared styles ─────────────────────────────── */
+    .section { padding: 80px 0; }
+    .section-alt { padding: 80px 0; background: var(--surface); }
+    .section-eyebrow {
+      font-family: var(--font-display); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-b);
+      margin-bottom: 12px;
+    }
+    .section-h2 {
+      font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+      max-width: 580px; margin-bottom: 48px;
+    }
+
+    /* ─── Regulatory Moment — Before/After ──────────────────── */
+    .reg-table {
+      width: 100%; border-collapse: collapse;
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .reg-table thead th {
+      font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 24px;
+      text-align: left;
+    }
+    .reg-table thead th:first-child { background: #1a1a24; color: var(--muted-2); }
+    .reg-table thead th:last-child { background: var(--grad-brand); color: #fff; }
+    .reg-table tbody tr { border-bottom: 1px solid var(--border); }
+    .reg-table tbody tr:last-child { border-bottom: none; }
+    .reg-table tbody td {
+      padding: 16px 24px; font-size: 0.88rem; line-height: 1.6; vertical-align: top;
+    }
+    .reg-table tbody td:first-child {
+      background: #fafafa; color: var(--muted);
+    }
+    .reg-table tbody td:last-child {
+      background: #fffdf8; color: var(--ink);
+    }
+    .reg-table tbody td:last-child::before {
+      content: '✓ ';
+      color: var(--gold-a); font-weight: 700;
+    }
+    .rule-note {
+      margin-top: 20px; padding: 16px 20px;
+      border-left: 3px solid var(--gold-a);
+      background: rgba(200,146,42,0.05);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem; color: var(--muted); line-height: 1.7;
+    }
+    .rule-note strong { color: var(--ink); }
+
+    /* ─── Stat Cards ────────────────────────────────────────── */
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    @media (max-width: 768px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .stat-grid { grid-template-columns: 1fr; } }
+    .stat-card {
+      padding: 28px 24px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--grad-brand);
+    }
+    .stat-number {
+      font-family: var(--font-display); font-size: 2.8rem; font-weight: 900;
+      letter-spacing: -0.04em; line-height: 1;
+      background: var(--grad-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 10px;
+    }
+    .stat-desc { font-size: 0.88rem; color: var(--ink); line-height: 1.55; margin-bottom: 8px; font-weight: 500; }
+    .stat-source { font-size: 0.72rem; color: var(--muted-2); }
+
+    /* ─── Archetypes ────────────────────────────────────────── */
+    .archetype-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    @media (max-width: 640px) { .archetype-grid { grid-template-columns: 1fr; } }
+    .archetype-card {
+      padding: 28px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--bg);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+      cursor: default;
+    }
+    .archetype-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(200,146,42,0.10), 0 2px 6px rgba(0,0,0,0.05);
+      border-color: rgba(200,146,42,0.28);
+    }
+    .archetype-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(200,146,42,0.12), rgba(232,114,42,0.06));
+      border: 1px solid rgba(200,146,42,0.18);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .archetype-icon svg {
+      width: 20px; height: 20px; stroke: var(--gold-a); fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .archetype-type {
+      font-family: var(--font-display); font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-b);
+      margin-bottom: 6px;
+    }
+    .archetype-name {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      color: var(--ink); letter-spacing: -0.02em; margin-bottom: 10px;
+    }
+    .archetype-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ─── Why Apex ──────────────────────────────────────────── */
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    @media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr; } }
+    .pillar {
+      padding: 28px 24px; border-radius: var(--radius);
+      border: 1px solid var(--border); background: var(--bg);
+    }
+    .pillar-num {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 900;
+      letter-spacing: -0.04em; line-height: 1;
+      background: var(--grad-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 12px;
+    }
+    .pillar-title {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 10px;
+    }
+    .pillar-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── FAQ ───────────────────────────────────────────────── */
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 20px 4px; text-align: left;
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
+      color: var(--ink); transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--gold-b); }
+    .faq-q svg {
+      width: 18px; height: 18px; stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; flex-shrink: 0;
+      transition: transform 0.3s var(--ease);
+    }
+    .faq-item.open .faq-q { color: var(--gold-b); }
+    .faq-item.open .faq-q svg { transform: rotate(45deg); }
+    .faq-a {
+      display: none; padding: 0 4px 20px;
+      font-size: 0.9rem; color: var(--muted); line-height: 1.75;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── CTA / Form ────────────────────────────────────────── */
+    #discovery {
+      padding: 96px 0;
+      position: relative; overflow: hidden;
+    }
+    #discovery::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(200,146,42,0.07), transparent 70%);
+      pointer-events: none;
+    }
+    .form-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    @media (max-width: 768px) { .form-wrap { grid-template-columns: 1fr; gap: 40px; } }
+    .form-left .section-sub { margin-bottom: 32px; }
+
+    /* WhatsApp block */
+    .wa-block {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 20px; border-radius: 10px;
+      border: 1px solid rgba(37,211,102,0.25);
+      background: rgba(37,211,102,0.04);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .wa-block:hover { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.4); }
+    .wa-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .wa-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .wa-label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .wa-number { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+
+    .or-divider {
+      display: flex; align-items: center; gap: 12px; margin: 20px 0;
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-2);
+    }
+    .or-divider::before, .or-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .email-link {
+      font-size: 0.88rem; color: var(--muted); text-decoration: none;
+    }
+    .email-link a { color: var(--gold-b); text-decoration: none; }
+    .email-link a:hover { text-decoration: underline; }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-label {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .form-input {
+      font-family: var(--font-body); font-size: 0.9rem; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 11px 14px; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus {
+      border-color: var(--gold-a);
+      box-shadow: 0 0 0 3px rgba(200,146,42,0.10);
+    }
+    select.form-input { cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 80px; }
+    .form-submit {
+      width: 100%; padding: 14px;
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #fff; background: var(--grad-brand);
+      border: none; border-radius: 8px; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(200,146,42,0.22);
+      transition: opacity 0.25s, transform 0.25s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-2px); }
+    .form-privacy { font-size: 0.74rem; color: var(--muted-2); line-height: 1.55; text-align: center; margin-top: 8px; }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border); padding: 28px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 0.78rem; color: var(--muted-2); }
+    .footer-link {
+      font-family: var(--font-display); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.04em; color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ──────────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="brand-assests/Only logo.png" alt="APEX IT" />
+      <span class="nav-logo-text">APEX IT</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="index.html#why">Why Us</a></li>
+    </ul>
+    <a href="#discovery" class="nav-cta">Book a Discovery Call</a>
+  </div>
+</nav>
+
+<!-- ─── Hero ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco">
+    <svg viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="220,24 416,404 24,404" stroke="url(#tg)" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <polygon points="220,72 376,376 64,376" stroke="url(#tg)" stroke-width="1" fill="none" opacity="0.18"/>
+      <polygon points="220,128 336,352 104,352" stroke="url(#tg)" stroke-width="0.6" fill="none" opacity="0.10"/>
+      <defs>
+        <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#c8922a"/><stop offset="100%" stop-color="#d4600a"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div style="max-width:640px; position:relative; z-index:2;">
+      <a href="who-we-serve.html" class="hero-breadcrumb">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Who We Serve
+      </a>
+      <div class="hero-eyebrow">Law Firms & Legal Practices</div>
+      <h1 class="hero-h1">
+        The 2025 Publicity Rules<br>
+        just rewrote how Malaysian<br>
+        law firms <span class="gold-text">compete online.</span>
+      </h1>
+      <p class="hero-sub">
+        Most firms haven't noticed yet. On 1 January 2026, lawyers gained the legal right to operate websites, run Google Ads, publish on social media, and claim specialisations — for the first time in Malaysian history. The firms that move first will define how clients find lawyers for the next decade.
+      </p>
+      <div class="hero-ctas">
+        <a href="#discovery" class="btn-primary">Book a free discovery call</a>
+        <a href="https://wa.me/60179742459" target="_blank" rel="noopener" class="btn-wa">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <p class="hero-trust">No pitch. No obligation. A 30-minute diagnostic of your firm's digital position — and what the new rules allow you to do about it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Regulatory Moment ─────────────────────────────────────── -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-eyebrow">What Actually Changed</div>
+    <h2 class="section-h2">A 24-year framework, replaced overnight.</h2>
+    <p class="section-sub">The Legal Profession (Publicity) Rules 2025 — P.U.(A) 462/2025 — came into force on 1 January 2026, revoking the 2001 rules entirely. The shift is substantial.</p>
+
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th>Before — 2001 Rules</th>
+          <th>After — 2025 Rules (in force now)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Only 18 categories of "Approved Information" permitted</td>
+          <td>Principle-based framework — dignity of profession governs</td>
+        </tr>
+        <tr>
+          <td>Electronic media tightly controlled; websites heavily restricted</td>
+          <td>Substantive websites, blogs, and electronic publishing expressly permitted</td>
+        </tr>
+        <tr>
+          <td>Specialisation claims prohibited</td>
+          <td>Specialisation claims allowed, if justifiable on qualifications and track record (Rule 6)</td>
+        </tr>
+        <tr>
+          <td>Paid advertising effectively off-limits</td>
+          <td>Google Ads, LinkedIn Ads, and sponsored content permitted (Rules 5 & 7)</td>
+        </tr>
+        <tr>
+          <td>Client alerts and newsletters restricted in distribution</td>
+          <td>Public-facing newsletters, client alerts, and thought leadership permitted</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rule-note">
+      <strong>"A principle-based approach, aimed at providing updated and clearer guidance on publicity involving the legal profession in line with current practices and technology."</strong><br>
+      — Malaysian Bar Circular No 471/2025
+    </div>
+  </div>
+</section>
+
+<!-- ─── Cost of Waiting ───────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">The Cost of Staying Invisible</div>
+    <h2 class="section-h2">What each month of waiting actually costs.</h2>
+    <p class="section-sub">Consumer behaviour didn't change when the rules did. Clients have been searching this way for years. Now firms can finally respond.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">92.4%</div>
+        <div class="stat-desc">of people research their legal issue online before contacting an attorney</div>
+        <div class="stat-source">Martindale-Avvo, 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">89%</div>
+        <div class="stat-desc">of consumers will not hire a law firm with an average rating below four stars</div>
+        <div class="stat-source">iLawyerMarketing, 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">48%</div>
+        <div class="stat-desc">of law firms were essentially unreachable in a 2024 secret-shopper study — no email reply, no answered call</div>
+        <div class="stat-source">Clio, 2024 Legal Trends Report</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10%</div>
+        <div class="stat-desc">of clients hire the first lawyer they contact. 55% contact two to three firms before deciding — your firm is always in a shortlist</div>
+        <div class="stat-source">Martindale-Avvo, 2024</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">71%</div>
+        <div class="stat-desc">of in-house counsel cite thought leadership articles as important when shortlisting firms for corporate work</div>
+        <div class="stat-source">Greentarget / Zeughauser Group</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">87.6%</div>
+        <div class="stat-desc">of Malaysian law firms have only 1–5 lawyers — boutiques competing for the same search results as large firms</div>
+        <div class="stat-source">Malaysian Bar, General Statistics 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Four Archetypes ───────────────────────────────────────── -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-eyebrow">Your Strategy</div>
+    <h2 class="section-h2">Different firms need different digital strategies.</h2>
+    <p class="section-sub">There is no single correct playbook. The right starting point depends on your practice mix, how you win work, and your succession horizon. Most firms fit one dominant archetype.</p>
+
+    <div class="archetype-grid">
+      <div class="archetype-card">
+        <div class="archetype-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="archetype-type">Archetype 1</div>
+        <div class="archetype-name">The Website-First Firm</div>
+        <p class="archetype-desc">Solo practitioners and boutiques where most enquiries come through Google search and referrals that get double-checked online. Priority: a fast, mobile-optimised website, clear practice areas, Google Business Profile, local SEO, and verified reviews.</p>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="archetype-type">Archetype 2</div>
+        <div class="archetype-name">The Social-First Firm</div>
+        <p class="archetype-desc">Partners comfortable on LinkedIn who want to build personal authority in a niche — employment, family, startups, construction disputes. Priority: consistent publishing, polished LinkedIn presence, and content systems that don't consume billable hours.</p>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="archetype-type">Archetype 3</div>
+        <div class="archetype-name">The Integrated Firm</div>
+        <p class="archetype-desc">Mid-size firms with multiple practice areas wanting inbound enquiries across several business lines. Priority: content-rich website with an insights section, multi-practice-area SEO, Google Business Profile per office, partner LinkedIn activity, and a client-alert newsletter.</p>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="archetype-type">Archetype 4</div>
+        <div class="archetype-name">The Thought-Leadership Firm</div>
+        <p class="archetype-desc">Firms targeting corporate clients and in-house counsel. Priority: substantive client alerts on regulatory changes, long-form analysis, partner-bylined commentary, webinars, and LinkedIn as the primary distribution channel. The test: would an in-house counsel forward your latest piece to a colleague?</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 0.88rem; color: var(--muted); text-align: center;">
+      Matching the strategy to how your firm actually wins is the work we do in the discovery call — before any proposal, before any quote.
+    </p>
+  </div>
+</section>
+
+<!-- ─── Why Apex IT ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">Why Apex IT Solution</div>
+    <h2 class="section-h2">A Malaysian agency that understands Malaysian law.</h2>
+    <p class="section-sub">We are not a generic digital agency that has taken on law firm clients. We're a Kuala Lumpur agency, founded in Sungai Besi in 2006, that has spent nearly two decades building digital infrastructure for professional services in this market.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">We work in your regulatory environment</div>
+        <p class="pillar-desc">The 2025 Publicity Rules are a Malaysian instrument, interpreted by the Malaysian Bar. Generic templates from US or Australian playbooks will violate them. We've read the rules. We understand the line between permitted specialisation claims and prohibited expert claims, why case references need careful handling under Rule 7(c), and why "best lawyer in KL" is a compliance incident.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">We build for the long run, not the launch</div>
+        <p class="pillar-desc">A law firm website is not a campaign asset — it is 5–10 years of professional infrastructure that must remain accurate, secure, and aligned with how the firm evolves. Our engagements are structured around ongoing maintenance, not hand-offs. When a partner changes practice area or a client alert needs to go live, the work gets done.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">You deal with the people doing the work — not an account manager</div>
+        <p class="pillar-desc">Most agencies sell you a senior strategist, then hand you to a junior team. At Apex, the people you speak to in the discovery call are the same people building your website, writing your copy, and maintaining your presence. No brief gets lost in translation. No context has to be re-explained six months later when something needs updating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ───────────────────────────────────────────────────── -->
+<section class="section-alt">
+  <div class="container-narrow">
+    <div class="section-eyebrow">Questions Partners Usually Ask</div>
+    <h2 class="section-h2" style="margin-bottom:40px;">Common questions, answered plainly.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">
+          Will the work you do actually comply with the 2025 Publicity Rules?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">Compliance is the first filter on every deliverable, not an afterthought. Every piece of copy, every advertisement, every testimonial, and every case reference is reviewed against Rules 4–7 of P.U.(A) 462/2025. Where a judgement call exists — particularly around specialisation claims and testimonials — we flag it, explain the risk, and let you make the final decision. We track Bar Council Rulings as they are updated.</div>
+      </div>
+      <div class="faq-item open">
+        <button class="faq-q">
+          How much will this cost?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">We quote only after the discovery call, because the right scope depends on your firm's size, practice mix, and existing digital assets. What we can tell you: our engagements are a one-time build fee plus an ongoing monthly maintenance retainer — no hidden charges, and every firm knows exactly what they're spending each month. A solo practitioner needing a clean website and Google Business Profile is a very different engagement from a mid-size firm wanting an integrated content programme.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          How much of our partners' time will this take?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">Less than most firms expect. A typical website build requires two to three one-hour sessions from your side over eight to twelve weeks — primarily to review copy, approve lawyer biographies, and sign off on practice area descriptions. Ongoing content programmes can be structured around how much partner involvement you want: some firms draft internally and we polish; others brief us verbally and we draft for review.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          When should we expect to see results?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">Honest ranges: a well-built Google Business Profile and local SEO foundation often produces measurable visibility improvements within three to six months. Organic search rankings for competitive practice areas typically need six to twelve months of consistent content. LinkedIn authority and thought-leadership traction builds over twelve to twenty-four months. We track monthly and report plainly — if something isn't working after a fair trial, we say so and change course.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Is this confidential?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">Yes. Everything discussed in the discovery call and in any subsequent engagement is treated as client-confidential from first contact. We have worked with professional services firms for nearly two decades and understand the sensitivity of partner-level conversations about strategy, succession, and revenue.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          We already have a website. Is there still value in a discovery call?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">Often yes. An audit of what you already have frequently surfaces quick wins — technical SEO issues, missing Google Business Profile claims, inconsistent compliance — that can be fixed without rebuilding. We have no interest in selling you work you don't need. If your current setup is fundamentally sound, we'll tell you that.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Discovery Call / Form ────────────────────────────────── -->
+<section id="discovery">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-left">
+        <div class="section-eyebrow">Book Your Discovery Call</div>
+        <h2 class="section-h2">30 minutes.<br>No pitch. No obligation.</h2>
+        <p class="section-sub">We audit your firm's current digital position and map out what the 2025 rules now allow you to do about it. If there's a fit, you receive a scoped proposal with a clear price and timeline. If there isn't, we'll say so.</p>
+
+        <a href="https://wa.me/60179742459?text=Hi%20Navin%2C%20I%27d%20like%20to%20book%20a%20discovery%20call%20for%20my%20law%20firm." target="_blank" rel="noopener" class="wa-block">
+          <div class="wa-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="wa-label">WhatsApp directly</div>
+            <div class="wa-number">017-974-2459</div>
+          </div>
+        </a>
+
+        <div class="or-divider">or fill in the form</div>
+        <p class="email-link">Prefer email? <a href="mailto:apexsolmy@gmail.com">apexsolmy@gmail.com</a> — we respond within one business day.</p>
+      </div>
+
+      <div class="form-right">
+        <form class="contact-form" name="lawfirms-discovery" netlify>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="fname">Full Name *</label>
+              <input class="form-input" type="text" id="fname" name="name" required placeholder="Dato' Ahmad…" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="firm">Firm Name *</label>
+              <input class="form-input" type="text" id="firm" name="firm" required placeholder="Rahman & Associates…" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="role">Your Role *</label>
+            <select class="form-input" id="role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>Managing Partner</option>
+              <option>Partner</option>
+              <option>Practice Head</option>
+              <option>Associate</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="email">Work Email *</label>
+              <input class="form-input" type="email" id="email" name="email" required placeholder="you@yourfirm.com" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="phone">WhatsApp / Mobile *</label>
+              <input class="form-input" type="tel" id="phone" name="phone" required placeholder="017-XXX-XXXX" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="prompt">What prompted you to reach out? (optional)</label>
+            <textarea class="form-input form-textarea" id="prompt" name="prompt" placeholder="e.g. We've been thinking about a website since the new rules came out…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request my discovery call →</button>
+          <p class="form-privacy">Your details stay with Apex IT Solution. We do not share, sell, or add you to any third-party list. Conversations are treated as confidential from first contact.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-copy">© 2026 Apex IT Solution. Sungai Besi, Kuala Lumpur. Since 2006.</div>
+  <div style="display:flex; gap:24px;">
+    <a href="index.html" class="footer-link">Home</a>
+    <a href="who-we-serve.html" class="footer-link">Who We Serve</a>
+    <a href="index.html#contact" class="footer-link">Contact</a>
+  </div>
+</footer>
+
+<script>
+  /* Scrolled nav */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
