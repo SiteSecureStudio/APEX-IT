@@ -403,6 +403,23 @@
       .contact-sidebar { flex-direction: column; }
     }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1466517135173050');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1466517135173050&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -676,6 +693,11 @@
   }, { threshold: 0.08 });
   revealEls.forEach(el => revealObserver.observe(el));
 
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
   // Form submit
   document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -719,6 +741,15 @@
         body: JSON.stringify(data),
       });
       if (res.ok) {
+        const userData = {};
+        const email = data.email.toLowerCase().trim();
+        const phone = data.whatsapp.replace(/\D/g, '');
+        if (email) userData.em = await sha256(email);
+        if (phone) userData.ph = await sha256(phone);
+        if (typeof fbq === 'function') {
+          fbq('init', '1466517135173050', userData);
+          fbq('track', 'Lead');
+        }
         document.getElementById('form-fields').style.display = 'none';
         document.getElementById('form-success').classList.add('show');
       } else {
