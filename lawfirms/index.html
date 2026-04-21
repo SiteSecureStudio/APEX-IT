@@ -420,6 +420,22 @@
     }
     .form-submit:hover { opacity: 0.88; transform: translateY(-2px); }
     .form-privacy { font-size: 0.74rem; color: var(--muted-2); line-height: 1.55; text-align: center; margin-top: 8px; }
+    select[multiple].form-input { min-height: 130px; }
+    .checkbox-group { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+    .checkbox-item { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .checkbox-item input[type="checkbox"] {
+      appearance: none; -webkit-appearance: none;
+      width: 15px; height: 15px; min-width: 15px;
+      border: 1px solid rgba(180,150,80,0.4); border-radius: 3px;
+      background: rgba(255,255,255,0.04); cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .checkbox-item input[type="checkbox"]:checked {
+      background: var(--gold-b); border-color: var(--gold-b);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 10px; background-repeat: no-repeat; background-position: center;
+    }
+    .checkbox-label { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
 
     /* ─── Footer ────────────────────────────────────────────── */
     footer {
@@ -765,14 +781,7 @@
           </div>
           <div class="form-field">
             <label class="form-label" for="role">Your Role *</label>
-            <select class="form-input" id="role" name="role" required>
-              <option value="" disabled selected>Select your role</option>
-              <option>Managing Partner</option>
-              <option>Partner</option>
-              <option>Practice Head</option>
-              <option>Associate</option>
-              <option>Other</option>
-            </select>
+            <input class="form-input" type="text" id="role" name="role" required placeholder="e.g. Managing Partner, Practice Head…" />
           </div>
           <div class="form-row">
             <div class="form-field">
@@ -785,8 +794,60 @@
             </div>
           </div>
           <div class="form-field">
-            <label class="form-label" for="prompt">What prompted you to reach out? (optional)</label>
-            <textarea class="form-input form-textarea" id="prompt" name="prompt" placeholder="e.g. We've been thinking about a website since the new rules came out…"></textarea>
+            <label class="form-label" for="frustration">What's Your Biggest Frustration Right Now?</label>
+            <textarea class="form-input form-textarea" id="frustration" name="frustration" placeholder="e.g. We get referrals but nothing online, clients can't find us, our site looks outdated…"></textarea>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="presence">Current Digital Presence</label>
+            <select class="form-input" id="presence" name="presence" multiple>
+              <option value="no-website">No website</option>
+              <option value="outdated-website">Outdated website</option>
+              <option value="website-no-leads">Have website but no leads</option>
+              <option value="social-media">Active on social media</option>
+              <option value="google-business">Listed on Google Business</option>
+              <option value="none">None of the above</option>
+            </select>
+            <span style="font-size:0.7rem;color:var(--muted-2);margin-top:4px;">Hold Ctrl / Cmd to select multiple</span>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="investment">Investment Range Comfort</label>
+            <select class="form-input" id="investment" name="investment">
+              <option value="" disabled selected>Select a range</option>
+              <option value="under-3k">Under RM3,000</option>
+              <option value="3k-6k">RM3,000 – 6,000</option>
+              <option value="6k-12k">RM6,000 – 12,000</option>
+              <option value="12k-plus">RM12,000+</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Which Service Are You Most Interested In?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" name="service" value="website-design" />
+                <span class="checkbox-label">Website design</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="service" value="google-business" />
+                <span class="checkbox-label">Google Business optimisation</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="service" value="seo" />
+                <span class="checkbox-label">SEO</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="service" value="social-media" />
+                <span class="checkbox-label">Social media</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="service" value="full-package" />
+                <span class="checkbox-label">Full digital package</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="service" value="not-sure" />
+                <span class="checkbox-label">Not sure, need advice</span>
+              </label>
+            </div>
           </div>
           <button type="submit" class="form-submit">Request my discovery call →</button>
           <p class="form-privacy">Your details stay with Apex IT Solution. We do not share, sell, or add you to any third-party list. Conversations are treated as confidential from first contact.</p>
