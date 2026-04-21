@@ -768,7 +768,7 @@
       </div>
 
       <div class="form-right">
-        <form class="contact-form" name="lawfirms-discovery" netlify>
+        <form class="contact-form" id="lawfirms-form" novalidate>
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="fname">Full Name *</label>
@@ -798,16 +798,33 @@
             <textarea class="form-input form-textarea" id="frustration" name="frustration" placeholder="e.g. We get referrals but nothing online, clients can't find us, our site looks outdated…"></textarea>
           </div>
           <div class="form-field">
-            <label class="form-label" for="presence">Current Digital Presence</label>
-            <select class="form-input" id="presence" name="presence" multiple>
-              <option value="no-website">No website</option>
-              <option value="outdated-website">Outdated website</option>
-              <option value="website-no-leads">Have website but no leads</option>
-              <option value="social-media">Active on social media</option>
-              <option value="google-business">Listed on Google Business</option>
-              <option value="none">None of the above</option>
-            </select>
-            <span style="font-size:0.7rem;color:var(--muted-2);margin-top:4px;">Hold Ctrl / Cmd to select multiple</span>
+            <label class="form-label">Current Digital Presence</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" name="presence" value="no-website" />
+                <span class="checkbox-label">No website</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="presence" value="outdated-website" />
+                <span class="checkbox-label">Outdated website</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="presence" value="website-no-leads" />
+                <span class="checkbox-label">Have website but no leads</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="presence" value="social-media" />
+                <span class="checkbox-label">Active on social media</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="presence" value="google-business" />
+                <span class="checkbox-label">Listed on Google Business</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="presence" value="none" />
+                <span class="checkbox-label">None of the above</span>
+              </label>
+            </div>
           </div>
           <div class="form-field">
             <label class="form-label" for="investment">Investment Range Comfort</label>
@@ -849,9 +866,14 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="form-submit">Request my discovery call →</button>
+          <button type="submit" class="form-submit" id="lf-submit">Request my discovery call →</button>
           <p class="form-privacy">Your details stay with Apex IT Solution. We do not share, sell, or add you to any third-party list. Conversations are treated as confidential from first contact.</p>
         </form>
+        <div id="lf-success" style="display:none; text-align:center; padding:40px 16px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold-b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <h3 style="font-family:var(--font-display);color:#fff;font-size:1.2rem;margin-bottom:10px;">We'll be in touch shortly.</h3>
+          <p style="color:var(--muted);font-size:0.88rem;line-height:1.6;">Thanks for reaching out. We reply within one business day — usually faster.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -878,6 +900,74 @@
       const item = btn.closest('.faq-item');
       item.classList.toggle('open');
     });
+  });
+
+  /* Law firms discovery form → Formspree */
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  document.getElementById('lawfirms-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const nameEl  = document.getElementById('fname');
+    const emailEl = document.getElementById('email');
+    let valid = true;
+    [nameEl, emailEl].forEach(el => {
+      if (!el.value.trim()) {
+        el.style.borderColor = 'rgba(255,80,80,0.6)';
+        el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+        valid = false;
+      }
+    });
+    if (!valid) return;
+
+    const submitBtn = document.getElementById('lf-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const getChecked = name => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value).join(', ');
+
+    const data = {
+      name:        nameEl.value.trim(),
+      firm:        document.getElementById('firm').value.trim(),
+      role:        document.getElementById('role').value.trim(),
+      email:       emailEl.value.trim(),
+      phone:       document.getElementById('phone').value.trim(),
+      frustration: document.getElementById('frustration').value.trim(),
+      presence:    getChecked('presence'),
+      investment:  document.getElementById('investment').value,
+      services:    getChecked('service'),
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/xwvareoj', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        const userData = {};
+        const email = data.email.toLowerCase().trim();
+        const phone = data.phone.replace(/\D/g, '');
+        if (email) userData.em = await sha256(email);
+        if (phone) userData.ph = await sha256(phone);
+        if (typeof fbq === 'function') {
+          fbq('init', '1466517135173050', userData);
+          fbq('track', 'Lead');
+        }
+        document.getElementById('lawfirms-form').style.display = 'none';
+        document.getElementById('lf-success').style.display = 'block';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request my discovery call →';
+        alert('Something went wrong. Please try again or reach us on WhatsApp.');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request my discovery call →';
+      alert('Network error. Please check your connection and try again.');
+    }
   });
 </script>
 </body>
