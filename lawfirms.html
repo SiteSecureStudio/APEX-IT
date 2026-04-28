@@ -170,6 +170,49 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ─── Hero Inline Form ──────────────────────────────────── */
+    .hero-form {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(200,146,42,0.18);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(200,146,42,0.06), 0 12px 32px rgba(0,0,0,0.06);
+      opacity: 0; animation: fadeUp 0.7s 0.65s var(--ease) forwards;
+    }
+    .hero-form-label {
+      font-family: var(--font-display); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-b);
+      margin-bottom: 14px;
+    }
+    .hero-form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 520px) { .hero-form-row { grid-template-columns: 1fr; } }
+    .hero-form-input {
+      font-family: var(--font-body); font-size: 0.88rem; color: var(--ink);
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 6px; padding: 10px 14px; width: 100%;
+      outline: none; transition: border-color 0.2s;
+    }
+    .hero-form-input::placeholder { color: var(--muted-2); }
+    .hero-form-input:focus { border-color: var(--gold-a); }
+    .hero-form-submit {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #fff; background: var(--grad-brand);
+      border: none; width: 100%; padding: 12px;
+      border-radius: 6px; cursor: pointer; margin-top: 4px;
+      box-shadow: 0 4px 16px rgba(200,146,42,0.22);
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .hero-form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hero-form-privacy {
+      font-size: 0.72rem; color: var(--muted-2); margin-top: 10px; line-height: 1.5;
+    }
+
     /* ─── Section shared styles ─────────────────────────────── */
     .section { padding: 80px 0; }
     .section-alt { padding: 80px 0; background: var(--surface); }
@@ -509,6 +552,22 @@
         </a>
       </div>
       <p class="hero-trust">No pitch. No obligation. A 30-minute diagnostic of your firm's digital position — and what the new rules allow you to do about it.</p>
+
+      <div class="hero-form">
+        <div class="hero-form-label">Request your free discovery call</div>
+        <form name="lawfirms-hero" netlify>
+          <div class="hero-form-row">
+            <input class="hero-form-input" type="text" name="name" required placeholder="Your name" />
+            <input class="hero-form-input" type="text" name="firm" required placeholder="Firm name" />
+          </div>
+          <div class="hero-form-row">
+            <input class="hero-form-input" type="email" name="email" required placeholder="Work email" />
+            <input class="hero-form-input" type="tel" name="phone" required placeholder="WhatsApp / mobile" />
+          </div>
+          <button type="submit" class="hero-form-submit">Book my free discovery call →</button>
+          <p class="hero-form-privacy">Your details stay with Apex IT Solution. No pitch. No third-party sharing.</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
