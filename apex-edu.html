@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex EDU — Free Diagnostic Quiz + Structured Worksheets for Your Child</title>
+  <meta name="description" content="Find out exactly where your child is struggling with a free diagnostic quiz. Structured weekly worksheets, parent guides and optional marking. Cambridge, Kebangsaan & IGCSE. By Apex IT — since 2006.">
+  <link rel="canonical" href="https://apexsolutions.my/apex-edu">
+  <meta property="og:title" content="Apex EDU — Free Diagnostic Quiz + Structured Worksheets">
+  <meta property="og:description" content="Structured weekly worksheets matched to your child's exact weak spots. Free diagnostic quiz. Cambridge, Kebangsaan & IGCSE. By Apex IT.">
+  <meta property="og:url" content="https://apexsolutions.my/apex-edu">
+  <meta property="og:type" content="website">
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1466517135173050');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1466517135173050&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:          #ffffff;
+      --surface:     #f3f3f5;
+      --surface-2:   #e8e8ec;
+      --border:      rgba(0,0,0,0.09);
+      --gold-a:      #c8922a;
+      --gold-b:      #b87a10;
+      --orange-a:    #e8722a;
+      --orange-b:    #d4600a;
+      --ink:         #111113;
+      --muted:       #5a5a62;
+      --muted-2:     #b0b0b8;
+      --coral:       #dc5f4a;
+      --grad-brand:  linear-gradient(135deg, var(--gold-a), var(--orange-b));
+      --font-d:      'Poppins', sans-serif;
+      --font-b:      'Roboto', sans-serif;
+      --radius:      12px;
+      --ease:        cubic-bezier(0.4,0,0.2,1);
+      --shadow:      0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-g:    0 4px 16px rgba(200,146,42,0.22);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999}
+    .gold-text{background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+    a{color:inherit;text-decoration:none}
+
+    /* Eyebrow */
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-d);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-b);margin-bottom:12px}
+    .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--grad-brand);flex:none}
+    .eyebrow.no-line::before{display:none}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:12px 24px;border-radius:6px;cursor:pointer;border:none;text-decoration:none;transition:opacity .25s var(--ease),transform .25s var(--ease),border-color .2s,background .2s;line-height:1;white-space:nowrap}
+    .btn-primary{color:#fff;background:var(--grad-brand);box-shadow:var(--shadow-g)}
+    .btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+    .btn-outline{color:var(--ink);background:transparent;border:1px solid var(--border)}
+    .btn-outline:hover{border-color:rgba(200,146,42,.35);background:rgba(200,146,42,.04);transform:translateY(-1px)}
+    .btn-gold{color:var(--gold-b);background:transparent;border:1px solid rgba(200,146,42,.35)}
+    .btn-gold:hover{background:rgba(200,146,42,.06);transform:translateY(-1px)}
+    .btn-dark{color:#fff;background:var(--ink)}
+    .btn-dark:hover{opacity:.85;transform:translateY(-1px)}
+    .wa-ico{width:16px;height:16px;flex:none}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+    .nav-logo img{height:40px;width:auto}
+    .nav-div{width:1px;height:26px;background:var(--border)}
+    .nav-name{font-family:var(--font-d);font-size:.92rem;font-weight:700}
+    .nav-name small{display:block;font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+    .nav-list{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-list a{font-family:var(--font-d);font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .nav-list a:hover{color:var(--ink)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--ink);padding:4px}
+    @media(max-width:860px){
+      .nav-list{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;background:var(--bg);padding:12px 24px 20px;border-bottom:1px solid var(--border);gap:16px;z-index:100}
+      .nav-list.open{display:flex}
+      .nav-actions .btn-outline{display:none}
+      .nav-actions .btn-primary{font-size:.7rem;padding:10px 14px;letter-spacing:.04em}
+      .menu-btn{display:block}
+    }
+
+    /* Hero */
+    .hero{padding:72px 0 48px;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 60% at 72% 30%,rgba(200,146,42,.09) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(232,114,42,.06) 0%,transparent 55%)}
+    .hero>.wrap{position:relative;z-index:1}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+    .chip{font-family:var(--font-d);font-size:.68rem;font-weight:500;letter-spacing:.04em;padding:4px 10px;border-radius:4px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
+    .hero h1{font-family:var(--font-d);font-size:clamp(2.2rem,4.8vw,3.6rem);font-weight:800;line-height:1.07;letter-spacing:-.03em;margin:8px 0 18px}
+    .hero-lead{font-size:.98rem;color:var(--muted);line-height:1.8;max-width:38ch;margin-bottom:28px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+    .trust{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--font-d);font-size:.68rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);align-items:center}
+    .t-dot{width:3px;height:3px;border-radius:50%;background:var(--border)}
+
+    /* Report card */
+    .report{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;position:relative;transform:rotate(1.5deg)}
+    .report::before{content:'FREE';position:absolute;top:-12px;right:18px;background:var(--grad-brand);color:#fff;font-family:var(--font-d);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;transform:rotate(2deg);box-shadow:var(--shadow-g)}
+    .rpt-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--surface-2);padding-bottom:14px;margin-bottom:14px}
+    .rpt-title{font-family:var(--font-d);font-weight:700;font-size:.95rem}
+    .rpt-sub{font-size:.75rem;color:var(--muted);margin-top:3px}
+    .score-ring{width:58px;height:58px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(var(--gold-a) 0 72%,var(--surface-2) 72% 100%)}
+    .score-ring span{width:44px;height:44px;background:#fff;border-radius:50%;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:.92rem;color:var(--ink)}
+    .band{display:inline-block;font-family:var(--font-d);font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-b);background:rgba(200,146,42,.1);padding:4px 8px;border-radius:4px;margin-bottom:14px}
+    .topic-lbl{font-family:var(--font-d);font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:8px}
+    .topic{display:flex;align-items:center;gap:10px;margin:7px 0}
+    .topic .tn{font-size:.8rem;color:var(--muted);width:88px;flex:none}
+    .topic .bar{flex:1;height:5px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+    .topic .bar i{display:block;height:100%;border-radius:99px}
+    .topic .pct{font-size:.72rem;color:var(--muted-2);width:32px;text-align:right}
+    .rpt-note{margin-top:14px;font-size:.76rem;color:var(--muted);line-height:1.65;background:var(--surface);border-radius:8px;padding:10px 12px}
+    .rpt-note b{color:var(--ink)}
+
+    @media(max-width:860px){
+      .hero-grid{grid-template-columns:1fr;gap:28px}
+      .hero{padding:36px 0 20px}
+      .hero h1{font-size:1.85rem;letter-spacing:-.02em}
+      .hero-lead{font-size:.92rem;max-width:100%}
+      .hero-ctas{flex-direction:column;align-items:flex-start}
+      .hero-ctas .btn{width:100%;justify-content:center}
+      .report{transform:none;max-width:100%}
+    }
+
+    /* Sections */
+    .s{padding:72px 0}
+    .s-alt{padding:72px 0;background:var(--surface)}
+    .s-dark{padding:72px 0;background:var(--ink)}
+    .sec-head{max-width:600px;margin-bottom:40px}
+    .sec-head.c{margin:0 auto 40px;text-align:center}
+    .sec-head h2{font-family:var(--font-d);font-size:clamp(1.65rem,3.2vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+    .sec-head p{font-size:.92rem;color:var(--muted);line-height:1.75}
+    .s-dark .sec-head h2{color:#fff}
+    .s-dark .sec-head p{color:rgba(255,255,255,.5)}
+    .s-dark .eyebrow{color:var(--gold-a)}
+
+    /* Pain cards */
+    .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .pain-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .pain-ic{width:38px;height:38px;border-radius:8px;background:rgba(200,146,42,.1);margin-bottom:14px;display:grid;place-items:center}
+    .pain-ic svg{width:18px;height:18px;stroke:var(--gold-b);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .pain-card h3{font-family:var(--font-d);font-size:.95rem;font-weight:700;margin-bottom:6px}
+    .pain-card p{font-size:.85rem;color:var(--muted);line-height:1.7}
+
+    /* Steps */
+    .step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+    .step{position:relative}
+    .step-n{font-family:var(--font-d);font-size:1.9rem;font-weight:900;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:12px}
+    .step h3{font-family:var(--font-d);font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px}
+    .step p{font-size:.82rem;color:rgba(255,255,255,.48);line-height:1.65}
+    .step-line{position:absolute;top:14px;left:58px;right:-8px;height:1px;background:linear-gradient(90deg,rgba(200,146,42,.35),transparent)}
+
+    /* Features */
+    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feat{display:flex;gap:14px;align-items:flex-start;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .feat-tick{flex:none;width:28px;height:28px;border-radius:6px;background:rgba(200,146,42,.1);color:var(--gold-b);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+    .feat h3{font-family:var(--font-d);font-size:.88rem;font-weight:700;margin-bottom:4px}
+    .feat p{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+    /* Subjects */
+    .subj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .subj{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:transform .2s var(--ease),border-color .2s}
+    .subj:hover{transform:translateY(-3px);border-color:rgba(200,146,42,.22)}
+    .subj-tag{font-family:var(--font-d);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-b);margin-bottom:8px}
+    .subj h3{font-family:var(--font-d);font-size:1.1rem;font-weight:700;margin-bottom:12px}
+    .pills{display:flex;flex-wrap:wrap;gap:6px}
+    .pill{font-size:.75rem;font-weight:500;padding:4px 10px;border-radius:4px;background:var(--surface);color:var(--muted)}
+
+    /* Compare */
+    .compare-wrap{max-width:780px;margin:0 auto}
+    .compare{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .col{border-radius:var(--radius);padding:24px 20px;border:1px solid var(--border)}
+    .col.dim{background:var(--surface)}
+    .col.win{background:var(--ink);border-color:var(--ink);box-shadow:var(--shadow)}
+    .col h3{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:4px}
+    .col.win h3{color:#fff}
+    .col .c-price{font-family:var(--font-d);font-size:.7rem;color:var(--muted-2);margin-bottom:16px}
+    .col.win .c-price{color:var(--gold-a)}
+    .col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .col li{font-size:.85rem;display:flex;gap:8px;align-items:baseline}
+    .col.dim li::before{content:'✕';color:var(--muted-2);font-size:.75rem;font-weight:700;flex:none}
+    .col.win li{color:rgba(255,255,255,.7)}
+    .col.win li::before{content:'✓';color:var(--gold-a);font-weight:700;flex:none}
+    .tutor-banner{margin-top:18px;background:var(--ink);border-radius:var(--radius);padding:24px 28px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .tutor-banner h3{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px}
+    .tutor-banner p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:52ch;line-height:1.65}
+
+    /* Plans */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start;margin-top:8px}
+    .plan{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
+    .plan.featured{border:1.5px solid var(--gold-a);box-shadow:var(--shadow),0 0 0 4px rgba(200,146,42,.08);transform:translateY(-6px)}
+    .plan-flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad-brand);color:#fff;font-family:var(--font-d);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:4px;white-space:nowrap}
+    .plan h3{font-family:var(--font-d);font-size:1.1rem;font-weight:700;margin-bottom:4px}
+    .plan-desc{font-size:.8rem;color:var(--muted);line-height:1.6;min-height:38px;margin-bottom:4px}
+    .plan-amt{font-family:var(--font-d);font-size:2.1rem;font-weight:800;letter-spacing:-.03em;margin:10px 0 0;line-height:1}
+    .plan-amt small{font-size:.78rem;font-family:var(--font-b);color:var(--muted);font-weight:400}
+    .plan-per{font-size:.72rem;color:var(--muted-2);margin-bottom:16px;margin-top:4px}
+    .plan ul{list-style:none;flex:1;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+    .plan li{font-size:.82rem;display:flex;gap:8px;align-items:baseline;color:var(--muted)}
+    .plan li::before{content:'✓';color:var(--gold-b);font-weight:700;flex:none}
+    .plan .btn{width:100%;justify-content:center}
+    .entry-box{margin-top:16px;background:rgba(200,146,42,.07);border:1px dashed rgba(200,146,42,.3);border-radius:var(--radius);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .entry-box strong{font-family:var(--font-d);font-size:.92rem;font-weight:700}
+    .price-note{text-align:center;font-size:.76rem;color:var(--muted-2);margin-top:12px;line-height:1.5}
+
+    /* Offers */
+    .offers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .offer{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .offer-big{font-family:var(--font-d);font-size:1.65rem;font-weight:800;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;margin-bottom:8px}
+    .offer p{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+    /* FAQ */
+    .faq{max-width:700px;margin:0 auto}
+    .q{border-bottom:1px solid var(--border)}
+    .q button{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 0;font-family:var(--font-d);font-weight:600;font-size:.9rem;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .q .a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+    .q .a p{font-size:.85rem;color:var(--muted);padding-bottom:18px;line-height:1.78}
+    .q-pm{flex:none;width:24px;height:24px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-weight:700;color:var(--muted);font-size:1rem;transition:transform .25s var(--ease),background .2s,color .2s}
+    .q.open .q-pm{transform:rotate(45deg);background:var(--gold-a);color:#fff}
+
+    /* Final CTA */
+    .final-cta{background:var(--ink);border-radius:14px;padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+    .final-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 48% 55% at 18% 50%,rgba(200,146,42,.12) 0%,transparent 58%),radial-gradient(ellipse 38% 48% at 82% 50%,rgba(232,114,42,.08) 0%,transparent 52%)}
+    .final-cta h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;position:relative}
+    .final-cta p{color:rgba(255,255,255,.5);max-width:44ch;margin:12px auto 28px;font-size:.92rem;line-height:1.78;position:relative}
+    .final-cta .btn{position:relative}
+
+    /* Footer */
+    footer{padding:48px 0 52px;border-top:1px solid var(--border)}
+    .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:18px}
+    .foot-brand img{height:36px;width:auto;margin-bottom:8px}
+    .foot-brand p{font-size:.78rem;color:var(--muted-2);max-width:30ch;line-height:1.65}
+    .foot-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .foot-links a{font-family:var(--font-d);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .foot-links a:hover{color:var(--gold-b)}
+    .foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.75rem;color:var(--muted-2)}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+
+    @media(max-width:860px){
+      /* Tighten section padding */
+      .s,.s-alt,.s-dark{padding:48px 0}
+      .s-dark .sec-head{margin-bottom:28px}
+      .sec-head{margin-bottom:28px}
+      .sec-head.c{margin-bottom:28px}
+
+      /* Collapse grids */
+      .pain-grid,.step-grid,.feat-grid,.subj-grid,.compare,.plans,.offers{grid-template-columns:1fr}
+
+      /* Steps */
+      .step-grid{gap:28px;margin-top:28px}
+      .step-n{font-size:1.5rem}
+      .step-line{display:none}
+
+      /* Features */
+      .feat{padding:16px}
+
+      /* Subjects */
+      .subj-grid{gap:12px}
+
+      /* Offers */
+      .offers{grid-template-columns:repeat(2,1fr)}
+
+      /* Plans */
+      .plan.featured{transform:none}
+      .plans{gap:12px}
+
+      /* Entry box */
+      .entry-box{flex-direction:column;align-items:flex-start}
+      .entry-box .btn{width:100%;justify-content:center}
+
+      /* Tutor banner */
+      .tutor-banner{flex-direction:column;align-items:flex-start}
+      .tutor-banner .btn{width:100%;justify-content:center}
+
+      /* Compare */
+      .compare-wrap .tutor-banner{margin-top:12px}
+
+      /* Final CTA */
+      .final-cta{padding:40px 20px}
+      .final-cta h2{font-size:1.7rem}
+
+      /* Footer */
+      .foot-inner{flex-direction:column;gap:20px}
+      .foot-links{gap:14px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="nav-logo">
+        <img src="/brand-assests/Only logo.png" alt="Apex IT">
+        <div class="nav-div"></div>
+        <div class="nav-name">EDU<small>Worksheet Programme</small></div>
+      </a>
+      <ul class="nav-list" id="navList">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#plans" class="btn btn-outline">See plans</a>
+        <a href="#" class="btn btn-primary wa-link">
+          <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
+          Free Quiz
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-chips">
+          <span class="chip">Cambridge Primary → IGCSE</span>
+          <span class="chip">Sekolah Kebangsaan</span>
+        </div>
+        <div class="eyebrow">Year 1–6 · Lower Secondary · IGCSE</div>
+        <h1>Not sure where your child is <span class="gold-text">actually struggling?</span></h1>
+        <p class="hero-lead">Start with a free diagnostic quiz. We show you the exact topics your child needs to work on, then give you structured weekly worksheets to fix them — at home.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary wa-link">
+            <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
+            Get the Free Quiz on WhatsApp
+          </a>
+          <a href="#how" class="btn btn-outline">See how it works</a>
+        </div>
+        <div class="trust">
+          <span>100% free diagnostic</span><span class="t-dot"></span>
+          <span>No commitment</span><span class="t-dot"></span>
+          <span>By Apex IT · since 2006</span>
+        </div>
+      </div>
+      <div>
+        <div class="report">
+          <div class="rpt-head">
+            <div>
+              <div class="rpt-title">Diagnostic Result</div>
+              <div class="rpt-sub">Year 5 Maths · Cambridge</div>
+            </div>
+            <div class="score-ring"><span>72%</span></div>
+          </div>
+          <span class="band">Band: Developing — needs structured practice</span>
+          <div class="topic-lbl">Topic breakdown</div>
+          <div class="topic"><span class="tn">Calculation</span><div class="bar"><i style="width:88%;background:var(--gold-a)"></i></div><span class="pct">88%</span></div>
+          <div class="topic"><span class="tn">Fractions</span><div class="bar"><i style="width:64%;background:#d4a240"></i></div><span class="pct">64%</span></div>
+          <div class="topic"><span class="tn">Word problems</span><div class="bar"><i style="width:45%;background:var(--coral)"></i></div><span class="pct">45%</span></div>
+          <div class="rpt-note">
+            <b>What this means:</b> comfortable with direct calculation, but mistakes in multi-step word problems. The gap is choosing the right method, not the maths itself.<br><br>
+            <b>Recommended:</b> start at Word Problem Set A, on the Guided Marking plan.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="s-alt" id="problem">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Sound familiar?</div>
+      <h2>Most parents are guessing</h2>
+      <p>You want to help, but it's hard to know exactly which topics to focus on — and the worksheets you find online aren't matched to what your child actually needs.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Random worksheets</h3>
+        <p>You download free PDFs, but there's no structure, no feedback, and no idea if they're even at the right level.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.07s">
+        <div class="pain-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3>Nothing is tailored</h3>
+        <p>Generic worksheets aren't matched to your child's real weak spots, so practice time gets spent on things they already know.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.14s">
+        <div class="pain-ic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Weak subject, or weak topic?</h3>
+        <p>Is your child weak at Maths overall, or just at fractions and word problems? That answer changes everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="s-dark" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Simple, WhatsApp-led</div>
+      <h2>How it works</h2>
+      <p>From "I'm not sure" to a clear plan, in four steps. Everything starts on WhatsApp.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step reveal">
+        <div class="step-line"></div>
+        <div class="step-n">1</div>
+        <h3>Free quiz</h3>
+        <p>We send a short diagnostic quiz for your child's exact year, syllabus and subject.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.07s">
+        <div class="step-line"></div>
+        <div class="step-n">2</div>
+        <h3>Get your report</h3>
+        <p>A clear breakdown showing the topics your child has mastered and the ones to work on.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.14s">
+        <div class="step-line"></div>
+        <div class="step-n">3</div>
+        <h3>Worksheet path</h3>
+        <p>Structured weekly worksheet sets with answer keys and a simple parent guide.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.21s">
+        <div class="step-n">4</div>
+        <h3>Track progress</h3>
+        <p>Add optional marking, correction remarks and a recommended next step each week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="s" id="included">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">More than worksheets</div>
+      <h2>What's inside every set</h2>
+      <p>A guided learning support system, not a pile of PDFs. Each weekly set is built to be done in 30–90 minutes depending on level.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal"><div class="feat-tick">✓</div><div><h3>Weekly worksheet sets</h3><p>4–12 pages per set, structured from core skills up to exam-style questions.</p></div></div>
+      <div class="feat reveal" style="transition-delay:.05s"><div class="feat-tick">✓</div><div><h3>Answer keys</h3><p>Full marking guide so you can check work without needing a tutor.</p></div></div>
+      <div class="feat reveal" style="transition-delay:.1s"><div class="feat-tick">✓</div><div><h3>Parent guide</h3><p>Topic objective, common mistakes to watch for, and what to do if your child struggles.</p></div></div>
+      <div class="feat reveal" style="transition-delay:.15s"><div class="feat-tick">✓</div><div><h3>Optional marking</h3><p>Send work in, get it marked with correction remarks and weak-topic comments.</p></div></div>
+      <div class="feat reveal" style="transition-delay:.2s"><div class="feat-tick">✓</div><div><h3>Monthly revision</h3><p>A revision sheet and topic checklist to consolidate the month's practice.</p></div></div>
+      <div class="feat reveal" style="transition-delay:.25s"><div class="feat-tick">✓</div><div><h3>Recommended next step</h3><p>Each week we point you to the right set to do next, based on results.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<section class="s-alt" id="subjects">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Built by syllabus &amp; level</div>
+      <h2>Subjects we cover</h2>
+      <p>We follow two systems: the Cambridge pathway (Primary → Lower Secondary → IGCSE) and the national Sekolah Kebangsaan syllabus. Each subject is its own programme, matched to your child's exact year.</p>
+    </div>
+    <div class="subj-grid">
+      <div class="subj reveal">
+        <div class="subj-tag">Cambridge Primary · Grade 1–6</div>
+        <h3>Strong foundations</h3>
+        <div class="pills"><span class="pill">English</span><span class="pill">Maths</span><span class="pill">Science</span></div>
+      </div>
+      <div class="subj reveal" style="transition-delay:.06s">
+        <div class="subj-tag">Cambridge Lower Secondary · Grade 7–9</div>
+        <h3>Prepare before IGCSE</h3>
+        <div class="pills"><span class="pill">English</span><span class="pill">Maths</span><span class="pill">Science</span></div>
+      </div>
+      <div class="subj reveal" style="transition-delay:.12s">
+        <div class="subj-tag">Cambridge IGCSE · Year 10–11</div>
+        <h3>Exam-ready practice</h3>
+        <div class="pills"><span class="pill">English</span><span class="pill">Maths</span><span class="pill">Biology</span><span class="pill">Chemistry</span><span class="pill">Physics</span><span class="pill">Business</span><span class="pill">Economics</span><span class="pill">Accounting</span></div>
+      </div>
+      <div class="subj reveal" style="transition-delay:.18s">
+        <div class="subj-tag">Sekolah Kebangsaan · Year 1–6</div>
+        <h3>Steady weekly practice</h3>
+        <div class="pills"><span class="pill">English</span><span class="pill">Maths</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="s" id="compare">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Where we fit</div>
+      <h2>Know exactly what to work on. Then practise it.</h2>
+    </div>
+    <div class="compare-wrap">
+      <div class="compare">
+        <div class="col dim reveal">
+          <h3>Random worksheets online</h3>
+          <div class="c-price">The free ones you download yourself</div>
+          <ul><li>No structure or order</li><li>No feedback at all</li><li>Right level? Who knows</li><li>No progress tracking</li></ul>
+        </div>
+        <div class="col win reveal" style="transition-delay:.08s">
+          <h3>Apex EDU</h3>
+          <div class="c-price">From RM49/month per subject</div>
+          <ul><li>Free diagnostic first</li><li>Structured weekly path</li><li>Parent guide included</li><li>Optional marking &amp; remarks</li><li>Works alongside your tutor</li></ul>
+        </div>
+      </div>
+      <div class="tutor-banner reveal">
+        <div>
+          <h3>Already have a tutor? Even better.</h3>
+          <p>Hand your tutor the diagnostic report and the marked worksheets, so every session targets the exact topics your child needs — instead of guessing.</p>
+        </div>
+        <a href="#" class="btn btn-primary wa-link">Get the free diagnostic</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="s-alt" id="plans">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Pick your level of support</div>
+      <h2>Plans &amp; pricing</h2>
+      <p>Each subject is one subscription. Prices below start from the lowest level — your exact price depends on syllabus and year.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Self-Study</h3>
+        <div class="plan-desc">Worksheets and answer guides. No marking.</div>
+        <div class="plan-amt"><small>from </small>RM49<small>/mo</small></div>
+        <div class="plan-per">per subject</div>
+        <ul><li>Weekly worksheets</li><li>Answer keys</li><li>Parent guide</li><li>Monthly revision sheet</li><li>Topic checklist</li></ul>
+        <a href="#" class="btn btn-gold wa-link">Start Self-Study</a>
+      </div>
+      <div class="plan featured reveal" style="transition-delay:.07s">
+        <div class="plan-flag">★ Most popular</div>
+        <h3>Guided Marking</h3>
+        <div class="plan-desc">Weekly worksheets plus real marking and feedback on what your child got wrong.</div>
+        <div class="plan-amt"><small>from </small>RM109<small>/mo</small></div>
+        <div class="plan-per">per subject</div>
+        <ul><li>Everything in Self-Study</li><li>Marking — up to 4 sets/month (3-day turnaround)</li><li>Correction remarks</li><li>Weak-topic comments</li><li>Recommended next worksheet</li></ul>
+        <a href="#" class="btn btn-primary wa-link">Start Guided Marking</a>
+      </div>
+      <div class="plan reveal" style="transition-delay:.14s">
+        <h3>Premium Progress</h3>
+        <div class="plan-desc">See whether your child is actually improving, month over month, with a plan to push it further.</div>
+        <div class="plan-amt"><small>from </small>RM159<small>/mo</small></div>
+        <div class="plan-per">per subject</div>
+        <ul><li>Everything in Guided Marking</li><li>Monthly progress report showing the trend</li><li>Summary of recurring weak topics</li><li>Written improvement plan each month</li><li>Priority marking (faster turnaround)</li><li>2 weak-topic focuses per month</li></ul>
+        <a href="#" class="btn btn-gold wa-link">Start Premium</a>
+      </div>
+    </div>
+    <div class="entry-box reveal">
+      <div><strong>Not ready to subscribe?</strong> Try a One-Time Practice Pack first — 4 weekly sets, answer key and parent guide, from <strong>RM59</strong>.</div>
+      <a href="#" class="btn btn-dark wa-link">Get a one-time pack</a>
+    </div>
+    <p class="price-note">Save more: 3/6/12-month plans up to 15% off · 2+ subjects up to 15% off · sibling discounts available.</p>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="s" style="padding-top:0" id="offers">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Launch offers</div>
+      <h2>Reasons to start this week</h2>
+    </div>
+    <div class="offers">
+      <div class="offer reveal"><div class="offer-big">RM20</div><p>Learning credit when you subscribe within 48 hours of your diagnostic report.</p></div>
+      <div class="offer reveal" style="transition-delay:.06s"><div class="offer-big">+1 set</div><p>Bonus worksheet set free when you subscribe within 7 days of your report.</p></div>
+      <div class="offer reveal" style="transition-delay:.12s"><div class="offer-big">10–15%</div><p>Sibling discount when a second or third child joins.</p></div>
+      <div class="offer reveal" style="transition-delay:.18s"><div class="offer-big">RM20 each</div><p>Refer a friend: you both get RM20 credit after they subscribe.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Honest answers</div>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="q"><button>Is the diagnostic quiz really free?<span class="q-pm">+</span></button><div class="a"><p>Yes, completely free. Its only job is to show you exactly where your child stands so you can decide what to do next. No payment, no obligation.</p></div></div>
+      <div class="q"><button>Is this the same as tuition?<span class="q-pm">+</span></button><div class="a"><p>No. It's a guided worksheet programme: structured weekly practice, a parent guide, and optional marking. It's more flexible and more affordable than centre-based tuition, and you do it on your own schedule at home.</p></div></div>
+      <div class="q"><button>How does marking work?<span class="q-pm">+</span></button><div class="a"><p>On the Guided Marking and Premium plans, you can submit up to 4 worksheet sets per month per subject (about one a week), with correction remarks and weak-topic comments. Standard turnaround is 3 working days on Guided Marking — Premium gets priority (faster) marking.</p></div></div>
+      <div class="q"><button>Can I choose what topics my child works on?<span class="q-pm">+</span></button><div class="a"><p>You follow a monthly roadmap and choose the difficulty level. On Guided Marking you can pick 1 weak-topic focus per month, and on Premium up to 2. This keeps the programme structured rather than random.</p></div></div>
+      <div class="q"><button>Which syllabus do you cover?<span class="q-pm">+</span></button><div class="a"><p>The Cambridge pathway: Primary (Grade 1–6), Lower Secondary (Grade 7–9) and IGCSE (Year 10–11). Plus the national Sekolah Kebangsaan syllabus (Year 1–6).</p></div></div>
+      <div class="q"><button>Do you guarantee my child's grades will improve?<span class="q-pm">+</span></button><div class="a"><p>No honest programme can guarantee grades. What we give you is structured practice, clear progress tracking, and a recommended next step each week so improvement has the best chance to happen.</p></div></div>
+      <div class="q"><button>How do I start?<span class="q-pm">+</span></button><div class="a"><p>Tap any "Free Quiz" button to message us on WhatsApp. Tell us your child's year, syllabus and subject, and we'll send the right diagnostic quiz straight away.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="s" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="final-cta reveal">
+      <h2>Start with the free diagnostic quiz</h2>
+      <p>In a few minutes you'll know exactly where your child needs help, based on the expected level for their year. No cost, no commitment.</p>
+      <a href="#" class="btn btn-primary wa-link">
+        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <img src="/brand-assests/Only logo.png" alt="Apex IT">
+        <p>A structured online worksheet programme for parents who want to support their child at home.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#how">How it works</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#plans">Plans</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" class="wa-link">WhatsApp</a>
+        <a href="/">Apex IT →</a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <span>An <strong>Apex IT</strong> programme · since 2006 · Kuala Lumpur</span>
+      <span>© 2026 Apex EDU. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var WA = "60179742459";
+  var MSG = "Hi Apex EDU! I'd like the free diagnostic quiz. My child is in [year], syllabus [Cambridge/Kebangsaan], subject [English/Maths/Science/IGCSE].";
+  var waUrl = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
+  document.querySelectorAll(".wa-link").forEach(function(a){ a.href = waUrl; });
+
+  var btn = document.getElementById("menuBtn");
+  var nav = document.getElementById("navList");
+  btn.addEventListener("click", function(){ nav.classList.toggle("open"); });
+  nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ nav.classList.remove("open"); }); });
+
+  document.querySelectorAll(".q button").forEach(function(b){
+    b.addEventListener("click", function(){
+      var q = b.parentElement, a = q.querySelector(".a"), open = q.classList.contains("open");
+      document.querySelectorAll(".q").forEach(function(x){ x.classList.remove("open"); x.querySelector(".a").style.maxHeight = null; });
+      if (!open){ q.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; }
+    });
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
