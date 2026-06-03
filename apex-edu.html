@@ -104,8 +104,8 @@
     .t-dot{width:3px;height:3px;border-radius:50%;background:var(--border)}
 
     /* Diagnostic report card */
-    .report{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;position:relative;transform:rotate(1.5deg)}
-    .report::before{content:'FREE';position:absolute;top:-12px;right:18px;background:var(--grad-brand);color:#fff;font-family:var(--font-d);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;transform:rotate(2deg);box-shadow:var(--shadow-g)}
+    .report{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;position:relative}
+    .report::before{content:'FREE';position:absolute;top:-12px;right:18px;background:var(--grad-brand);color:#fff;font-family:var(--font-d);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;box-shadow:var(--shadow-g)}
     .rpt-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--surface-2);padding-bottom:14px;margin-bottom:14px}
     .rpt-title{font-family:var(--font-d);font-weight:700;font-size:.95rem}
     .rpt-sub{font-size:.75rem;color:var(--muted);margin-top:3px}
@@ -794,7 +794,6 @@
   <div class="wrap">
     <div class="foot-inner">
       <div class="foot-brand">
-        <img src="/brand-assests/Only logo.png" alt="Apex IT">
         <p>A structured online worksheet programme for parents who want to support their child at home.</p>
       </div>
       <div class="foot-links">
@@ -815,7 +814,7 @@
 
 <script>
   /* ====== CONFIG ====== */
-  var WA = "60179742459";
+  var WA = "601133023565";
   var DEADLINE = new Date("2026-07-03T23:59:59+08:00").getTime();
   var WEBHOOK_URL = ""; // optional: paste n8n webhook URL to capture leads
   /* ==================== */

@@ -1,0 +1,491 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - text: 🏷️
+      - strong [ref=e6]: "Launch offer:"
+      - text: free diagnostic + RM20 off your first month. Ends in
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: "30"
+        - generic [ref=e10]: Days
+      - generic [ref=e11]:
+        - generic [ref=e12]: "01"
+        - generic [ref=e13]: Hrs
+      - generic [ref=e14]:
+        - generic [ref=e15]: "53"
+        - generic [ref=e16]: Min
+      - generic [ref=e17]:
+        - generic [ref=e18]: "07"
+        - generic [ref=e19]: Sec
+    - link "Claim now" [ref=e20] [cursor=pointer]:
+      - /url: "#signup"
+    - button "Close banner" [ref=e21] [cursor=pointer]: ✕
+  - banner [ref=e22]:
+    - navigation [ref=e24]:
+      - link "Apex IT APEX EDU Worksheet Programme" [ref=e25] [cursor=pointer]:
+        - /url: "#top"
+        - img "Apex IT" [ref=e26]
+        - generic [ref=e28]:
+          - text: APEX EDU
+          - generic [ref=e29]: Worksheet Programme
+      - list [ref=e30]:
+        - listitem [ref=e31]:
+          - link "How it works" [ref=e32] [cursor=pointer]:
+            - /url: "#how"
+        - listitem [ref=e33]:
+          - link "Subjects" [ref=e34] [cursor=pointer]:
+            - /url: "#subjects"
+        - listitem [ref=e35]:
+          - link "Plans" [ref=e36] [cursor=pointer]:
+            - /url: "#plans"
+        - listitem [ref=e37]:
+          - link "FAQ" [ref=e38] [cursor=pointer]:
+            - /url: "#faq"
+      - generic [ref=e39]:
+        - link "See plans" [ref=e40] [cursor=pointer]:
+          - /url: "#plans"
+        - link "Free Diagnostic Quiz" [ref=e41] [cursor=pointer]:
+          - /url: "#signup"
+          - img [ref=e42]
+          - text: Free Diagnostic Quiz
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: Cambridge Primary → IGCSE
+        - generic [ref=e50]: Sekolah Kebangsaan
+      - generic [ref=e51]: Year 1–6 · Lower Secondary · IGCSE
+      - heading "Not sure where your child is actually struggling?" [level=1] [ref=e52]
+      - paragraph [ref=e53]: Start with a free diagnostic quiz. We show you the exact topics your child needs to work on, then give you structured weekly worksheets to fix them — at home.
+      - generic [ref=e54]:
+        - link "Get the Free Quiz" [ref=e55] [cursor=pointer]:
+          - /url: "#signup"
+          - img [ref=e56]
+          - text: Get the Free Quiz
+        - link "See how it works" [ref=e58] [cursor=pointer]:
+          - /url: "#how"
+      - generic [ref=e59]:
+        - generic [ref=e60]: 100% free diagnostic
+        - generic [ref=e62]: No commitment
+        - generic [ref=e64]: By Apex IT · since 2006
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - button "Maths" [ref=e67] [cursor=pointer]
+        - button "English" [ref=e68] [cursor=pointer]
+        - button "Science" [ref=e69] [cursor=pointer]
+        - button "IGCSE" [ref=e70] [cursor=pointer]
+      - generic [ref=e71]:
+        - text: FREE
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: Diagnostic Result
+            - generic [ref=e75]: Year 5 · Maths · Cambridge
+          - generic [ref=e77]: 72%
+        - generic [ref=e78]: "Band: Developing (needs structured practice)"
+        - generic [ref=e79]: Topic breakdown
+        - generic [ref=e80]:
+          - generic [ref=e81]: Calculation
+          - generic [ref=e84]: 88%
+        - generic [ref=e85]:
+          - generic [ref=e86]: Fractions
+          - generic [ref=e89]: 64%
+        - generic [ref=e90]:
+          - generic [ref=e91]: Word problems
+          - generic [ref=e94]: 45%
+        - generic [ref=e95]:
+          - text: "What this means: Comfortable with direct calculation, but mistakes in multi-step word problems. The gap is choosing the right method, not the maths itself."
+          - text: "Recommended: start at Word Problem Set A, on the Guided Marking Plan."
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - generic [ref=e99]: Sound familiar?
+      - heading "Most parents are guessing" [level=2] [ref=e100]
+      - paragraph [ref=e101]: You want to help, but it's hard to know exactly which topics to focus on — and the worksheets you find online aren't matched to what your child actually needs.
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - img [ref=e105]
+        - heading "Random worksheets" [level=3] [ref=e108]
+        - paragraph [ref=e109]: You download free PDFs, but there's no structure, no feedback, and no idea if they're even at the right level.
+      - generic [ref=e110]:
+        - img [ref=e112]
+        - heading "Nothing is tailored" [level=3] [ref=e115]
+        - paragraph [ref=e116]: Generic worksheets aren't matched to your child's real weak spots, so practice time gets spent on things they already know.
+      - generic [ref=e117]:
+        - img [ref=e119]
+        - heading "Weak subject, or weak topic?" [level=3] [ref=e121]
+        - paragraph [ref=e122]: Is your child weak at Maths overall, or just at fractions and word problems? That answer changes everything.
+  - generic [ref=e124]:
+    - generic [ref=e125]:
+      - generic [ref=e126]: Simple, WhatsApp-led
+      - heading "How it works" [level=2] [ref=e127]
+      - paragraph [ref=e128]: From "I'm not sure" to a clear plan, in four steps. Everything starts on WhatsApp.
+    - generic [ref=e129]:
+      - generic [ref=e130]:
+        - generic [ref=e132]: "1"
+        - heading "Free quiz" [level=3] [ref=e133]
+        - paragraph [ref=e134]: We send a short diagnostic quiz for your child's exact year, syllabus and subject.
+      - generic [ref=e135]:
+        - generic [ref=e137]: "2"
+        - heading "Get your report" [level=3] [ref=e138]
+        - paragraph [ref=e139]: A clear breakdown showing the topics your child has mastered and the ones to work on.
+      - generic [ref=e140]:
+        - generic [ref=e142]: "3"
+        - heading "Worksheet path" [level=3] [ref=e143]
+        - paragraph [ref=e144]: Structured weekly worksheet sets with answer keys and a simple parent guide.
+      - generic [ref=e145]:
+        - generic [ref=e146]: "4"
+        - heading "Track progress" [level=3] [ref=e147]
+        - paragraph [ref=e148]: Add optional marking, correction remarks and a recommended next step each week.
+  - generic [ref=e150]:
+    - generic [ref=e151]:
+      - generic [ref=e152]: More than worksheets
+      - heading "What's inside every set" [level=2] [ref=e153]
+      - paragraph [ref=e154]: A guided learning support system, not a pile of PDFs. Each weekly set is built to be done in 30–90 minutes depending on level.
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]: ✓
+        - generic [ref=e158]:
+          - heading "Weekly worksheet sets" [level=3] [ref=e159]
+          - paragraph [ref=e160]: 4–12 pages per set, structured from core skills up to exam-style questions.
+      - generic [ref=e161]:
+        - generic [ref=e162]: ✓
+        - generic [ref=e163]:
+          - heading "Answer keys" [level=3] [ref=e164]
+          - paragraph [ref=e165]: Full marking guide so you can check work without needing a tutor.
+      - generic [ref=e166]:
+        - generic [ref=e167]: ✓
+        - generic [ref=e168]:
+          - heading "Parent guide" [level=3] [ref=e169]
+          - paragraph [ref=e170]: Topic objective, common mistakes to watch for, and what to do if your child struggles.
+      - generic [ref=e171]:
+        - generic [ref=e172]: ✓
+        - generic [ref=e173]:
+          - heading "Optional marking" [level=3] [ref=e174]
+          - paragraph [ref=e175]: Send work in, get it marked with correction remarks and weak-topic comments.
+      - generic [ref=e176]:
+        - generic [ref=e177]: ✓
+        - generic [ref=e178]:
+          - heading "Monthly revision" [level=3] [ref=e179]
+          - paragraph [ref=e180]: A revision sheet and topic checklist to consolidate the month's practice.
+      - generic [ref=e181]:
+        - generic [ref=e182]: ✓
+        - generic [ref=e183]:
+          - heading "Recommended next step" [level=3] [ref=e184]
+          - paragraph [ref=e185]: Each week we point you to the right set to do next, based on results.
+  - generic [ref=e187]:
+    - generic [ref=e188]:
+      - generic [ref=e189]: Built by syllabus & level
+      - heading "Subjects we cover" [level=2] [ref=e190]
+      - paragraph [ref=e191]: "We follow two systems: the Cambridge pathway (Primary → Lower Secondary → IGCSE) and the national Sekolah Kebangsaan syllabus. Each subject is its own programme, matched to your child's exact year."
+    - generic [ref=e192]:
+      - generic [ref=e193]:
+        - generic [ref=e194]: Cambridge Primary · Grade 1–6
+        - heading "Strong foundations" [level=3] [ref=e195]
+        - generic [ref=e196]:
+          - generic [ref=e197]: English
+          - generic [ref=e198]: Maths
+          - generic [ref=e199]: Science
+      - generic [ref=e200]:
+        - generic [ref=e201]: Cambridge Lower Secondary · Grade 7–9
+        - heading "Prepare before IGCSE" [level=3] [ref=e202]
+        - generic [ref=e203]:
+          - generic [ref=e204]: English
+          - generic [ref=e205]: Maths
+          - generic [ref=e206]: Science
+      - generic [ref=e207]:
+        - generic [ref=e208]: Cambridge IGCSE · Year 10–11
+        - heading "Exam-ready practice" [level=3] [ref=e209]
+        - generic [ref=e210]:
+          - generic [ref=e211]: English
+          - generic [ref=e212]: Maths
+          - generic [ref=e213]: Biology
+          - generic [ref=e214]: Chemistry
+          - generic [ref=e215]: Physics
+          - generic [ref=e216]: Business
+          - generic [ref=e217]: Economics
+          - generic [ref=e218]: Accounting
+      - generic [ref=e219]:
+        - generic [ref=e220]: Sekolah Kebangsaan · Year 1–6
+        - heading "Steady weekly practice" [level=3] [ref=e221]
+        - generic [ref=e222]:
+          - generic [ref=e223]: English
+          - generic [ref=e224]: Maths
+  - generic [ref=e226]:
+    - generic [ref=e227]:
+      - generic [ref=e228]: Where we fit
+      - heading "Know exactly what to work on. Then practise it." [level=2] [ref=e229]
+    - generic [ref=e230]:
+      - generic [ref=e231]:
+        - generic [ref=e232]:
+          - heading "Random worksheets online" [level=3] [ref=e233]
+          - generic [ref=e234]: The free ones you download yourself
+          - list [ref=e235]:
+            - listitem [ref=e236]: ✕ No structure or order
+            - listitem [ref=e237]: ✕ No feedback at all
+            - listitem [ref=e238]: ✕ Right level? Who knows
+            - listitem [ref=e239]: ✕ No progress tracking
+        - generic [ref=e240]:
+          - heading "Apex EDU" [level=3] [ref=e241]
+          - generic [ref=e242]: From RM49/month per subject
+          - list [ref=e243]:
+            - listitem [ref=e244]: ✓ Free diagnostic first
+            - listitem [ref=e245]: ✓ Structured weekly path
+            - listitem [ref=e246]: ✓ Parent guide included
+            - listitem [ref=e247]: ✓ Optional marking & remarks
+            - listitem [ref=e248]: ✓ Works alongside your tutor
+      - generic [ref=e249]:
+        - generic [ref=e250]:
+          - heading "Already have a tutor? Even better. 🤝" [level=3] [ref=e251]
+          - paragraph [ref=e252]: Hand your tutor the diagnostic report and the marked worksheets, so every session targets the exact topics your child needs — instead of guessing.
+        - link "Get the free diagnostic" [ref=e253] [cursor=pointer]:
+          - /url: "#signup"
+  - generic [ref=e255]:
+    - generic [ref=e256]:
+      - generic [ref=e257]: Loved by parents
+      - heading "What parents are saying" [level=2] [ref=e258]
+    - generic [ref=e259]:
+      - generic [ref=e260]:
+        - generic [ref=e261]: ★★★★★
+        - paragraph [ref=e262]: "\"I sit with my daughter every week using the worksheets and parent guide. For the first time I actually know what to help her with.\""
+        - generic [ref=e263]:
+          - generic [ref=e264]: A
+          - generic [ref=e265]:
+            - generic [ref=e266]: Ameer
+            - generic [ref=e267]: Parent · Year 4 Maths · ✓ Verified
+      - generic [ref=e268]:
+        - generic [ref=e269]: ★★★★★
+        - paragraph [ref=e270]: "\"We use the sets as home practice between classes. My daughter needs fewer tuition hours now because she walks in already prepared.\""
+        - generic [ref=e271]:
+          - generic [ref=e272]: "N"
+          - generic [ref=e273]:
+            - generic [ref=e274]: Nadia
+            - generic [ref=e275]: Parent · Year 6 · ✓ Verified
+      - generic [ref=e276]:
+        - generic [ref=e277]: ★★★★★
+        - paragraph [ref=e278]: "\"The consultation with Meethrrah was so helpful. She spotted the small, repeated mistakes my son kept making that I'd completely missed.\""
+        - generic [ref=e279]:
+          - generic [ref=e280]: A
+          - generic [ref=e281]:
+            - generic [ref=e282]: Ameera
+            - generic [ref=e283]: Parent · IGCSE · ✓ Verified
+      - generic [ref=e284]:
+        - generic [ref=e285]: ★★★★★
+        - paragraph [ref=e286]: "\"The free quiz showed us exactly which topics to work on. We stopped wasting time on things she already knew.\""
+        - generic [ref=e287]:
+          - generic [ref=e288]: F
+          - generic [ref=e289]:
+            - generic [ref=e290]: Faiz
+            - generic [ref=e291]: Parent · Year 3, Sekolah Kebangsaan · ✓ Verified
+      - generic [ref=e292]:
+        - generic [ref=e293]: ★★★★★
+        - paragraph [ref=e294]: "\"The marking comments are gold. My son finally understands why an answer was wrong, not just that it was wrong.\""
+        - generic [ref=e295]:
+          - generic [ref=e296]: S
+          - generic [ref=e297]:
+            - generic [ref=e298]: Suria
+            - generic [ref=e299]: Parent · Grade 8 Science · ✓ Verified
+      - generic [ref=e300]:
+        - generic [ref=e301]: ★★★★★
+        - paragraph [ref=e302]: "\"The monthly progress report keeps us honest. We can actually see him improving month to month, not just guessing.\""
+        - generic [ref=e303]:
+          - generic [ref=e304]: D
+          - generic [ref=e305]:
+            - generic [ref=e306]: Daniel
+            - generic [ref=e307]: Parent · IGCSE · ✓ Verified
+  - generic [ref=e309]:
+    - generic [ref=e310]:
+      - generic [ref=e311]: Pick your level of support
+      - heading "Plans & pricing" [level=2] [ref=e312]
+      - paragraph [ref=e313]: Each subject is one subscription. Price scales by syllabus and year (lowest at Primary, highest at IGCSE). You get your exact price free after the diagnostic quiz.
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - heading "Self-Study" [level=3] [ref=e316]
+        - generic [ref=e317]: Worksheets and answer guides. No marking.
+        - generic [ref=e318]: from RM49/mo
+        - generic [ref=e319]: up to RM119 at IGCSE
+        - generic [ref=e320]: per subject
+        - list [ref=e321]:
+          - listitem [ref=e322]: ✓ Weekly worksheets
+          - listitem [ref=e323]: ✓ Answer keys
+          - listitem [ref=e324]: ✓ Parent guide
+          - listitem [ref=e325]: ✓ Monthly revision sheet
+          - listitem [ref=e326]: ✓ Topic checklist
+        - link "Get this plan's price" [ref=e327] [cursor=pointer]:
+          - /url: "#signup"
+      - generic [ref=e328]:
+        - generic [ref=e329]: ★ Most popular
+        - heading "Guided Marking" [level=3] [ref=e330]
+        - generic [ref=e331]: Weekly worksheets plus real marking and feedback on what your child got wrong.
+        - generic [ref=e332]: from RM109/mo
+        - generic [ref=e333]: up to RM239 at IGCSE
+        - generic [ref=e334]: per subject
+        - list [ref=e335]:
+          - listitem [ref=e336]: ✓ Everything in Self-Study
+          - listitem [ref=e337]: ✓ Marking — up to 4 sets/month (3-day turnaround)
+          - listitem [ref=e338]: ✓ Correction remarks
+          - listitem [ref=e339]: ✓ Weak-topic comments
+          - listitem [ref=e340]: ✓ Recommended next worksheet
+        - link "Get this plan's price" [ref=e341] [cursor=pointer]:
+          - /url: "#signup"
+      - generic [ref=e342]:
+        - heading "Premium Progress" [level=3] [ref=e343]
+        - generic [ref=e344]: See whether your child is actually improving, month over month, with a plan to push it further.
+        - generic [ref=e345]: from RM159/mo
+        - generic [ref=e346]: up to RM329 at IGCSE
+        - generic [ref=e347]: per subject
+        - list [ref=e348]:
+          - listitem [ref=e349]: ✓ Everything in Guided Marking
+          - listitem [ref=e350]: ✓ Monthly progress report showing the trend
+          - listitem [ref=e351]: ✓ Summary of recurring weak topics
+          - listitem [ref=e352]: ✓ Written improvement plan each month
+          - listitem [ref=e353]: ✓ Priority marking (faster turnaround)
+          - listitem [ref=e354]: ✓ 2 weak-topic focuses per month
+        - link "Get this plan's price" [ref=e355] [cursor=pointer]:
+          - /url: "#signup"
+    - generic [ref=e356]:
+      - generic [ref=e357]:
+        - strong [ref=e358]: Not ready to subscribe?
+        - text: Try a One-Time Practice Pack first — 4 weekly sets, answer key and parent guide, from
+        - strong [ref=e359]: RM59
+        - text: (up to RM139 at IGCSE).
+      - link "Get a one-time pack" [ref=e360] [cursor=pointer]:
+        - /url: "#signup"
+    - paragraph [ref=e361]: "Save more: 3/6/12-month plans up to 15% off · 2+ subjects up to 15% off · sibling discounts available."
+    - paragraph [ref=e362]: Exact package and price are confirmed on WhatsApp after your free quiz, then we send a secure payment link. Multi-month and sibling discounts are applied in your quote.
+  - generic [ref=e364]:
+    - generic [ref=e365]:
+      - generic [ref=e366]: Launch offers
+      - heading "Reasons to start this week" [level=2] [ref=e367]
+    - generic [ref=e368]:
+      - generic [ref=e369]:
+        - generic [ref=e370]: RM20
+        - paragraph [ref=e371]: Learning credit when you subscribe within 48 hours of your diagnostic report.
+      - generic [ref=e372]:
+        - generic [ref=e373]: +1 set
+        - paragraph [ref=e374]: Bonus worksheet set free when you subscribe within 7 days of your report.
+      - generic [ref=e375]:
+        - generic [ref=e376]: 10–15%
+        - paragraph [ref=e377]: Sibling discount when a second or third child joins.
+      - generic [ref=e378]:
+        - generic [ref=e379]: RM20 → RM20
+        - paragraph [ref=e380]: "Refer a friend: you both get RM20 credit after they subscribe."
+  - generic [ref=e382]:
+    - generic [ref=e383]:
+      - generic [ref=e384]: Honest answers
+      - heading "Common questions" [level=2] [ref=e385]
+    - generic [ref=e386]:
+      - generic [ref=e387]:
+        - button "Is the diagnostic quiz really free? +" [ref=e388] [cursor=pointer]:
+          - text: Is the diagnostic quiz really free?
+          - generic [ref=e389]: +
+        - paragraph [ref=e390]: Yes, completely free. Its only job is to show you exactly where your child stands so you can decide what to do next. No payment, no obligation.
+      - generic [ref=e391]:
+        - button "Is this the same as tuition? +" [ref=e392] [cursor=pointer]:
+          - text: Is this the same as tuition?
+          - generic [ref=e393]: +
+        - paragraph [ref=e394]: "No. It's a guided worksheet programme: structured weekly practice, a parent guide, and optional marking. It's more flexible and more affordable than centre-based tuition, and you do it on your own schedule at home."
+      - generic [ref=e395]:
+        - button "How does marking work? +" [ref=e396] [cursor=pointer]:
+          - text: How does marking work?
+          - generic [ref=e397]: +
+        - paragraph [ref=e398]: On the Guided Marking and Premium plans, you can submit up to 4 worksheet sets per month per subject (about one a week), with correction remarks and weak-topic comments. Standard turnaround is 3 working days on Guided Marking — Premium gets priority (faster) marking.
+      - generic [ref=e399]:
+        - button "Can I choose what topics my child works on? +" [ref=e400] [cursor=pointer]:
+          - text: Can I choose what topics my child works on?
+          - generic [ref=e401]: +
+        - paragraph [ref=e402]: You follow a monthly roadmap and choose the difficulty level. On Guided Marking you can pick 1 weak-topic focus per month, and on Premium up to 2. This keeps the programme structured rather than random.
+      - generic [ref=e403]:
+        - button "Which syllabus do you cover? +" [ref=e404] [cursor=pointer]:
+          - text: Which syllabus do you cover?
+          - generic [ref=e405]: +
+        - paragraph [ref=e406]: "The Cambridge pathway: Primary (Grade 1–6), Lower Secondary (Grade 7–9) and IGCSE (Year 10–11). Plus the national Sekolah Kebangsaan syllabus (Year 1–6)."
+      - generic [ref=e407]:
+        - button "Do you guarantee my child's grades will improve? +" [ref=e408] [cursor=pointer]:
+          - text: Do you guarantee my child's grades will improve?
+          - generic [ref=e409]: +
+        - paragraph [ref=e410]: No honest programme can guarantee grades. What we give you is structured practice, clear progress tracking, and a recommended next step each week so improvement has the best chance to happen.
+      - generic [ref=e411]:
+        - button "How do I start? +" [ref=e412] [cursor=pointer]:
+          - text: How do I start?
+          - generic [ref=e413]: +
+        - paragraph [ref=e414]: Tap any "Free Quiz" button to message us on WhatsApp. Tell us your child's year, syllabus and subject, and we'll send the right diagnostic quiz straight away.
+  - generic [ref=e417]:
+    - generic [ref=e418]:
+      - heading "Start with the free diagnostic quiz" [level=2] [ref=e419]
+      - paragraph [ref=e420]: Fill in 5 quick details and we'll send the right quiz for your child on WhatsApp. Free, based on the expected level for their year, no commitment.
+      - list [ref=e421]:
+        - listitem [ref=e422]: ✓ 100% free diagnostic, no payment needed
+        - listitem [ref=e423]: ✓ Quiz matched to your child's exact year and syllabus
+        - listitem [ref=e424]: ✓ We reply on WhatsApp, usually within minutes
+      - generic [ref=e425]:
+        - text: ⏳ Launch offer (RM20 off first month) ends in
+        - strong [ref=e426]: 30d 01h 53m 07s
+    - generic [ref=e428]:
+      - generic [ref=e429]:
+        - generic [ref=e430]: Parent's name
+        - textbox "Parent's name" [ref=e431]:
+          - /placeholder: e.g., Priya
+      - generic [ref=e432]:
+        - generic [ref=e433]: WhatsApp number
+        - textbox "WhatsApp number" [ref=e434]:
+          - /placeholder: e.g., 012-345 6789
+      - generic [ref=e435]:
+        - generic [ref=e436]: Child's year / grade
+        - combobox "Child's year / grade" [ref=e437] [cursor=pointer]:
+          - option "Select year / grade" [disabled] [selected]
+          - option "Year / Grade 1"
+          - option "Year / Grade 2"
+          - option "Year / Grade 3"
+          - option "Year / Grade 4"
+          - option "Year / Grade 5"
+          - option "Year / Grade 6"
+          - option "Grade 7"
+          - option "Grade 8"
+          - option "Grade 9"
+          - option "IGCSE Year 10"
+          - option "IGCSE Year 11"
+      - generic [ref=e438]:
+        - generic [ref=e439]: Syllabus
+        - combobox "Syllabus" [ref=e440] [cursor=pointer]:
+          - option "Select syllabus" [disabled] [selected]
+          - option "Cambridge"
+          - option "Sekolah Kebangsaan"
+      - generic [ref=e441]:
+        - generic [ref=e442]: Subject
+        - combobox "Subject" [ref=e443] [cursor=pointer]:
+          - option "Select subject" [disabled] [selected]
+          - option "English"
+          - option "Maths"
+          - option "Science"
+          - option "IGCSE - Biology"
+          - option "IGCSE - Chemistry"
+          - option "IGCSE - Physics"
+          - option "IGCSE - Business Studies"
+          - option "IGCSE - Economics"
+          - option "IGCSE - Accounting"
+          - option "Not sure yet"
+      - button "Send my free quiz request" [ref=e444] [cursor=pointer]:
+        - img [ref=e445]
+        - text: Send my free quiz request
+      - paragraph [ref=e447]: By submitting, you'll continue on WhatsApp to receive the quiz.
+  - contentinfo [ref=e448]:
+    - generic [ref=e449]:
+      - generic [ref=e450]:
+        - paragraph [ref=e452]: A structured online worksheet programme for parents who want to support their child at home.
+        - generic [ref=e453]:
+          - link "How it works" [ref=e454] [cursor=pointer]:
+            - /url: "#how"
+          - link "Subjects" [ref=e455] [cursor=pointer]:
+            - /url: "#subjects"
+          - link "Plans" [ref=e456] [cursor=pointer]:
+            - /url: "#plans"
+          - link "FAQ" [ref=e457] [cursor=pointer]:
+            - /url: "#faq"
+          - link "WhatsApp" [ref=e458] [cursor=pointer]:
+            - /url: https://wa.me/60179742459?text=Hi%20Apex%20EDU!%20I'd%20like%20the%20free%20diagnostic%20quiz%20for%20my%20child.
+          - link "Apex IT →" [ref=e459] [cursor=pointer]:
+            - /url: /
+      - generic [ref=e460]:
+        - generic [ref=e461]:
+          - text: An
+          - strong [ref=e462]: Apex IT
+          - text: programme · since 2006 · Kuala Lumpur
+        - text: © 2026 Apex EDU. All rights reserved.
