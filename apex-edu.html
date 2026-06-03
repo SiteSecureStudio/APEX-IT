@@ -248,6 +248,44 @@
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
     .reveal.in{opacity:1;transform:none}
 
+    /* Launch banner */
+    .launch-banner{background:#111113;color:#fff;padding:9px 0;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.06)}
+    .banner-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+    .banner-text{font-family:var(--font-d);font-size:.78rem;white-space:nowrap}
+    .cd-row{display:flex;gap:5px;align-items:center}
+    .cd-block{background:rgba(255,255,255,.13);border-radius:4px;padding:4px 9px;text-align:center;min-width:46px}
+    .cd-num{display:block;font-family:var(--font-d);font-size:.9rem;font-weight:700;line-height:1.1;letter-spacing:.02em}
+    .cd-lbl{font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);display:block;margin-top:2px}
+    .banner-cta{font-size:.7rem;padding:8px 16px;flex:none}
+    .banner-close{background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:.8rem;padding:4px 8px;line-height:1;transition:color .2s;margin-left:4px}
+    .banner-close:hover{color:#fff}
+    @media(max-width:860px){
+      .banner-text{font-size:.72rem;white-space:normal;text-align:center}
+      .banner-inner{gap:8px}
+      .cd-block{min-width:40px;padding:3px 7px}
+    }
+
+    /* Inline offer badge */
+    .offer-inline{background:rgba(200,146,42,.08);border:1px solid rgba(200,146,42,.22);border-radius:8px;padding:10px 14px;font-size:.8rem;color:var(--muted);margin-bottom:20px;display:inline-block;line-height:1.55}
+    .offer-inline strong{color:var(--gold-b);font-family:var(--font-d)}
+    .offer-inline .cd-inline{font-family:var(--font-d);font-weight:700;color:var(--ink)}
+
+    /* Hero lead form */
+    .hero-form-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px}
+    .form-row{margin-bottom:14px}
+    .form-lbl{display:block;font-family:var(--font-d);font-size:.73rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+    .form-input,.form-select{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;background:#faf9f6;font-family:var(--font-b);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+    .form-input::placeholder{color:var(--muted-2)}
+    .form-input:focus,.form-select:focus{border-color:var(--gold-a);box-shadow:0 0 0 3px rgba(200,146,42,.12)}
+    .form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a62' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
+    .form-select option:disabled{color:var(--muted-2)}
+    .form-select optgroup{font-weight:700;font-style:normal}
+    .form-submit{width:100%;justify-content:center;padding:13px;font-size:.82rem;margin-top:4px;border-radius:8px}
+    .form-note{font-size:.71rem;color:var(--muted-2);text-align:center;margin-top:8px;line-height:1.55}
+    @media(max-width:860px){
+      .hero-form-wrap{padding:20px 16px}
+    }
+
     @media(max-width:860px){
       /* Tighten section padding */
       .s,.s-alt,.s-dark{padding:48px 0}
@@ -299,13 +337,30 @@
 </head>
 <body>
 
+<!-- Launch offer banner -->
+<div id="launchBanner" class="launch-banner">
+  <div class="wrap">
+    <div class="banner-inner">
+      <span class="banner-text">🏷️ <strong>Launch offer:</strong> free diagnostic + RM20 off your first month. Ends in</span>
+      <div class="cd-row">
+        <div class="cd-block"><span class="cd-num" id="bDays">30</span><span class="cd-lbl">Days</span></div>
+        <div class="cd-block"><span class="cd-num" id="bHrs">00</span><span class="cd-lbl">Hrs</span></div>
+        <div class="cd-block"><span class="cd-num" id="bMin">00</span><span class="cd-lbl">Min</span></div>
+        <div class="cd-block"><span class="cd-num" id="bSec">00</span><span class="cd-lbl">Sec</span></div>
+      </div>
+      <a href="#hero-form" class="btn btn-primary banner-cta">Claim now</a>
+      <button class="banner-close" id="bannerClose" aria-label="Close banner">✕</button>
+    </div>
+  </div>
+</div>
+
 <header>
   <div class="wrap">
     <nav>
       <a href="#top" class="nav-logo">
         <img src="/brand-assests/Only logo.png" alt="Apex IT">
         <div class="nav-div"></div>
-        <div class="nav-name">EDU<small>Worksheet Programme</small></div>
+        <div class="nav-name">APEX EDU<small>Worksheet Programme</small></div>
       </a>
       <ul class="nav-list" id="navList">
         <li><a href="#how">How it works</a></li>
@@ -347,30 +402,81 @@
           </a>
           <a href="#how" class="btn btn-outline">See how it works</a>
         </div>
+        <div class="offer-inline">
+          ⏳ <strong>Launch offer (RM20 off first month)</strong> ends in <span class="cd-inline" id="inlineTimer">—</span>
+        </div>
         <div class="trust">
           <span>100% free diagnostic</span><span class="t-dot"></span>
           <span>No commitment</span><span class="t-dot"></span>
           <span>By Apex IT · since 2006</span>
         </div>
       </div>
-      <div>
-        <div class="report">
-          <div class="rpt-head">
-            <div>
-              <div class="rpt-title">Diagnostic Result</div>
-              <div class="rpt-sub">Year 5 Maths · Cambridge</div>
+      <div id="hero-form">
+        <div class="hero-form-wrap">
+          <p style="font-family:var(--font-d);font-size:1.05rem;font-weight:700;margin-bottom:4px">Start with the free diagnostic quiz</p>
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:18px;line-height:1.6">Fill in 5 quick details and we'll send the right quiz for your child on WhatsApp. Free, based on the expected level for their year, no commitment.</p>
+          <form id="diagForm" novalidate>
+            <div class="form-row">
+              <label class="form-lbl" for="parentName">Parent's name</label>
+              <input type="text" id="parentName" name="parentName" class="form-input" placeholder="e.g., Priya" required>
             </div>
-            <div class="score-ring"><span>72%</span></div>
-          </div>
-          <span class="band">Band: Developing — needs structured practice</span>
-          <div class="topic-lbl">Topic breakdown</div>
-          <div class="topic"><span class="tn">Calculation</span><div class="bar"><i style="width:88%;background:var(--gold-a)"></i></div><span class="pct">88%</span></div>
-          <div class="topic"><span class="tn">Fractions</span><div class="bar"><i style="width:64%;background:#d4a240"></i></div><span class="pct">64%</span></div>
-          <div class="topic"><span class="tn">Word problems</span><div class="bar"><i style="width:45%;background:var(--coral)"></i></div><span class="pct">45%</span></div>
-          <div class="rpt-note">
-            <b>What this means:</b> comfortable with direct calculation, but mistakes in multi-step word problems. The gap is choosing the right method, not the maths itself.<br><br>
-            <b>Recommended:</b> start at Word Problem Set A, on the Guided Marking plan.
-          </div>
+            <div class="form-row">
+              <label class="form-lbl" for="waNumber">WhatsApp number</label>
+              <input type="tel" id="waNumber" name="waNumber" class="form-input" placeholder="e.g., 012-345 6789" required>
+            </div>
+            <div class="form-row">
+              <label class="form-lbl" for="childGrade">Child's year / grade</label>
+              <select id="childGrade" name="childGrade" class="form-select" required>
+                <option value="" disabled selected>Select year / grade</option>
+                <optgroup label="Primary">
+                  <option value="Year / Grade 1">Year / Grade 1</option>
+                  <option value="Year / Grade 2">Year / Grade 2</option>
+                  <option value="Year / Grade 3">Year / Grade 3</option>
+                  <option value="Year / Grade 4">Year / Grade 4</option>
+                  <option value="Year / Grade 5">Year / Grade 5</option>
+                  <option value="Year / Grade 6">Year / Grade 6</option>
+                </optgroup>
+                <optgroup label="Lower Secondary">
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                  <option value="Grade 9">Grade 9</option>
+                </optgroup>
+                <optgroup label="IGCSE">
+                  <option value="IGCSE Year 10">IGCSE Year 10</option>
+                  <option value="IGCSE Year 11">IGCSE Year 11</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="form-lbl" for="syllabus">Syllabus</label>
+              <select id="syllabus" name="syllabus" class="form-select" required>
+                <option value="" disabled selected>Select syllabus</option>
+                <option value="Cambridge">Cambridge</option>
+                <option value="Sekolah Kebangsaan">Sekolah Kebangsaan</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="form-lbl" for="subject">Subject</label>
+              <select id="subject" name="subject" class="form-select" required>
+                <option value="" disabled selected>Select subject</option>
+                <option value="English">English</option>
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+                <option value="IGCSE - Biology">IGCSE - Biology</option>
+                <option value="IGCSE - Chemistry">IGCSE - Chemistry</option>
+                <option value="IGCSE - Physics">IGCSE - Physics</option>
+                <option value="IGCSE - Business Studies">IGCSE - Business Studies</option>
+                <option value="IGCSE - Economics">IGCSE - Economics</option>
+                <option value="IGCSE - Accounting">IGCSE - Accounting</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
+              Send my free quiz request
+            </button>
+            <p class="form-note">By submitting, you'll continue on WhatsApp to receive the quiz.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -644,6 +750,46 @@
   var MSG = "Hi Apex EDU! I'd like the free diagnostic quiz. My child is in [year], syllabus [Cambridge/Kebangsaan], subject [English/Maths/Science/IGCSE].";
   var waUrl = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
   document.querySelectorAll(".wa-link").forEach(function(a){ a.href = waUrl; });
+
+  // Countdown — deadline: 30 days from Jun 3 2026
+  var DEADLINE = new Date("2026-07-03T23:59:59+08:00").getTime();
+  function pad(n){ return n < 10 ? "0" + n : n; }
+  function tick(){
+    var diff = Math.max(0, DEADLINE - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var bD=document.getElementById("bDays"), bH=document.getElementById("bHrs"), bM=document.getElementById("bMin"), bS=document.getElementById("bSec");
+    if(bD) bD.textContent = pad(d);
+    if(bH) bH.textContent = pad(h);
+    if(bM) bM.textContent = pad(m);
+    if(bS) bS.textContent = pad(s);
+    var il = document.getElementById("inlineTimer");
+    if(il) il.textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(s) + "s";
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Banner close
+  var bannerClose = document.getElementById("bannerClose");
+  if(bannerClose) bannerClose.addEventListener("click", function(){ document.getElementById("launchBanner").style.display = "none"; });
+
+  // Lead form
+  var diagForm = document.getElementById("diagForm");
+  if(diagForm){
+    diagForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name  = document.getElementById("parentName").value.trim();
+      var wa    = document.getElementById("waNumber").value.trim();
+      var grade = document.getElementById("childGrade").value;
+      var syl   = document.getElementById("syllabus").value;
+      var subj  = document.getElementById("subject").value;
+      if(!name || !wa || !grade || !syl || !subj){ return; }
+      var msg = "Hi Apex EDU! I'd like the free diagnostic quiz.\n\nParent's name: " + name + "\nWhatsApp: " + wa + "\nChild's year / grade: " + grade + "\nSyllabus: " + syl + "\nSubject: " + subj;
+      if(typeof fbq !== "undefined") fbq("track", "Lead");
+      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank");
+    });
+  }
 
   var btn = document.getElementById("menuBtn");
   var nav = document.getElementById("navList");
