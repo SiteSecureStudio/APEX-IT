@@ -103,7 +103,7 @@
     .trust{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--font-d);font-size:.68rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);align-items:center}
     .t-dot{width:3px;height:3px;border-radius:50%;background:var(--border)}
 
-    /* Report card */
+    /* Diagnostic report card */
     .report{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;position:relative;transform:rotate(1.5deg)}
     .report::before{content:'FREE';position:absolute;top:-12px;right:18px;background:var(--grad-brand);color:#fff;font-family:var(--font-d);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;transform:rotate(2deg);box-shadow:var(--shadow-g)}
     .rpt-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--surface-2);padding-bottom:14px;margin-bottom:14px}
@@ -120,6 +120,13 @@
     .topic .pct{font-size:.72rem;color:var(--muted-2);width:32px;text-align:right}
     .rpt-note{margin-top:14px;font-size:.76rem;color:var(--muted);line-height:1.65;background:var(--surface);border-radius:8px;padding:10px 12px}
     .rpt-note b{color:var(--ink)}
+
+    /* Diag tabs */
+    .diag-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+    .diag-tab{font-family:var(--font-d);font-weight:600;font-size:.72rem;letter-spacing:.04em;padding:6px 12px;border-radius:6px;border:1.5px solid var(--border);background:var(--bg);color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s,background .15s}
+    .diag-tab:hover{border-color:rgba(200,146,42,.35);color:var(--gold-b)}
+    .diag-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+    @keyframes diagFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
     @media(max-width:860px){
       .hero-grid{grid-template-columns:1fr;gap:28px}
@@ -194,6 +201,17 @@
     .tutor-banner h3{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px}
     .tutor-banner p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:52ch;line-height:1.65}
 
+    /* Testimonials */
+    .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tst{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .tst-stars{color:var(--gold-a);font-size:.95rem;letter-spacing:3px;margin-bottom:10px}
+    .tst p{font-size:.88rem;color:var(--muted);line-height:1.72;flex:1}
+    .tst-who{display:flex;align-items:center;gap:10px;margin-top:16px}
+    .tst-av{width:38px;height:38px;border-radius:50%;background:rgba(200,146,42,.12);color:var(--gold-b);display:grid;place-items:center;font-family:var(--font-d);font-weight:800;font-size:1rem;flex:none}
+    .tst-nm{font-family:var(--font-d);font-weight:700;font-size:.85rem}
+    .tst-rl{font-size:.72rem;color:var(--muted-2)}
+    .tst-verified{color:var(--gold-b);font-weight:600}
+
     /* Plans */
     .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start;margin-top:8px}
     .plan{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
@@ -203,6 +221,7 @@
     .plan-desc{font-size:.8rem;color:var(--muted);line-height:1.6;min-height:38px;margin-bottom:4px}
     .plan-amt{font-family:var(--font-d);font-size:2.1rem;font-weight:800;letter-spacing:-.03em;margin:10px 0 0;line-height:1}
     .plan-amt small{font-size:.78rem;font-family:var(--font-b);color:var(--muted);font-weight:400}
+    .plan-ceiling{font-size:.7rem;color:var(--muted-2);margin-top:3px}
     .plan-per{font-size:.72rem;color:var(--muted-2);margin-bottom:16px;margin-top:4px}
     .plan ul{list-style:none;flex:1;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
     .plan li{font-size:.82rem;display:flex;gap:8px;align-items:baseline;color:var(--muted)}
@@ -227,26 +246,31 @@
     .q-pm{flex:none;width:24px;height:24px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-weight:700;color:var(--muted);font-size:1rem;transition:transform .25s var(--ease),background .2s,color .2s}
     .q.open .q-pm{transform:rotate(45deg);background:var(--gold-a);color:#fff}
 
-    /* Final CTA */
-    .final-cta{background:var(--ink);border-radius:14px;padding:60px 40px;text-align:center;position:relative;overflow:hidden}
-    .final-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 48% 55% at 18% 50%,rgba(200,146,42,.12) 0%,transparent 58%),radial-gradient(ellipse 38% 48% at 82% 50%,rgba(232,114,42,.08) 0%,transparent 52%)}
-    .final-cta h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;position:relative}
-    .final-cta p{color:rgba(255,255,255,.5);max-width:44ch;margin:12px auto 28px;font-size:.92rem;line-height:1.78;position:relative}
-    .final-cta .btn{position:relative}
+    /* Signup section */
+    .signup-inner{background:var(--ink);border-radius:14px;padding:52px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;position:relative;overflow:hidden}
+    .signup-inner::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 48% 55% at 18% 50%,rgba(200,146,42,.12) 0%,transparent 58%),radial-gradient(ellipse 38% 48% at 82% 50%,rgba(232,114,42,.08) 0%,transparent 52%)}
+    .signup-copy{position:relative;z-index:1}
+    .signup-copy h2{font-family:var(--font-d);font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px}
+    .signup-copy p{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.78;margin-bottom:18px}
+    .signup-trust{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+    .signup-trust li{font-size:.84rem;color:rgba(255,255,255,.7);display:flex;gap:8px;align-items:baseline}
+    .signup-trust li::before{content:'✓';color:var(--gold-a);font-weight:700;flex:none}
+    .signup-timer{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:8px 12px;font-family:var(--font-d);font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.04em}
+    .signup-timer strong{color:var(--gold-a)}
 
-    /* Footer */
-    footer{padding:48px 0 52px;border-top:1px solid var(--border)}
-    .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:18px}
-    .foot-brand img{height:36px;width:auto;margin-bottom:8px}
-    .foot-brand p{font-size:.78rem;color:var(--muted-2);max-width:30ch;line-height:1.65}
-    .foot-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-    .foot-links a{font-family:var(--font-d);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s}
-    .foot-links a:hover{color:var(--gold-b)}
-    .foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.75rem;color:var(--muted-2)}
-
-    /* Reveal */
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
-    .reveal.in{opacity:1;transform:none}
+    /* Signup form card */
+    .signup-form-card{position:relative;z-index:1;background:var(--bg);border-radius:var(--radius);padding:28px 24px;box-shadow:0 24px 48px rgba(0,0,0,0.22)}
+    .field{margin-bottom:14px}
+    .field label{display:block;font-family:var(--font-d);font-size:.73rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+    .field input,.field select{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;background:#faf9f6;font-family:var(--font-b);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+    .field input::placeholder{color:var(--muted-2)}
+    .field input:focus,.field select:focus{border-color:var(--gold-a);box-shadow:0 0 0 3px rgba(200,146,42,.12)}
+    .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a62' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
+    .field select option:disabled{color:var(--muted-2)}
+    .field select optgroup{font-weight:700;font-style:normal}
+    .field.err input,.field.err select{border-color:var(--coral);background:#fff5f2}
+    .form-submit{width:100%;justify-content:center;padding:13px;font-size:.82rem;margin-top:4px;border-radius:8px}
+    .form-note{font-size:.71rem;color:var(--muted-2);text-align:center;margin-top:8px;line-height:1.55}
 
     /* Launch banner */
     .launch-banner{background:#111113;color:#fff;padding:9px 0;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -259,79 +283,42 @@
     .banner-cta{font-size:.7rem;padding:8px 16px;flex:none}
     .banner-close{background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:.8rem;padding:4px 8px;line-height:1;transition:color .2s;margin-left:4px}
     .banner-close:hover{color:#fff}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+
     @media(max-width:860px){
       .banner-text{font-size:.72rem;white-space:normal;text-align:center}
       .banner-inner{gap:8px}
       .cd-block{min-width:40px;padding:3px 7px}
-    }
 
-    /* Inline offer badge */
-    .offer-inline{background:rgba(200,146,42,.08);border:1px solid rgba(200,146,42,.22);border-radius:8px;padding:10px 14px;font-size:.8rem;color:var(--muted);margin-bottom:20px;display:inline-block;line-height:1.55}
-    .offer-inline strong{color:var(--gold-b);font-family:var(--font-d)}
-    .offer-inline .cd-inline{font-family:var(--font-d);font-weight:700;color:var(--ink)}
-
-    /* Hero lead form */
-    .hero-form-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px}
-    .form-row{margin-bottom:14px}
-    .form-lbl{display:block;font-family:var(--font-d);font-size:.73rem;font-weight:600;color:var(--ink);margin-bottom:5px}
-    .form-input,.form-select{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;background:#faf9f6;font-family:var(--font-b);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
-    .form-input::placeholder{color:var(--muted-2)}
-    .form-input:focus,.form-select:focus{border-color:var(--gold-a);box-shadow:0 0 0 3px rgba(200,146,42,.12)}
-    .form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a62' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
-    .form-select option:disabled{color:var(--muted-2)}
-    .form-select optgroup{font-weight:700;font-style:normal}
-    .form-submit{width:100%;justify-content:center;padding:13px;font-size:.82rem;margin-top:4px;border-radius:8px}
-    .form-note{font-size:.71rem;color:var(--muted-2);text-align:center;margin-top:8px;line-height:1.55}
-    @media(max-width:860px){
-      .hero-form-wrap{padding:20px 16px}
-    }
-
-    @media(max-width:860px){
-      /* Tighten section padding */
       .s,.s-alt,.s-dark{padding:48px 0}
       .s-dark .sec-head{margin-bottom:28px}
       .sec-head{margin-bottom:28px}
       .sec-head.c{margin-bottom:28px}
 
-      /* Collapse grids */
-      .pain-grid,.step-grid,.feat-grid,.subj-grid,.compare,.plans,.offers{grid-template-columns:1fr}
+      .pain-grid,.step-grid,.feat-grid,.subj-grid,.compare,.plans,.offers,.tst-grid{grid-template-columns:1fr}
 
-      /* Steps */
       .step-grid{gap:28px;margin-top:28px}
       .step-n{font-size:1.5rem}
       .step-line{display:none}
 
-      /* Features */
       .feat{padding:16px}
-
-      /* Subjects */
       .subj-grid{gap:12px}
-
-      /* Offers */
       .offers{grid-template-columns:repeat(2,1fr)}
 
-      /* Plans */
       .plan.featured{transform:none}
       .plans{gap:12px}
 
-      /* Entry box */
       .entry-box{flex-direction:column;align-items:flex-start}
       .entry-box .btn{width:100%;justify-content:center}
 
-      /* Tutor banner */
       .tutor-banner{flex-direction:column;align-items:flex-start}
       .tutor-banner .btn{width:100%;justify-content:center}
 
-      /* Compare */
-      .compare-wrap .tutor-banner{margin-top:12px}
-
-      /* Final CTA */
-      .final-cta{padding:40px 20px}
-      .final-cta h2{font-size:1.7rem}
-
-      /* Footer */
-      .foot-inner{flex-direction:column;gap:20px}
-      .foot-links{gap:14px}
+      .signup-inner{grid-template-columns:1fr;gap:28px;padding:32px 22px}
+      .signup-form-card{padding:20px 16px}
     }
   </style>
 </head>
@@ -348,7 +335,7 @@
         <div class="cd-block"><span class="cd-num" id="bMin">00</span><span class="cd-lbl">Min</span></div>
         <div class="cd-block"><span class="cd-num" id="bSec">00</span><span class="cd-lbl">Sec</span></div>
       </div>
-      <a href="#hero-form" class="btn btn-primary banner-cta">Claim now</a>
+      <a href="#signup" class="btn btn-primary banner-cta">Claim now</a>
       <button class="banner-close" id="bannerClose" aria-label="Close banner">✕</button>
     </div>
   </div>
@@ -370,9 +357,9 @@
       </ul>
       <div class="nav-actions">
         <a href="#plans" class="btn btn-outline">See plans</a>
-        <a href="#" class="btn btn-primary wa-link">
+        <a href="#signup" class="btn btn-primary">
           <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
-          Free Quiz
+          Free Diagnostic Quiz
         </a>
       </div>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -387,6 +374,7 @@
   <div class="hero-bg"></div>
   <div class="wrap">
     <div class="hero-grid">
+      <!-- Left: copy -->
       <div>
         <div class="hero-chips">
           <span class="chip">Cambridge Primary → IGCSE</span>
@@ -396,14 +384,11 @@
         <h1>Not sure where your child is <span class="gold-text">actually struggling?</span></h1>
         <p class="hero-lead">Start with a free diagnostic quiz. We show you the exact topics your child needs to work on, then give you structured weekly worksheets to fix them — at home.</p>
         <div class="hero-ctas">
-          <a href="#" class="btn btn-primary wa-link">
+          <a href="#signup" class="btn btn-primary">
             <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
-            Get the Free Quiz on WhatsApp
+            Get the Free Quiz
           </a>
           <a href="#how" class="btn btn-outline">See how it works</a>
-        </div>
-        <div class="offer-inline">
-          ⏳ <strong>Launch offer (RM20 off first month)</strong> ends in <span class="cd-inline" id="inlineTimer">—</span>
         </div>
         <div class="trust">
           <span>100% free diagnostic</span><span class="t-dot"></span>
@@ -411,73 +396,16 @@
           <span>By Apex IT · since 2006</span>
         </div>
       </div>
-      <div id="hero-form">
-        <div class="hero-form-wrap">
-          <p style="font-family:var(--font-d);font-size:1.05rem;font-weight:700;margin-bottom:4px">Start with the free diagnostic quiz</p>
-          <p style="font-size:.8rem;color:var(--muted);margin-bottom:18px;line-height:1.6">Fill in 5 quick details and we'll send the right quiz for your child on WhatsApp. Free, based on the expected level for their year, no commitment.</p>
-          <form id="diagForm" novalidate>
-            <div class="form-row">
-              <label class="form-lbl" for="parentName">Parent's name</label>
-              <input type="text" id="parentName" name="parentName" class="form-input" placeholder="e.g., Priya" required>
-            </div>
-            <div class="form-row">
-              <label class="form-lbl" for="waNumber">WhatsApp number</label>
-              <input type="tel" id="waNumber" name="waNumber" class="form-input" placeholder="e.g., 012-345 6789" required>
-            </div>
-            <div class="form-row">
-              <label class="form-lbl" for="childGrade">Child's year / grade</label>
-              <select id="childGrade" name="childGrade" class="form-select" required>
-                <option value="" disabled selected>Select year / grade</option>
-                <optgroup label="Primary">
-                  <option value="Year / Grade 1">Year / Grade 1</option>
-                  <option value="Year / Grade 2">Year / Grade 2</option>
-                  <option value="Year / Grade 3">Year / Grade 3</option>
-                  <option value="Year / Grade 4">Year / Grade 4</option>
-                  <option value="Year / Grade 5">Year / Grade 5</option>
-                  <option value="Year / Grade 6">Year / Grade 6</option>
-                </optgroup>
-                <optgroup label="Lower Secondary">
-                  <option value="Grade 7">Grade 7</option>
-                  <option value="Grade 8">Grade 8</option>
-                  <option value="Grade 9">Grade 9</option>
-                </optgroup>
-                <optgroup label="IGCSE">
-                  <option value="IGCSE Year 10">IGCSE Year 10</option>
-                  <option value="IGCSE Year 11">IGCSE Year 11</option>
-                </optgroup>
-              </select>
-            </div>
-            <div class="form-row">
-              <label class="form-lbl" for="syllabus">Syllabus</label>
-              <select id="syllabus" name="syllabus" class="form-select" required>
-                <option value="" disabled selected>Select syllabus</option>
-                <option value="Cambridge">Cambridge</option>
-                <option value="Sekolah Kebangsaan">Sekolah Kebangsaan</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label class="form-lbl" for="subject">Subject</label>
-              <select id="subject" name="subject" class="form-select" required>
-                <option value="" disabled selected>Select subject</option>
-                <option value="English">English</option>
-                <option value="Maths">Maths</option>
-                <option value="Science">Science</option>
-                <option value="IGCSE - Biology">IGCSE - Biology</option>
-                <option value="IGCSE - Chemistry">IGCSE - Chemistry</option>
-                <option value="IGCSE - Physics">IGCSE - Physics</option>
-                <option value="IGCSE - Business Studies">IGCSE - Business Studies</option>
-                <option value="IGCSE - Economics">IGCSE - Economics</option>
-                <option value="IGCSE - Accounting">IGCSE - Accounting</option>
-                <option value="Not sure yet">Not sure yet</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
-              Send my free quiz request
-            </button>
-            <p class="form-note">By submitting, you'll continue on WhatsApp to receive the quiz.</p>
-          </form>
+
+      <!-- Right: diagnostic preview tabs -->
+      <div>
+        <div class="diag-tabs">
+          <button class="diag-tab active" data-i="0">Maths</button>
+          <button class="diag-tab" data-i="1">English</button>
+          <button class="diag-tab" data-i="2">Science</button>
+          <button class="diag-tab" data-i="3">IGCSE</button>
         </div>
+        <div class="report" id="reportBox"></div>
       </div>
     </div>
   </div>
@@ -621,60 +549,142 @@
       </div>
       <div class="tutor-banner reveal">
         <div>
-          <h3>Already have a tutor? Even better.</h3>
+          <h3>Already have a tutor? Even better. 🤝</h3>
           <p>Hand your tutor the diagnostic report and the marked worksheets, so every session targets the exact topics your child needs — instead of guessing.</p>
         </div>
-        <a href="#" class="btn btn-primary wa-link">Get the free diagnostic</a>
+        <a href="#signup" class="btn btn-primary">Get the free diagnostic</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="s-alt" id="reviews">
+  <div class="wrap">
+    <div class="sec-head c reveal">
+      <div class="eyebrow no-line">Loved by parents</div>
+      <h2>What parents are saying</h2>
+    </div>
+    <div class="tst-grid">
+      <div class="tst reveal">
+        <div class="tst-stars">★★★★★</div>
+        <p>"I sit with my daughter every week using the worksheets and parent guide. For the first time I actually know what to help her with."</p>
+        <div class="tst-who">
+          <div class="tst-av">A</div>
+          <div>
+            <div class="tst-nm">Ameer</div>
+            <div class="tst-rl">Parent · Year 4 Maths · <span class="tst-verified">✓ Verified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tst reveal" style="transition-delay:.07s">
+        <div class="tst-stars">★★★★★</div>
+        <p>"We use the sets as home practice between classes. My daughter needs fewer tuition hours now because she walks in already prepared."</p>
+        <div class="tst-who">
+          <div class="tst-av">N</div>
+          <div>
+            <div class="tst-nm">Nadia</div>
+            <div class="tst-rl">Parent · Year 6 · <span class="tst-verified">✓ Verified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tst reveal" style="transition-delay:.14s">
+        <div class="tst-stars">★★★★★</div>
+        <p>"The consultation with Meethrrah was so helpful. She spotted the small, repeated mistakes my son kept making that I'd completely missed."</p>
+        <div class="tst-who">
+          <div class="tst-av">A</div>
+          <div>
+            <div class="tst-nm">Ameera</div>
+            <div class="tst-rl">Parent · IGCSE · <span class="tst-verified">✓ Verified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tst reveal" style="transition-delay:.07s">
+        <div class="tst-stars">★★★★★</div>
+        <p>"The free quiz showed us exactly which topics to work on. We stopped wasting time on things she already knew."</p>
+        <div class="tst-who">
+          <div class="tst-av">F</div>
+          <div>
+            <div class="tst-nm">Faiz</div>
+            <div class="tst-rl">Parent · Year 3, Sekolah Kebangsaan · <span class="tst-verified">✓ Verified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tst reveal" style="transition-delay:.14s">
+        <div class="tst-stars">★★★★★</div>
+        <p>"The marking comments are gold. My son finally understands why an answer was wrong, not just that it was wrong."</p>
+        <div class="tst-who">
+          <div class="tst-av">S</div>
+          <div>
+            <div class="tst-nm">Suria</div>
+            <div class="tst-rl">Parent · Grade 8 Science · <span class="tst-verified">✓ Verified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tst reveal" style="transition-delay:.21s">
+        <div class="tst-stars">★★★★★</div>
+        <p>"The monthly progress report keeps us honest. We can actually see him improving month to month, not just guessing."</p>
+        <div class="tst-who">
+          <div class="tst-av">D</div>
+          <div>
+            <div class="tst-nm">Daniel</div>
+            <div class="tst-rl">Parent · IGCSE · <span class="tst-verified">✓ Verified</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PLANS -->
-<section class="s-alt" id="plans">
+<section class="s" id="plans">
   <div class="wrap">
     <div class="sec-head c reveal">
       <div class="eyebrow no-line">Pick your level of support</div>
       <h2>Plans &amp; pricing</h2>
-      <p>Each subject is one subscription. Prices below start from the lowest level — your exact price depends on syllabus and year.</p>
+      <p>Each subject is one subscription. Price scales by syllabus and year (lowest at Primary, highest at IGCSE). You get your exact price free after the diagnostic quiz.</p>
     </div>
     <div class="plans">
       <div class="plan reveal">
         <h3>Self-Study</h3>
         <div class="plan-desc">Worksheets and answer guides. No marking.</div>
         <div class="plan-amt"><small>from </small>RM49<small>/mo</small></div>
+        <div class="plan-ceiling">up to RM119 at IGCSE</div>
         <div class="plan-per">per subject</div>
         <ul><li>Weekly worksheets</li><li>Answer keys</li><li>Parent guide</li><li>Monthly revision sheet</li><li>Topic checklist</li></ul>
-        <a href="#" class="btn btn-gold wa-link">Start Self-Study</a>
+        <a href="#signup" class="btn btn-gold">Get this plan's price</a>
       </div>
       <div class="plan featured reveal" style="transition-delay:.07s">
         <div class="plan-flag">★ Most popular</div>
         <h3>Guided Marking</h3>
         <div class="plan-desc">Weekly worksheets plus real marking and feedback on what your child got wrong.</div>
         <div class="plan-amt"><small>from </small>RM109<small>/mo</small></div>
+        <div class="plan-ceiling">up to RM239 at IGCSE</div>
         <div class="plan-per">per subject</div>
         <ul><li>Everything in Self-Study</li><li>Marking — up to 4 sets/month (3-day turnaround)</li><li>Correction remarks</li><li>Weak-topic comments</li><li>Recommended next worksheet</li></ul>
-        <a href="#" class="btn btn-primary wa-link">Start Guided Marking</a>
+        <a href="#signup" class="btn btn-primary">Get this plan's price</a>
       </div>
       <div class="plan reveal" style="transition-delay:.14s">
         <h3>Premium Progress</h3>
         <div class="plan-desc">See whether your child is actually improving, month over month, with a plan to push it further.</div>
         <div class="plan-amt"><small>from </small>RM159<small>/mo</small></div>
+        <div class="plan-ceiling">up to RM329 at IGCSE</div>
         <div class="plan-per">per subject</div>
         <ul><li>Everything in Guided Marking</li><li>Monthly progress report showing the trend</li><li>Summary of recurring weak topics</li><li>Written improvement plan each month</li><li>Priority marking (faster turnaround)</li><li>2 weak-topic focuses per month</li></ul>
-        <a href="#" class="btn btn-gold wa-link">Start Premium</a>
+        <a href="#signup" class="btn btn-gold">Get this plan's price</a>
       </div>
     </div>
     <div class="entry-box reveal">
-      <div><strong>Not ready to subscribe?</strong> Try a One-Time Practice Pack first — 4 weekly sets, answer key and parent guide, from <strong>RM59</strong>.</div>
-      <a href="#" class="btn btn-dark wa-link">Get a one-time pack</a>
+      <div><strong>Not ready to subscribe?</strong> Try a One-Time Practice Pack first — 4 weekly sets, answer key and parent guide, from <strong>RM59</strong> <span style="color:var(--muted-2);font-size:.82rem">(up to RM139 at IGCSE)</span>.</div>
+      <a href="#signup" class="btn btn-dark">Get a one-time pack</a>
     </div>
     <p class="price-note">Save more: 3/6/12-month plans up to 15% off · 2+ subjects up to 15% off · sibling discounts available.</p>
+    <p class="price-note" style="margin-top:6px">Exact package and price are confirmed on WhatsApp after your free quiz, then we send a secure payment link. Multi-month and sibling discounts are applied in your quote.</p>
   </div>
 </section>
 
 <!-- OFFERS -->
-<section class="s" style="padding-top:0" id="offers">
+<section class="s-alt" style="padding-top:0" id="offers">
   <div class="wrap">
     <div class="sec-head c reveal">
       <div class="eyebrow no-line">Launch offers</div>
@@ -684,13 +694,13 @@
       <div class="offer reveal"><div class="offer-big">RM20</div><p>Learning credit when you subscribe within 48 hours of your diagnostic report.</p></div>
       <div class="offer reveal" style="transition-delay:.06s"><div class="offer-big">+1 set</div><p>Bonus worksheet set free when you subscribe within 7 days of your report.</p></div>
       <div class="offer reveal" style="transition-delay:.12s"><div class="offer-big">10–15%</div><p>Sibling discount when a second or third child joins.</p></div>
-      <div class="offer reveal" style="transition-delay:.18s"><div class="offer-big">RM20 each</div><p>Refer a friend: you both get RM20 credit after they subscribe.</p></div>
+      <div class="offer reveal" style="transition-delay:.18s"><div class="offer-big">RM20 → RM20</div><p>Refer a friend: you both get RM20 credit after they subscribe.</p></div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="s-alt" id="faq">
+<section class="s" id="faq">
   <div class="wrap">
     <div class="sec-head c reveal">
       <div class="eyebrow no-line">Honest answers</div>
@@ -708,16 +718,74 @@
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="s" style="padding-bottom:0">
+<!-- SIGNUP -->
+<section class="s" id="signup" style="padding-bottom:0">
   <div class="wrap">
-    <div class="final-cta reveal">
-      <h2>Start with the free diagnostic quiz</h2>
-      <p>In a few minutes you'll know exactly where your child needs help, based on the expected level for their year. No cost, no commitment.</p>
-      <a href="#" class="btn btn-primary wa-link">
-        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
-        Message us on WhatsApp
-      </a>
+    <div class="signup-inner reveal">
+      <div class="signup-copy">
+        <h2>Start with the free diagnostic quiz</h2>
+        <p>Fill in 5 quick details and we'll send the right quiz for your child on WhatsApp. Free, based on the expected level for their year, no commitment.</p>
+        <ul class="signup-trust">
+          <li>100% free diagnostic, no payment needed</li>
+          <li>Quiz matched to your child's exact year and syllabus</li>
+          <li>We reply on WhatsApp, usually within minutes</li>
+        </ul>
+        <div class="signup-timer">
+          ⏳ Launch offer (RM20 off first month) ends in <strong id="signupTimer">—</strong>
+        </div>
+      </div>
+
+      <div class="signup-form-card">
+        <form id="leadForm" novalidate>
+          <div class="field">
+            <label for="f-name">Parent's name</label>
+            <input type="text" id="f-name" name="name" placeholder="e.g., Priya" required>
+          </div>
+          <div class="field">
+            <label for="f-wa">WhatsApp number</label>
+            <input type="tel" id="f-wa" name="whatsapp" placeholder="e.g., 012-345 6789" required>
+          </div>
+          <div class="field">
+            <label for="f-year">Child's year / grade</label>
+            <select id="f-year" name="year" required>
+              <option value="" disabled selected>Select year / grade</option>
+              <optgroup label="Primary">
+                <option>Year / Grade 1</option><option>Year / Grade 2</option><option>Year / Grade 3</option>
+                <option>Year / Grade 4</option><option>Year / Grade 5</option><option>Year / Grade 6</option>
+              </optgroup>
+              <optgroup label="Lower Secondary">
+                <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+              </optgroup>
+              <optgroup label="IGCSE">
+                <option>IGCSE Year 10</option><option>IGCSE Year 11</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-syl">Syllabus</label>
+            <select id="f-syl" name="syllabus" required>
+              <option value="" disabled selected>Select syllabus</option>
+              <option>Cambridge</option>
+              <option>Sekolah Kebangsaan</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-subj">Subject</label>
+            <select id="f-subj" name="subject" required>
+              <option value="" disabled selected>Select subject</option>
+              <option>English</option><option>Maths</option><option>Science</option>
+              <option>IGCSE - Biology</option><option>IGCSE - Chemistry</option><option>IGCSE - Physics</option>
+              <option>IGCSE - Business Studies</option><option>IGCSE - Economics</option><option>IGCSE - Accounting</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.2-.14.32-.27.49-.14.17-.29.38-.41.51-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.74 1.85.88.27.14.45.2.51.31.07.11.07.66-.17 1.34z"/></svg>
+            Send my free quiz request
+          </button>
+          <p class="form-note">By submitting, you'll continue on WhatsApp to receive the quiz.</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -746,13 +814,18 @@
 </footer>
 
 <script>
+  /* ====== CONFIG ====== */
   var WA = "60179742459";
-  var MSG = "Hi Apex EDU! I'd like the free diagnostic quiz. My child is in [year], syllabus [Cambridge/Kebangsaan], subject [English/Maths/Science/IGCSE].";
-  var waUrl = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
+  var DEADLINE = new Date("2026-07-03T23:59:59+08:00").getTime();
+  var WEBHOOK_URL = ""; // optional: paste n8n webhook URL to capture leads
+  /* ==================== */
+
+  // Generic WA link (footer)
+  var genericMsg = "Hi Apex EDU! I'd like the free diagnostic quiz for my child.";
+  var waUrl = "https://wa.me/" + WA + "?text=" + encodeURIComponent(genericMsg);
   document.querySelectorAll(".wa-link").forEach(function(a){ a.href = waUrl; });
 
-  // Countdown — deadline: 30 days from Jun 3 2026
-  var DEADLINE = new Date("2026-07-03T23:59:59+08:00").getTime();
+  // Countdown timer
   function pad(n){ return n < 10 ? "0" + n : n; }
   function tick(){
     var diff = Math.max(0, DEADLINE - Date.now());
@@ -760,13 +833,15 @@
     var h = Math.floor((diff % 86400000) / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
+    // Banner countdown
     var bD=document.getElementById("bDays"), bH=document.getElementById("bHrs"), bM=document.getElementById("bMin"), bS=document.getElementById("bSec");
     if(bD) bD.textContent = pad(d);
     if(bH) bH.textContent = pad(h);
     if(bM) bM.textContent = pad(m);
     if(bS) bS.textContent = pad(s);
-    var il = document.getElementById("inlineTimer");
-    if(il) il.textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(s) + "s";
+    // Signup section timer
+    var st = document.getElementById("signupTimer");
+    if(st) st.textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(s) + "s";
   }
   tick(); setInterval(tick, 1000);
 
@@ -774,36 +849,115 @@
   var bannerClose = document.getElementById("bannerClose");
   if(bannerClose) bannerClose.addEventListener("click", function(){ document.getElementById("launchBanner").style.display = "none"; });
 
+  // Diagnostic report preview
+  var DIAG = [
+    { subject:"Year 5 · Maths · Cambridge", score:72, band:"Developing (needs structured practice)",
+      topics:[["Calculation",88],["Fractions",64],["Word problems",45]],
+      means:"Comfortable with direct calculation, but mistakes in multi-step word problems. The gap is choosing the right method, not the maths itself.",
+      rec:"start at Word Problem Set A, on the Guided Marking Plan." },
+    { subject:"Year 7 · English · Cambridge", score:68, band:"Developing (needs structured practice)",
+      topics:[["Vocabulary",84],["Comprehension",72],["Inference",46]],
+      means:"Answers direct comprehension questions well, but needs practice with inference — where the answer is not stated directly.",
+      rec:"start at Inference Set A, on the Guided Marking Plan." },
+    { subject:"Grade 8 · Science · Cambridge", score:66, band:"Developing (needs structured practice)",
+      topics:[["Key terms",82],["Concepts",65],["Application",44]],
+      means:"Remembers key terms, but struggles to apply concepts to diagrams and real-life examples.",
+      rec:"start at Application Set A, on the Guided Marking Plan." },
+    { subject:"IGCSE · Business Studies · Year 10", score:67, band:"Developing (needs structured practice)",
+      topics:[["Definitions",86],["Concept recall",70],["Case studies",42]],
+      means:"Understands basic definitions, but needs practice applying concepts to case-study scenarios.",
+      rec:"start at Case-Study Set A, on the Premium Progress Plan." }
+  ];
+
+  function barColor(v){ return v >= 75 ? "var(--gold-a)" : (v >= 55 ? "#d4a44c" : "var(--coral)"); }
+
+  function renderDiag(i){
+    var d = DIAG[i];
+    var bars = d.topics.map(function(t){
+      return '<div class="topic"><span class="tn">' + t[0] + '</span><div class="bar"><i style="width:' + t[1] + '%;background:' + barColor(t[1]) + '"></i></div><span class="pct">' + t[1] + '%</span></div>';
+    }).join("");
+    return '<div class="rpt-head"><div><div class="rpt-title">Diagnostic Result</div><div class="rpt-sub">' + d.subject + '</div></div>'
+      + '<div class="score-ring" style="background:conic-gradient(var(--gold-a) 0 ' + d.score + '%,var(--surface-2) ' + d.score + '% 100%)"><span>' + d.score + '%</span></div></div>'
+      + '<span class="band">Band: ' + d.band + '</span>'
+      + '<div class="topic-lbl">Topic breakdown</div>'
+      + bars
+      + '<div class="rpt-note"><b>What this means:</b> ' + d.means + '<br><br><b>Recommended:</b> ' + d.rec + '</div>';
+  }
+
+  var reportBox = document.getElementById("reportBox");
+  var diagTabs = document.querySelectorAll(".diag-tab");
+  function showDiag(i){
+    if(!reportBox) return;
+    reportBox.innerHTML = renderDiag(i);
+    reportBox.style.animation = "none";
+    void reportBox.offsetWidth;
+    reportBox.style.animation = "diagFade .25s ease";
+    diagTabs.forEach(function(t, idx){ t.classList.toggle("active", idx === i); });
+  }
+  diagTabs.forEach(function(t){
+    t.addEventListener("click", function(){ showDiag(parseInt(t.getAttribute("data-i"), 10)); });
+  });
+  showDiag(0);
+
   // Lead form
-  var diagForm = document.getElementById("diagForm");
-  if(diagForm){
-    diagForm.addEventListener("submit", function(e){
+  var leadForm = document.getElementById("leadForm");
+  if(leadForm){
+    leadForm.addEventListener("submit", function(e){
       e.preventDefault();
-      var name  = document.getElementById("parentName").value.trim();
-      var wa    = document.getElementById("waNumber").value.trim();
-      var grade = document.getElementById("childGrade").value;
-      var syl   = document.getElementById("syllabus").value;
-      var subj  = document.getElementById("subject").value;
-      if(!name || !wa || !grade || !syl || !subj){ return; }
-      var msg = "Hi Apex EDU! I'd like the free diagnostic quiz.\n\nParent's name: " + name + "\nWhatsApp: " + wa + "\nChild's year / grade: " + grade + "\nSyllabus: " + syl + "\nSubject: " + subj;
+      var fields = [
+        { id:"f-name" }, { id:"f-wa" }, { id:"f-year" }, { id:"f-syl" }, { id:"f-subj" }
+      ];
+      var ok = true;
+      fields.forEach(function(f){
+        var el = document.getElementById(f.id);
+        var wrap = el.closest(".field");
+        if(!el.value){ wrap.classList.add("err"); ok = false; } else { wrap.classList.remove("err"); }
+      });
+      if(!ok) return;
+
+      var data = {
+        name:     document.getElementById("f-name").value.trim(),
+        whatsapp: document.getElementById("f-wa").value.trim(),
+        year:     document.getElementById("f-year").value,
+        syllabus: document.getElementById("f-syl").value,
+        subject:  document.getElementById("f-subj").value,
+        source:   "apexsolutions.my/apex-edu",
+        ts:       new Date().toISOString()
+      };
+
+      // optional webhook capture
+      if(WEBHOOK_URL){
+        try{ fetch(WEBHOOK_URL, {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data),mode:"no-cors",keepalive:true}); }catch(err){}
+      }
+
       if(typeof fbq !== "undefined") fbq("track", "Lead");
-      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank");
+
+      var msg = "Hi Apex EDU! I'd like the free diagnostic quiz.\n\n"
+        + "Parent: " + data.name + "\n"
+        + "WhatsApp: " + data.whatsapp + "\n"
+        + "Child's year/grade: " + data.year + "\n"
+        + "Syllabus: " + data.syllabus + "\n"
+        + "Subject: " + data.subject;
+      window.location.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
     });
   }
 
-  var btn = document.getElementById("menuBtn");
-  var nav = document.getElementById("navList");
-  btn.addEventListener("click", function(){ nav.classList.toggle("open"); });
-  nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ nav.classList.remove("open"); }); });
+  // Nav mobile
+  var menuBtn = document.getElementById("menuBtn");
+  var navList = document.getElementById("navList");
+  menuBtn.addEventListener("click", function(){ navList.classList.toggle("open"); });
+  navList.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ navList.classList.remove("open"); }); });
 
+  // FAQ accordion
   document.querySelectorAll(".q button").forEach(function(b){
     b.addEventListener("click", function(){
       var q = b.parentElement, a = q.querySelector(".a"), open = q.classList.contains("open");
       document.querySelectorAll(".q").forEach(function(x){ x.classList.remove("open"); x.querySelector(".a").style.maxHeight = null; });
-      if (!open){ q.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; }
+      if(!open){ q.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; }
     });
   });
 
+  // Scroll reveal
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
