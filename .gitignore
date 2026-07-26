@@ -9,3 +9,6 @@ serve.mjs
 package.json
 package-lock.json
 APEX IT.code-workspace
+
+# Source video — 140MB, exceeds GitHub file limit. Web copy lives in assets/
+brand-assests/*.mp4
