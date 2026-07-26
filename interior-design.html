@@ -569,7 +569,7 @@ footer .brand-t{color:#fff}
            browser blocks it, then unmutes on the visitor's first interaction -->
       <div class="stage">
         <div class="player" id="player">
-          <video id="vid" autoplay playsinline preload="auto"
+          <video id="vid" autoplay muted playsinline preload="auto"
                  poster="/assets/interior-hero-poster.jpg"
                  aria-label="Apex Solution founder explaining the interior design enquiry system">
             <source src="/assets/interior-hero.mp4" type="video/mp4" />
@@ -1088,34 +1088,49 @@ footer .brand-t{color:#fff}
     io.observe(el);
   });
 
-  /* ── Hero video: autoplay with sound, milestone tracking ──
-     Browsers only allow unmuted autoplay once the visitor has enough media
-     engagement with the domain, so the unmuted play() is attempted first and
-     we degrade rather than leave the video stuck:
-       1. play with sound
-       2. if blocked → play muted, then unmute on the first interaction
-       3. if even muted playback is blocked → expose native controls */
+  /* ── Hero video: autoplay with sound where allowed, milestone tracking ──
+     The element keeps autoplay+muted so playback ALWAYS starts — that
+     allowance is unconditional. We then immediately try to upgrade to sound;
+     if the browser refuses (it only permits unmuted autoplay once the visitor
+     has media engagement with the domain) we drop straight back to muted and
+     unmute on their first gesture. The video is never left sitting at 0:00. */
   var vid = document.getElementById('vid');
   var marks = {25:false, 50:false, 75:false, 100:false};
 
+  function playMuted(){
+    vid.muted = true;
+    var p = vid.play();
+    if (p && p.catch) p.catch(function(){ vid.controls = true; });
+  }
+
   function unmuteOnFirstGesture(){
-    var events = ['pointerdown','keydown','touchstart','scroll'];
+    var events = ['pointerdown','keydown','touchstart','scroll','wheel'];
     function go(){
       events.forEach(function(e){ removeEventListener(e, go); });
       vid.muted = false;
-      if (vid.paused) vid.play().catch(function(){ vid.controls = true; });
+      if (vid.paused) vid.play().catch(playMuted);
       track('video_unmute', {video_title:'interior_design_founder'});
     }
     events.forEach(function(e){ addEventListener(e, go, {once:true, passive:true}); });
   }
 
-  vid.muted = false;
-  var attempt = vid.play();
-  if (attempt && attempt.catch) attempt.catch(function(){
-    vid.muted = true;                             // retry under the muted-autoplay allowance
-    vid.play().catch(function(){ vid.controls = true; });
-    unmuteOnFirstGesture();
-  });
+  function tryWithSound(){
+    vid.muted = false;
+    var p = vid.play();
+    if (p && p.then){
+      p.then(function(){
+        /* Chrome may accept the promise and pause the element instead */
+        if (vid.paused){ playMuted(); unmuteOnFirstGesture(); }
+      }).catch(function(){ playMuted(); unmuteOnFirstGesture(); });
+    } else {
+      /* No promise (older browsers) — verify a moment later */
+      setTimeout(function(){ if (vid.paused){ playMuted(); unmuteOnFirstGesture(); } }, 300);
+    }
+  }
+  tryWithSound();
+
+  /* Safety net: whatever the browser decided, the video must be running */
+  setTimeout(function(){ if (vid.paused && !vid.ended) playMuted(); }, 1200);
 
   vid.addEventListener('play', function(){
     if (!vid.dataset.started){ vid.dataset.started = '1'; track('video_play', {video_title:'interior_design_founder'}); }
