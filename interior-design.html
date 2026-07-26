@@ -237,6 +237,22 @@ nav.stuck{background:rgba(248,245,239,.88);backdrop-filter:blur(18px);-webkit-ba
 .player{position:relative;border-radius:var(--r);overflow:hidden;background:#0C0C0C;aspect-ratio:9/16;box-shadow:0 24px 50px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08)}
 .player video{width:100%;height:100%;object-fit:cover;display:block}
 
+/* Sound is opt-in — autoplay is muted by browser policy */
+.sound{
+  position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:8px;cursor:pointer;
+  background:rgba(12,12,12,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:8px 14px 8px 12px;
+  transition:transform .45s var(--ease),border-color .45s var(--ease),background .45s
+}
+.sound:hover{transform:scale(1.04);border-color:rgba(232,111,37,.65);background:rgba(12,12,12,.86)}
+.sound svg{width:16px;height:16px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sound-t{font-family:var(--font-d);font-weight:700;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.sound .i-on{display:none}
+.sound[aria-pressed="true"]{padding:8px;border-color:rgba(255,255,255,.16)}
+.sound[aria-pressed="true"] .i-off{display:none}
+.sound[aria-pressed="true"] .i-on{display:block}
+.sound[aria-pressed="true"] .sound-t{display:none}
+
 /* Hero lead form card */
 .hero-form{
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
@@ -565,8 +581,7 @@ footer .brand-t{color:#fff}
     <p class="lead rv">If most of your projects still come from referrals, your problem may not be the quality of your work. The problem may be what happens between someone seeing your advertisement and deciding to trust your company.</p>
 
     <div class="hero-split rv">
-      <!-- Video: attempts to autoplay with sound; falls back to muted if the
-           browser blocks it, then unmutes on the visitor's first interaction -->
+      <!-- Video: autoplays muted on load; captions are burned in, sound is opt-in -->
       <div class="stage">
         <div class="player" id="player">
           <video id="vid" autoplay muted playsinline preload="auto"
@@ -575,6 +590,11 @@ footer .brand-t{color:#fff}
             <source src="/assets/interior-hero.mp4" type="video/mp4" />
             Your browser does not support embedded video.
           </video>
+          <button class="sound" id="sound" aria-pressed="false" aria-label="Turn on sound">
+            <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z"/><path d="M17 9.5l4 5M21 9.5l-4 5"/></svg>
+            <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6.5 9H3v6h3.5L11 19V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+            <span class="sound-t">Tap for sound</span>
+          </button>
         </div>
         <div class="stage-cap">
           <span class="tag">Approx. 60–90 Seconds</span>
@@ -1088,49 +1108,25 @@ footer .brand-t{color:#fff}
     io.observe(el);
   });
 
-  /* ── Hero video: autoplay with sound where allowed, milestone tracking ──
-     The element keeps autoplay+muted so playback ALWAYS starts — that
-     allowance is unconditional. We then immediately try to upgrade to sound;
-     if the browser refuses (it only permits unmuted autoplay once the visitor
-     has media engagement with the domain) we drop straight back to muted and
-     unmute on their first gesture. The video is never left sitting at 0:00. */
-  var vid = document.getElementById('vid');
+  /* ── Hero video: muted autoplay, opt-in sound, milestone tracking ── */
+  var vid = document.getElementById('vid'), sound = document.getElementById('sound');
   var marks = {25:false, 50:false, 75:false, 100:false};
 
-  function playMuted(){
-    vid.muted = true;
-    var p = vid.play();
-    if (p && p.catch) p.catch(function(){ vid.controls = true; });
-  }
+  /* Some browsers still refuse autoplay; fall back to controls so the video is never stuck */
+  var attempt = vid.play();
+  if (attempt && attempt.catch) attempt.catch(function(){ vid.controls = true; });
 
-  function unmuteOnFirstGesture(){
-    var events = ['pointerdown','keydown','touchstart','scroll','wheel'];
-    function go(){
-      events.forEach(function(e){ removeEventListener(e, go); });
-      vid.muted = false;
-      if (vid.paused) vid.play().catch(playMuted);
+  sound.addEventListener('click', function(){
+    var on = vid.muted;                 // muted now → we are turning sound ON
+    vid.muted = !on;
+    sound.setAttribute('aria-pressed', String(on));
+    sound.setAttribute('aria-label', on ? 'Mute video' : 'Turn on sound');
+    if (on){
+      vid.controls = true;              // once they want sound, give them full control
+      if (vid.paused) vid.play();
       track('video_unmute', {video_title:'interior_design_founder'});
     }
-    events.forEach(function(e){ addEventListener(e, go, {once:true, passive:true}); });
-  }
-
-  function tryWithSound(){
-    vid.muted = false;
-    var p = vid.play();
-    if (p && p.then){
-      p.then(function(){
-        /* Chrome may accept the promise and pause the element instead */
-        if (vid.paused){ playMuted(); unmuteOnFirstGesture(); }
-      }).catch(function(){ playMuted(); unmuteOnFirstGesture(); });
-    } else {
-      /* No promise (older browsers) — verify a moment later */
-      setTimeout(function(){ if (vid.paused){ playMuted(); unmuteOnFirstGesture(); } }, 300);
-    }
-  }
-  tryWithSound();
-
-  /* Safety net: whatever the browser decided, the video must be running */
-  setTimeout(function(){ if (vid.paused && !vid.ended) playMuted(); }, 1200);
+  });
 
   vid.addEventListener('play', function(){
     if (!vid.dataset.started){ vid.dataset.started = '1'; track('video_play', {video_title:'interior_design_founder'}); }
