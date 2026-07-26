@@ -26,7 +26,24 @@ const INTERIOR_FIELDS = [
   'preferred_time', 'consent',
 ];
 
+/* Both tuition forms collect the same brief; the hero form drops the two
+   trial-class / assessment questions to keep the above-the-fold card shorter. */
+const TUITION_FIELDS = [
+  'name', 'company', 'phone', 'email', 'website', 'location', 'branches',
+  'education_system', 'age_groups', 'subjects', 'current_students', 'capacity',
+  'trial_classes', 'assessments', 'enquiry_source', 'ad_budget',
+  'biggest_problem', 'preferred_date', 'preferred_time', 'consent',
+];
+
 const FORMS = {
+  'tuition-hero': {
+    label: 'Tuition Centres — Hero Form',
+    fields: TUITION_FIELDS.filter((f) => f !== 'trial_classes' && f !== 'assessments'),
+  },
+  'tuition-review': {
+    label: 'Tuition Centres — Full Review Request',
+    fields: TUITION_FIELDS,
+  },
   'interior-design-hero': {
     label: 'Interior Design — Hero Form',
     fields: INTERIOR_FIELDS,
@@ -53,6 +70,11 @@ const LABELS = {
   ad_budget: 'Monthly ad budget', biggest_problem: 'Biggest problem',
   preferred_date: 'Preferred date', preferred_time: 'Preferred time',
   consent: 'Consent given', prompt: 'What prompted them',
+  location: 'Main branch location', branches: 'Number of branches',
+  education_system: 'Education system served', age_groups: 'Student age groups',
+  subjects: 'Main subjects / programmes', current_students: 'Current students',
+  capacity: 'Additional students it can accept',
+  trial_classes: 'Offers trial classes', assessments: 'Offers assessments',
 };
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => (

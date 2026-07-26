@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-MY">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — Your Review Request Has Been Received | Apex Solution</title>
+<meta name="description" content="Your free 15-minute student enrolment and follow-up review request has been received. We will be in touch within one business day." />
+<meta name="robots" content="noindex, follow" />
+<link rel="icon" href="/brand-assests/Only%20logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- ══ GTM (replace GTM-XXXXXXX) ══ -->
+<script>
+(function(w,d,s,l,i){if(!i||i.indexOf('XXXX')>-1)return;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');
+</script>
+<!-- ══ GA4 (replace G-XXXXXXXXXX) ══ -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+</script>
+<!-- ══ Meta Pixel ══ -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1466517135173050');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1466517135173050&ev=PageView&noscript=1" /></noscript>
+
+<style>
+:root{
+  --ivory:#F8F5EF;--white:#FFF;--ink:#161616;--grey:#6E6E6E;--grey-light:#9A968E;
+  --line:#E8E1D7;--gold:#D79A2B;--orange:#E86F25;
+  --brand:linear-gradient(115deg,#D79A2B 0%,#E86F25 100%);
+  --s2:16px;--s3:24px;--s4:40px;--s5:64px;
+  --sh-3:0 1px 0 rgba(255,255,255,.9) inset,0 26px 60px -26px rgba(22,22,22,.30),0 6px 22px -8px rgba(232,111,37,.10);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Poppins',system-ui,sans-serif;font-size:16.5px;line-height:1.7;
+  background:var(--ivory);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:3px}
+.accent{color:var(--orange)}
+
+main{flex:1;position:relative;display:grid;place-items:center;padding:120px 24px var(--s5);overflow:hidden}
+/* Ruled exercise sheet — same motif as the landing page */
+main::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(var(--line) 0 1px,transparent 1px 34px);
+  opacity:.7;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 5%,transparent 72%);
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 5%,transparent 72%);
+}
+main::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 45% at 50% 0%,rgba(215,154,43,.14),transparent 70%)}
+
+.card{
+  position:relative;z-index:1;max-width:680px;width:100%;text-align:center;
+  background:var(--white);border:1px solid var(--line);border-radius:20px;
+  padding:var(--s5) var(--s5) var(--s4);box-shadow:var(--sh-3);
+}
+.tick{
+  width:74px;height:74px;border-radius:50%;background:var(--brand);margin:0 auto var(--s4);
+  display:grid;place-items:center;box-shadow:0 14px 34px -10px rgba(232,111,37,.6);
+  animation:pop .7s var(--ease) both;
+}
+.tick svg{width:34px;height:34px;stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+
+.eyebrow{
+  display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:var(--s3)
+}
+h1{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.035em;line-height:1.08;font-size:clamp(1.9rem,4.6vw,2.7rem)}
+.lead{color:var(--grey);margin-top:var(--s3);font-size:1.03rem}
+
+.steps{text-align:left;margin:var(--s5) 0 var(--s4);display:flex;flex-direction:column;gap:var(--s2)}
+.step{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3);border:1px solid var(--line);border-radius:12px;background:var(--ivory)}
+.step b{font-family:'Archivo',sans-serif;font-weight:800;font-size:.74rem;color:var(--gold);flex:none;padding-top:3px}
+.step span{font-size:.94rem;color:var(--grey);line-height:1.65}
+.step span strong{color:var(--ink);font-weight:600}
+
+/* What to have ready for the call */
+.prep{text-align:left;border:1px solid rgba(215,154,43,.35);border-radius:12px;padding:var(--s3);
+  background:linear-gradient(115deg,rgba(215,154,43,.06),rgba(232,111,37,.03));margin-bottom:var(--s4)}
+.prep h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:.96rem;letter-spacing:-.02em;margin-bottom:10px}
+.prep ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.prep li{display:flex;gap:10px;font-size:.9rem;color:var(--grey);line-height:1.6}
+.prep svg{width:15px;height:15px;flex:none;margin-top:5px;stroke:var(--orange);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+.btns{display:flex;flex-direction:column;gap:12px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:420px;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.11em;text-transform:uppercase;
+  padding:19px 32px;border-radius:6px;border:none;cursor:pointer;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s;
+}
+.btn-wa{background:var(--brand);color:#fff;box-shadow:0 8px 22px -8px rgba(232,111,37,.55)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px rgba(232,111,37,.55)}
+.btn-wa:active{transform:translateY(0)}
+.btn-wa svg{width:19px;height:19px;fill:#fff}
+.btn-g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-g:hover{transform:translateY(-2px);border-color:var(--gold)}
+
+.note{font-size:.82rem;color:var(--grey-light);margin-top:var(--s4);line-height:1.65}
+.note a{color:var(--orange);border-bottom:1px solid rgba(232,111,37,.3)}
+
+footer{background:var(--ink);color:#8A857E;padding:var(--s4) 24px;font-size:.8rem;text-align:center;position:relative;z-index:1}
+footer a{color:#8A857E;transition:color .3s var(--ease)}
+footer a:hover{color:var(--gold)}
+.f-links{display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+
+@media (max-width:620px){
+  main{padding:80px 18px var(--s4)}
+  .card{padding:var(--s4) var(--s3) var(--s3);border-radius:14px}
+  .btn{max-width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<main>
+  <div class="card">
+    <div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+    <span class="eyebrow">Request Received</span>
+    <h1>Your Review Request <span class="accent">Has Been Received.</span></h1>
+    <p class="lead">Our team will review your details and contact you to confirm the call. Please keep your current advertisements, enquiry messages, and follow-up process ready for discussion.</p>
+
+    <div class="steps">
+      <div class="step"><b>01</b><span><strong>We review your details first.</strong> Our team looks at your location, programmes, student levels, and current enquiry sources before the call.</span></div>
+      <div class="step"><b>02</b><span><strong>We reply within one business day.</strong> You will hear from us by WhatsApp or email to confirm your preferred date and time.</span></div>
+      <div class="step"><b>03</b><span><strong>The call takes about 15 minutes.</strong> No hard sell — we identify the biggest bottleneck in your current parent-enquiry process.</span></div>
+    </div>
+
+    <div class="prep">
+      <h2>Please have these ready for the call</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Your current advertisement or intake poster</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>The landing page or link parents are sent to</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>A few recent WhatsApp enquiries and how your team replied</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>How trial classes and follow-ups are currently tracked</li>
+      </ul>
+    </div>
+
+    <div class="btns">
+      <a class="btn btn-wa" id="wa" target="_blank" rel="noopener"
+         href="https://wa.me/60179742459?text=Hi%20Apex%20Solution%2C%20I%20just%20submitted%20the%20tuition%20centre%20free%20review%20form.%20Here%20are%20my%20details%3A">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>
+        Confirm on WhatsApp
+      </a>
+      <a class="btn btn-g" href="/tuition-centres">Back to the Page</a>
+    </div>
+
+    <p class="note">Prefer email? Reach us at <a href="mailto:apexsolmy@gmail.com">apexsolmy@gmail.com</a> or call <a href="tel:+60179742459">+60 17-974 2459</a>.<br />Submitting this form does not guarantee student enrolments or advertising results.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="f-links">
+    <a href="https://apexsolutions.my">apexsolutions.my</a>
+    <a href="/tuition-centres">Tuition Centres</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div>© <span id="yr">2026</span> Apex Solution. Kuala Lumpur, Malaysia.</div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var dl = window.dataLayer = window.dataLayer || [];
+  function track(name, params){
+    dl.push(Object.assign({event:name}, params || {}));
+    if (window.gtag) gtag('event', name, params || {});
+  }
+
+  /* Conversion events — this page is only reachable after a successful submit */
+  track('generate_lead', {form_name:'tuition_review', value:1, currency:'MYR'});
+  track('booking_complete', {form_name:'tuition_review'});
+  if (window.fbq){ fbq('track','Lead'); fbq('track','Schedule'); }
+
+  document.getElementById('wa').addEventListener('click', function(){
+    track('whatsapp_click', {location:'thank-you'});
+    if (window.fbq) fbq('track','Contact');
+  });
+})();
+</script>
+</body>
+</html>
