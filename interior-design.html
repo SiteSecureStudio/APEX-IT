@@ -202,19 +202,19 @@ nav.stuck{background:rgba(248,245,239,.88);backdrop-filter:blur(18px);-webkit-ba
   background:radial-gradient(ellipse 60% 45% at 50% 0%,rgba(215,154,43,.13),transparent 70%),
              radial-gradient(ellipse 50% 40% at 82% 30%,rgba(232,111,37,.07),transparent 70%);
 }
-.hero-in{position:relative;z-index:1;text-align:center;max-width:1000px;margin:0 auto;padding:0 28px}
+.hero-in{position:relative;z-index:1;text-align:center;max-width:1056px;margin:0 auto;padding:0 28px}
 .hero h1{margin:var(--s2) 0 var(--s3)}
 .hero .lead{max-width:640px;margin:0 auto;font-size:1.03rem}
 
 /* Hero split — video stage left, lead form right */
 .hero-split{
-  display:grid;grid-template-columns:352px 1fr;gap:var(--s3);
-  max-width:940px;margin:var(--s4) auto 0;text-align:left;align-items:stretch
+  display:grid;grid-template-columns:320px 1fr;gap:var(--s3);
+  max-width:1000px;margin:var(--s4) auto 0;text-align:left;align-items:start
 }
 
 /* Video stage — dark panel, the single highest-contrast object on the page */
 .stage{
-  position:relative;background:#161616;border-radius:var(--r-lg);padding:16px;
+  position:sticky;top:96px;background:#161616;border-radius:var(--r-lg);padding:16px;
   box-shadow:var(--sh-3);overflow:hidden;display:flex;flex-direction:column
 }
 .stage::before{
@@ -258,9 +258,19 @@ nav.stuck{background:rgba(248,245,239,.88);backdrop-filter:blur(18px);-webkit-ba
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
   padding:var(--s4);box-shadow:var(--sh-3);display:flex;flex-direction:column
 }
-.hero-form h2{font-size:clamp(1.4rem,2.1vw,1.75rem);line-height:1.15;margin:var(--s2) 0 var(--s3)}
+.hero-form h2{font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.15;margin:var(--s2) 0 var(--s3)}
 .hero-form form{display:flex;flex-direction:column;gap:11px}
 .hero-form .btn{width:100%;margin-top:5px}
+/* Compact variant of the full brief — same fields as the section form, tighter rhythm
+   so the hero column stays close to the height of the video stage beside it. */
+.hero-form .f-grid{gap:13px;margin-top:0}
+.hero-form .f{gap:5px}
+.hero-form .f label{font-size:.62rem;letter-spacing:.1em}
+.hero-form .f input,.hero-form .f select,.hero-form .f textarea{padding:11px 13px;font-size:.88rem;border-radius:var(--r-sm)}
+.hero-form .f select{background-position:right 11px center;padding-right:38px}
+.hero-form .f textarea{min-height:74px}
+.hero-form .consent{margin-top:var(--s2);font-size:.78rem;gap:10px}
+.hero-form .consent input{width:17px;height:17px}
 .hero-form-note{font-size:.78rem;color:var(--grey);line-height:1.6}
 .hero-form-list{list-style:none;margin:var(--s3) 0 0;padding-top:var(--s3);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
 .hero-form-list li{display:flex;gap:10px;font-size:.85rem;color:var(--grey);line-height:1.5}
@@ -420,6 +430,11 @@ nav.stuck{background:rgba(248,245,239,.88);backdrop-filter:blur(18px);-webkit-ba
 .consent{display:flex;gap:12px;align-items:flex-start;margin-top:var(--s4);font-size:.85rem;color:var(--grey);line-height:1.6}
 .consent input{width:19px;height:19px;flex:none;margin-top:2px;accent-color:#E86F25;cursor:pointer}
 .f-note{font-size:.8rem;color:var(--grey-light);margin-top:var(--s3);text-align:center}
+.form-err{
+  margin-top:var(--s3);padding:13px 16px;border-radius:var(--r-sm);font-size:.86rem;line-height:1.6;
+  background:rgba(208,112,90,.07);border:1px solid rgba(208,112,90,.32);color:#A8452B
+}
+.form-err a{color:inherit;font-weight:600;border-bottom:1px solid currentColor}
 .form-shell .btn{width:100%;margin-top:var(--s4)}
 
 /* ── FAQ ──────────────────────────────────────────────── */
@@ -490,6 +505,8 @@ footer .brand-t{color:#fff}
   .brand-t{white-space:nowrap;font-size:.95rem}
   .grid-3{grid-template-columns:1fr 1fr}
   .hero-split{grid-template-columns:1fr;max-width:440px;gap:var(--s3)}
+  .hero-form .f-grid{grid-template-columns:1fr}
+  .stage{position:relative;top:auto}
   .stage-cap{text-align:center;padding-bottom:8px}
   .problem-grid,.compare,.fit,.offer,.notes{grid-template-columns:1fr}
   .dark .hero-trust{text-align:center;margin-left:auto;margin-right:auto}
@@ -507,6 +524,7 @@ footer .brand-t{color:#fff}
   h2{font-size:clamp(1.8rem,7vw,2.3rem)}
   .stage{padding:12px;border-radius:var(--r)}
   .hero-form{padding:var(--s3);border-radius:var(--r)}
+  .hero-form .f textarea{min-height:96px}
   .grid-3,.flow,.steps,.f-grid{grid-template-columns:1fr}
   .steps{border-radius:var(--r)}
   .step{border-right:none;border-bottom:1px solid var(--line)}
@@ -589,14 +607,57 @@ footer .brand-t{color:#fff}
         <span class="eyebrow">Free 15-Minute Review</span>
         <h2>Find the biggest gap in your enquiry process.</h2>
         <form id="hero-form" name="interior-design-hero" method="POST"
-              data-netlify="true" netlify-honeypot="company-fax"
-              action="/interior-design-thank-you">
+              action="/api/lead" data-redirect="/interior-design-thank-you">
           <input type="hidden" name="form-name" value="interior-design-hero" />
           <p style="display:none"><label>Do not fill this in: <input name="company-fax" /></label></p>
-          <div class="f"><input name="name" type="text" required autocomplete="name" placeholder="Your name" aria-label="Your name" /></div>
-          <div class="f"><input name="company" type="text" required autocomplete="organization" placeholder="Company name" aria-label="Company name" /></div>
-          <div class="f"><input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+\-\s()]{8,}" placeholder="WhatsApp / mobile number" aria-label="WhatsApp or mobile number" /></div>
-          <div class="f"><input name="email" type="email" required autocomplete="email" inputmode="email" placeholder="Work email" aria-label="Work email" /></div>
+          <div class="f-grid">
+            <div class="f"><label for="h_name">Full Name *</label><input id="h_name" name="name" type="text" required autocomplete="name" placeholder="e.g. Tan Wei Ming" /></div>
+            <div class="f"><label for="h_company">Company Name *</label><input id="h_company" name="company" type="text" required autocomplete="organization" placeholder="e.g. Studio Lima Interior" /></div>
+
+            <div class="f"><label for="h_phone">Phone Number *</label><input id="h_phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+\-\s()]{8,}" placeholder="e.g. 012-345 6789" /></div>
+            <div class="f"><label for="h_email">Work Email *</label><input id="h_email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="e.g. hello@yourstudio.com" /></div>
+
+            <div class="f full"><label for="h_website">Company Website or Social Media Page</label><input id="h_website" name="website" type="text" autocomplete="url" placeholder="e.g. instagram.com/yourstudio" /></div>
+
+            <div class="f"><label for="h_area">Main Service Area *</label><input id="h_area" name="service_area" type="text" required placeholder="e.g. Klang Valley, Penang" /></div>
+            <div class="f"><label for="h_segment">Residential, Commercial or Both *</label>
+              <select id="h_segment" name="segment" required>
+                <option value="" disabled selected>Please select</option>
+                <option>Residential</option><option>Commercial</option><option>Both</option>
+              </select>
+            </div>
+
+            <div class="f"><label for="h_source">Current Source of Enquiries *</label>
+              <select id="h_source" name="enquiry_source" required>
+                <option value="" disabled selected>Please select</option>
+                <option>Mostly referrals</option><option>Social media (organic)</option><option>Meta / Instagram ads</option><option>Google search or Google Ads</option><option>Property agents or developers</option><option>Mixed sources</option>
+              </select>
+            </div>
+            <div class="f"><label for="h_budget">Current Monthly Advertising Budget *</label>
+              <select id="h_budget" name="ad_budget" required>
+                <option value="" disabled selected>Please select</option>
+                <option>Not advertising currently</option><option>Below RM2,000</option><option>RM2,000–RM5,000</option><option>RM5,000–RM10,000</option><option>Above RM10,000</option>
+              </select>
+            </div>
+
+            <div class="f full"><label for="h_problem">Biggest Lead-Generation Problem *</label>
+              <textarea id="h_problem" name="biggest_problem" required placeholder="e.g. We get plenty of WhatsApp messages but very few become site visits."></textarea>
+            </div>
+
+            <div class="f"><label for="h_date">Preferred Consultation Date</label><input id="h_date" name="preferred_date" type="date" /></div>
+            <div class="f"><label for="h_time">Preferred Time</label>
+              <select id="h_time" name="preferred_time">
+                <option value="" disabled selected>Please select</option>
+                <option>Morning (9am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Evening (5pm–8pm)</option>
+              </select>
+            </div>
+          </div>
+
+          <label class="consent" for="h_consent">
+            <input id="h_consent" name="consent" type="checkbox" required />
+            <span>I agree to be contacted by Apex Solution regarding this review and understand that submitting this form does not guarantee advertising results or signed projects.</span>
+          </label>
+
           <button type="submit" class="btn btn-p" data-cta="hero-form">Book My Free Review <span class="btn-arrow">→</span></button>
           <p class="hero-form-note">No hard sell. We will review your current enquiry process and identify the biggest bottleneck first.</p>
         </form>
@@ -879,8 +940,7 @@ footer .brand-t{color:#fff}
 
     <div class="form-shell rv">
       <form id="review-form" name="interior-design-review" method="POST"
-            data-netlify="true" netlify-honeypot="company-fax"
-            action="/interior-design-thank-you">
+            action="/api/lead" data-redirect="/interior-design-thank-you">
         <input type="hidden" name="form-name" value="interior-design-review" />
         <p style="display:none"><label>Do not fill this in: <input name="company-fax" /></label></p>
 
@@ -898,19 +958,6 @@ footer .brand-t{color:#fff}
             <select id="segment" name="segment" required>
               <option value="" disabled selected>Please select</option>
               <option>Residential</option><option>Commercial</option><option>Both</option>
-            </select>
-          </div>
-
-          <div class="f"><label for="value">Average Project Value *</label>
-            <select id="value" name="average_project_value" required>
-              <option value="" disabled selected>Please select</option>
-              <option>Below RM30,000</option><option>RM30,000–RM50,000</option><option>RM50,000–RM100,000</option><option>RM100,000–RM200,000</option><option>Above RM200,000</option>
-            </select>
-          </div>
-          <div class="f"><label for="capacity">Projects You Can Accept Per Month *</label>
-            <select id="capacity" name="monthly_capacity" required>
-              <option value="" disabled selected>Please select</option>
-              <option>1–2 projects</option><option>3–5 projects</option><option>6–10 projects</option><option>More than 10 projects</option>
             </select>
           </div>
 
@@ -1117,17 +1164,53 @@ footer .brand-t{color:#fff}
     el.addEventListener('click', function(){ track('whatsapp_click', {location: el.dataset.wa}); if (window.fbq) fbq('track','Contact'); });
   });
 
-  /* ── Forms: start, abandonment, submit ── */
+  /* ── Forms: start, abandonment, submit ──
+     Posts to the /api/lead serverless function, then redirects. A native POST
+     would hit a static file on Vercel and return 405, losing the lead. */
   var anyStarted = false, anySubmitted = false;
   [['hero-form','interior_design_hero'], ['review-form','interior_design_review']].forEach(function(pair){
     var form = document.getElementById(pair[0]), fname = pair[1], started = false;
+
     form.addEventListener('focusin', function(){
       if (!started){ started = true; anyStarted = true; track('form_start', {form_name:fname}); }
     });
-    form.addEventListener('submit', function(){
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var btn = form.querySelector('button[type=submit]');
+      if (btn.disabled) return;                       // guard against double submit
+      var label = btn.innerHTML;
+      btn.disabled = true; btn.style.opacity = '.65'; btn.textContent = 'Sending…';
+
+      var data = {};
+      new FormData(form).forEach(function(v, k){ data[k] = v; });
+      data.page_url = location.href;
+
       anySubmitted = true;
       track('form_submit', {form_name:fname});
       if (window.fbq) fbq('track','Lead');
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      }).then(function(r){
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        location.href = form.dataset.redirect;
+      }).catch(function(){
+        anySubmitted = false;
+        btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = label;
+        var err = form.querySelector('.form-err');
+        if (!err){
+          err = document.createElement('p');
+          err.className = 'form-err';
+          form.appendChild(err);
+        }
+        err.innerHTML = 'Something went wrong sending your details. Please try again, or WhatsApp us at ' +
+          '<a href="https://wa.me/60179742459" target="_blank" rel="noopener">+60 17-974 2459</a>.';
+      });
     });
   });
   addEventListener('pagehide', function(){
