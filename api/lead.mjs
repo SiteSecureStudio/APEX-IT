@@ -30,7 +30,7 @@ const INTERIOR_FIELDS = [
    trial-class / assessment questions to keep the above-the-fold card shorter. */
 const TUITION_FIELDS = [
   'name', 'company', 'phone', 'email', 'website', 'location', 'branches',
-  'education_system', 'age_groups', 'subjects', 'current_students', 'capacity',
+  'education_system', 'age_groups',
   'trial_classes', 'assessments', 'enquiry_source', 'ad_budget',
   'biggest_problem', 'preferred_date', 'preferred_time', 'consent',
 ];
@@ -72,8 +72,6 @@ const LABELS = {
   consent: 'Consent given', prompt: 'What prompted them',
   location: 'Main branch location', branches: 'Number of branches',
   education_system: 'Education system served', age_groups: 'Student age groups',
-  subjects: 'Main subjects / programmes', current_students: 'Current students',
-  capacity: 'Additional students it can accept',
   trial_classes: 'Offers trial classes', assessments: 'Offers assessments',
 };
 
