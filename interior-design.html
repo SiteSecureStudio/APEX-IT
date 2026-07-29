@@ -1189,8 +1189,9 @@ footer .brand-t{color:#fff}
       data.page_url = location.href;
 
       anySubmitted = true;
+      /* Meta's Lead event fires on the thank-you page, not here — that page is
+         only reachable after a confirmed submit, so counting both double-counts. */
       track('form_submit', {form_name:fname});
-      if (window.fbq) fbq('track','Lead');
 
       fetch(form.action, {
         method: 'POST',
