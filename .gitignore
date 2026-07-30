@@ -1,5 +1,7 @@
 node_modules/
 temporary screenshots/
+.env
+.env.local
 .mcp.json
 .claude/
 CLAUDE.md
